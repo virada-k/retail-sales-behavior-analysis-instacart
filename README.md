@@ -12,3 +12,12 @@ You can find the full simulation script in [database-simulation.sql](./sql-simul
 ### Database Simulation Results
 This screenshot shows the successfully created 'orders' table with sample data in Beekeeper Studio.
 ![Order Table Result](sql-simulation/result-of-order-sample.PNG)
+
+
+
+
+
+<br>
+
+## Data source
+"kaggle": https://www.kaggle.com/datasets/yasserh/instacart-online-grocery-basket-analysis-dataset/data
