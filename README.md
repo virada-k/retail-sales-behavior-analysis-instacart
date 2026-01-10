@@ -44,7 +44,7 @@ These screenshots show the results of the 3 points mentioned above.
 <br>
 
 📢 Customer Reorder Cycle Result: The data shows that most products follow a typical purchase cycle.
-Such as "Bulk Products", like laundry detergents, are often bought monthly (on average, about 1-2 times per month).
+Such as "Bulk Products", like laundry detergents, are often bought monthly (on average, twice a week).
 
 ![Customer Reorder Cycle Result](02-SQL-queries/result-of-customer-reorder-cycle-analysis.PNG)
 
