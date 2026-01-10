@@ -10,7 +10,7 @@ You can find the full simulation script in [database-simulation.sql](./01-SQL-da
 <br>
 
 ### Database Simulation Results
-This screenshot shows the successfully created 'orders' table with sample data in Beekeeper Studio.
+This screenshot shows the 'orders' table with sample data created in Beekeeper Studio.
 ![Order Table Result](01-SQL-database-simulation/result-of-order-sample.PNG)
 
 <br>
@@ -18,16 +18,16 @@ This screenshot shows the successfully created 'orders' table with sample data i
 
 ## Business Insight
 I analyzed the data to find answers to three points:
-1. Identify the "golden hour" when customers place the most orders, in order to allocate staff for packing and shipping orders.
-2. Identify the "golden day (peak days of each week)" to ensure sufficient stock to meet customer demand.
-3. Identify the "customer reorder cycle" to analyze customer repurchase behavior for each product type.
+1. **Golden Hour**: Find the best time to arrange staff for packing and delivery.
+2. **Golden Day**: Find the peak days of each week to ensure we have enough stock for customers.
+3. **Customer Reorder Cycle**: To understand how often products are repurchased.
 
 You can find the full script in [business-insight-queries.sql](./02-SQL-queries/business-insight-queries.sql).
 
 <br>
 
 ### Business Insight Results
-These screenshots shows the answers three points as mentioned above.
+These screenshots show the results of the 3 points mentioned above.
 
 <br>
 
