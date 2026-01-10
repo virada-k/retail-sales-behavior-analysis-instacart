@@ -32,6 +32,7 @@ These screenshots shows the answers three points as mentioned above.
 <br>
 
 📢 Golden Hour Result
+
 ![Golden Hour Result](02-SQL-queries/result-of-golden-hour-analysis.PNG)
 
 <br>
