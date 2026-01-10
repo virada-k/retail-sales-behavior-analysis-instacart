@@ -54,4 +54,4 @@ ORDER BY ROUND(AVG(o.days_since_prior_order)) DESC
 LIMIT 10;
 
 -- 📢 The data shows that most products follow a typical purchase cycle.
--- Bulk products, like laundry detergents, are often bought monthly (on average, about 1-2 times per month).
+-- Bulk products, like laundry detergents, are often bought monthly (on average, twice a month).
