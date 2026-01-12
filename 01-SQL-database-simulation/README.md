@@ -16,7 +16,7 @@ CREATE TABLE orders (
   eval_set TEXT NOT NULL, -- eval = evaluation // eval_set includes: prior, train, test
   order_number INT NOT NULL,
   order_dow INT NOT NULL, -- 0-6 (Sunday to Saturday)
-  order_hour_of_day INT NOT NULL, -- 0-23 (Midnight to 23:59)
+  order_hour_of_day INT NOT NULL, -- 0-23 (Midnight to 11 pm)
   days_since_prior_order REAL -- can be NULL value for the first order of each user_id
 );
 ```
