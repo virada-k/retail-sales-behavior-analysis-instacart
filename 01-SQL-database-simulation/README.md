@@ -5,7 +5,7 @@ You can find the full simulation script in [database-simulation.sql](database-si
 <br>
 
 ## Create Table
-I would like to attached some code about the create table according below.
+I have attached the SQL script for creating the table below.
 
 ```sql
 -- This script is designed to create a relational database schema based on the InstaCart Online dataset.
@@ -16,7 +16,7 @@ CREATE TABLE orders (
   eval_set TEXT NOT NULL, -- eval = evaluation // eval_set includes: prior, train, test
   order_number INT NOT NULL,
   order_dow INT NOT NULL, -- 0-6 (Sunday to Saturday)
-  order_hour_of_day INT NOT NULL,
+  order_hour_of_day INT NOT NULL, -- 0-23 (Midnight to 23:59)
   days_since_prior_order REAL -- can be NULL value for the first order of each user_id
 );
 ```
