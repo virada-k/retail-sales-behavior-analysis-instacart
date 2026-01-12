@@ -1,6 +1,6 @@
 # 📢 Database Simulation
 I designed a relational schema.
-You can find the full simulation script in [database-simulation.sql](./01-SQL-database-simulation/database-simulation.sql).
+You can find the full simulation script in [database-simulation.sql](database-simulation.sql).
 
 <br>
 
