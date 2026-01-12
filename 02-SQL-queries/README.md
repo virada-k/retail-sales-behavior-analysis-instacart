@@ -13,7 +13,7 @@ These screenshots show the results of the 3 points mentioned above.
 
 <br>
 
-📝 **Question 1: What are the peak time for ordering?**
+### Question 1: What are the peak time for ordering?
 ```sql
 -- Analyzing "PEAK Ordering Time" to arrange staff for packing and delivering orders.
 
@@ -26,8 +26,7 @@ ORDER BY count_order_hour DESC
 LIMIT 10;
 ```
 
-
-**Golden Hour Result:** The data shows that the peak time for customers purchase is between 9 am and 5 pm.
+📝 **Golden Hour Result:** The data shows that the peak time for customers purchase is between 9 am and 5 pm.
 
 ![Golden Hour Result](result-of-golden-hour-analysis.PNG)
 
