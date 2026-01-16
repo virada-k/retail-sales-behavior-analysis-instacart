@@ -1,4 +1,4 @@
-# 🛒 instacart-predictive-analytics-for-customer-behavior
+# 🛒 Retail Sales & Consumer Behavior Analysis (Instacart Dataset)
 Customer behavior analysis and reorder prediction using SQL, R, and Python.
 
 1. Root README (หน้าแรกสุด): "The Executive Summary"
