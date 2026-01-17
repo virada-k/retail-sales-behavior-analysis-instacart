@@ -27,4 +27,3 @@ CREATE TABLE orders (
 This screenshot shows the 'orders' table with sample data successfully created in Beekeeper Studio.
 
 ![Order Table Result](result-of-order-sample.PNG)
-
