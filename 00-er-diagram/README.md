@@ -8,10 +8,29 @@ You can find details (diagram and code) below.
 
 <br>
 
+## 📊 ER Diagram
+
+<br>
+
 ![Database Design](instacart-diagram.png)
 
 <br>
 
+## 📋 Description
+
+- **orders table:**
+    - Specify details about each customer's order (user_id).
+    - order_id column is the primary key in the orders table, used to connect to the order_products__prior table.
+- **order_products__prior:** Provide details about the customer's previous order information.
+- **order_products__train:** Provide details regarding the customer's most recent order.
+- 
+
+<br>
+
+
+
+
+<br>
 
 ```bdml
 Table aisle {
