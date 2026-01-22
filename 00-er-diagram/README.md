@@ -3,9 +3,14 @@
 <br>
 
 I have created a diagram (Database Schema) of this dataset for you can clearly see the overview and connections between each table.
-You can find details (diagram and code) below. 
+
+You can find details (diagram and code) below.
+
+<br>
 
 ![Database Design](instacart-diagram.png)
+
+<br>
 
 
 ```bdml
