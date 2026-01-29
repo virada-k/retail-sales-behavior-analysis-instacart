@@ -3,8 +3,10 @@ library(dplyr)
 library(data.table)
 library(ggplot2)
 
+
 # Download Dataset
 cus_seg <- fread("orders.csv")
+
 
 ## Manage data within dataset
 cus_seg <- cus_seg %>%
@@ -18,7 +20,6 @@ cus_seg <- cus_seg %>%
 
 ## Check data after revise name
 head(cus_seg, n = 8)
-
 # ## result:
    customer_id order_number date_diff
          <int>        <int>     <num>
@@ -30,6 +31,7 @@ head(cus_seg, n = 8)
 6:           1            6        19
 7:           1            7        20
 8:           1            8        14
+
 
 
 # Prepare the RF analysis for K-means modeling process
@@ -44,6 +46,8 @@ recency_data <- cus_seg %>%
             .groups = 'drop')
 
 print(recency_data)
+
+
 
 ## F (Frequency) analysis
 frequency_data <- cus_seg %>%
