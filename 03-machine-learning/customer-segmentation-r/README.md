@@ -6,9 +6,9 @@
 ## 📜 Overview & Methodology
 <br>
 
-**- Algorithm:** K-Means Clustering
+- **Algorithm:** K-Means Clustering
   
-**- Feature Selection:** RF (Recency & Frequency) Analysis
+- **Feature Selection:** RF (Recency & Frequency) Analysis
 
 *1. Recency:* The number of days since the customer's most recent order.
 
