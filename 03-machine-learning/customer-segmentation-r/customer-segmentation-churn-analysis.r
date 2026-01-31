@@ -311,7 +311,8 @@ print(at_risk_loyalists)
 ## Predictive Churn Analysis
 
 ## Create the cycle_time
-# ## Note: I created the variable cycle_time to compare variable between the cycle_time (past behavior) and recency (current behavior) to filter out customers who likely to stop purchasing product.
+# ## Note: I created the variable cycle_time to compare variable between the cycle_time (past behavior) and recency (current behavior)
+# ## to filter out customers who likely to stop purchasing product.
 
 
 cycle_time <- cus_seg %>%
@@ -407,10 +408,12 @@ cluster4_high_churn_risk <- check_cluster_2_4 %>%
          # >= 1.3 is more than 30% from average order date.
          recency_vs_cycle >= 1.30)
 
-# ## Note 1: I selected date more than 30% of average order date is high risk for churn, because in case below 30%, it's possible customers may forgot or may not be available to purchase as it's not their holiday.
+# ## Note 1: I selected date more than 30% of average order date is high risk for churn, because in case below 30%,
+# ## it's possible customers may forgot or may not be available to purchase as it's not their holiday.
 
 # ## Note 2: Inform the Marketing Team. 
-# ## This is the group where we need to utilize the highest level of "Win-back Campaigns," such as personalized discount coupons or calling to survey customer satisfaction, because bringing this group back is far more worthwhile than acquiring new customers.
+# ## This is the group where we need to utilize the highest level of "Win-back Campaigns," such as personalized discount coupons or 
+# ## calling to survey customer satisfaction, because bringing this group back is far more worthwhile than acquiring new customers.
 
 print(cluster4_high_churn_risk)
 # ## result:
@@ -442,12 +445,19 @@ cluster2_high_churn_risk <- check_cluster_2_4 %>%
   select(cus_id, cluster, customer_level, n_order_num, last_date,
          avg_order_date, num_of_day)
 
-# ## Note 1: I selected last_date < 30, because this dataset has the max date of 30 days (if more than that, the data will still be recorded for 30 days as well), ensuring data integrity since the dataset caps intervals at 30 days. This allows for a more precise 'Early Warning' analysis, and for the group that has been there for 30 days or more, we can immediately conclude that they are "lost."
+# ## Note 1: I selected last_date < 30, because this dataset has the max date of 30 days (if more than that, 
+# ## the data will still be recorded for 30 days as well), ensuring data integrity since the dataset caps intervals at 30 days. 
+# ## This allows for a more precise 'Early Warning' analysis, and for the group that has been there for 30 days or more, 
+# ## we can immediately conclude that they are "lost."
 
-# ## Note 2: I selected 5 days because we wanted to capture customers during the Critical Window. If we let more than 5 days pass, the Cluster 4 customers (who didn't buy frequently to begin with) would be highly likely to be lost. Therefore, we used the 5-day criterion as an 'Early Warning System' for the marketing team to quickly intervene and rebuild relationships before the retention cost increases further.
+# ## Note 2: I selected 5 days because we wanted to capture customers during the Critical Window. If we let more than 5 days pass, 
+# ## the Cluster 4 customers (who didn't buy frequently to begin with) would be highly likely to be lost.
+# ## Therefore, we used the 5-day criterion as an 'Early Warning System' for the marketing team to quickly intervene and rebuild relationships 
+# ## before the retention cost increases further.
 
 # ## Note 3: Inform the Customer Service Team.
-# ## For this customer group, we should send "Personalized Reminders" such as "We have a new product you might like" or "Your points are about to expire" to encourage them to engage again before they become permanently lost customers.
+# ## For this customer group, we should send "Personalized Reminders" such as "We have a new product you might like" or
+# ## "Your points are about to expire" to encourage them to engage again before they become permanently lost customers.
 
 print(cluster2_high_churn_risk)
 # ## result:
