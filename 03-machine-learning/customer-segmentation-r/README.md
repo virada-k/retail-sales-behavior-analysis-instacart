@@ -18,9 +18,9 @@
 
 - **Optimal K:** Selected k=4 clusters based on personal suitability.
 
-
-
 <br>
+
+## 📜 K-Means Precess
 
 | Cluster | Customer Level | Avg Recency (Days) | Avg Frequency (Orders) | Customer Count |
 | :---: | :--- | ---: | ---: | ---: |
