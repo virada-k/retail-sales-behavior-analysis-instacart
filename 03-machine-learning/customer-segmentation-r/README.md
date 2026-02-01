@@ -27,9 +27,9 @@
 
 The data obtained from the K-means process led to conclusions regarding customer segmentation to the following :
 
-| Cluster | Customer Level | Avg Recency (Days) | Avg Frequency (Orders) | Customer Count |
-| :---: | :--- | ---: | ---: | ---: |
-| 1 | New Customers | 5.84 | 8.41 | 42,611 |
-| 2 | Lost Customers | 25.50 | 5.89 | 75,184 |
-| 3 | Core Loyalists | 5.48 | 42.30 | 37,525 |
-| 4 | At-Risk Loyalists | 21.10 | 18.80 | 50,889 |
+| Customer Segment | Description | Avg Recency (Days) | Avg Frequency (Orders) | Customer Count |
+| :--- | :--- | ---: | ---: | ---: |
+| Core Loyalists | High frequency & recently active. | 5.48 | 42.30 | 37,525 |
+| New Customers | Recently joined & low frequency. | 5.84 | 8.41 | 42,611 |
+| At-Risk Loyalists | High-value customers starting to slip away. | 21.10 | 18.80 | 50,889 |
+| Lost Customers | Low frequency & inactive for a long time. | 25.50 | 5.89 | 75,184 |
