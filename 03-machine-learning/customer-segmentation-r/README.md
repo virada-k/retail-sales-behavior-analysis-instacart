@@ -25,7 +25,7 @@
 
 <br>
 
-The data obtained from the K-means process leads to the following conclusions regarding customer segmentation:
+The data obtained from the K-means process led to conclusions regarding customer segmentation to the following :
 
 | Cluster | Customer Level | Avg Recency (Days) | Avg Frequency (Orders) | Customer Count |
 | :---: | :--- | ---: | ---: | ---: |
