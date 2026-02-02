@@ -18,13 +18,14 @@
 
 - **Optimal K:** Selected k=4 clusters based on personal suitability.
 
+- ⌨️ You can find the full script in [customer-segmentation-churn-analysis.r](customer-segmentation-churn-analysis.r).
+
 <br>
 <br>
 
 ## 📜 Run K-Means process
 
-The code below is the K-Means process only. You can find the full script in [customer-segmentation-churn-analysis.r
-](customer-segmentation-churn-analysis.r).
+The code below is the K-Means process only.
 
 ```r
 k <- 4
