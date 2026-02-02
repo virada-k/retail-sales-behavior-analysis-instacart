@@ -25,7 +25,7 @@
 
 The code below is the K-Means process only. You can find the full script in
 
-```sql
+```r
 k <- 4
 
 set.seed(93)
