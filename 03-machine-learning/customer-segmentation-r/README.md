@@ -21,6 +21,39 @@
 <br>
 <br>
 
+## 📜 Run K-Means process
+
+The code below is the K-Means process only. You can find the full script in
+
+```sql
+k <- 4
+
+set.seed(93)
+kmeans_model <- kmeans(rf_data_scaled, centers = k, nstart = 25)
+
+rf_data$cluster <- kmeans_model$cluster
+
+segment_summary <- rf_data %>%
+  group_by(cluster) %>%
+  summarise(
+    avg_recency = mean(last_order_date),
+    avg_frequency = mean(count_order_num),
+    customer_count = n()
+  ) %>%
+  mutate(customer_level = case_when(
+                            cluster == 1 ~ "New Customers",
+                            cluster == 2 ~ "Lost Customers",
+                            cluster == 3 ~ "Core Loyalists",
+                            cluster == 4 ~ "At-Risk Loyalists")) %>%
+  select(cluster, customer_level, avg_recency, avg_frequency,
+         customer_count)
+
+print(segment_summary)
+```
+
+<br>
+<br>
+
 ## 📜 Customer Segmentation Summary Table Result
 
 <br>
@@ -33,3 +66,12 @@ The data obtained from the K-means process led to conclusions regarding customer
 | **New Customers**  | Recently joined & low frequency. | 5.84 | 8.41 | 42,611 |
 | **⚠️ At-Risk Loyalists** | High-value customers starting to slip away. | 21.10 | 18.80 | 50,889 |
 | **⚠️ Lost Customers** | Low frequency & inactive for a long time. | 25.50 | 5.89 | 75,184 |
+
+
+<br>
+<br>
+
+## 
+
+
+
