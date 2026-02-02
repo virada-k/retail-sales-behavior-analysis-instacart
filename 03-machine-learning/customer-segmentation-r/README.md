@@ -81,10 +81,10 @@ I would like to focus only "At-Risk Loyalists" and "Lost Customers", as these tw
 
 The table below summarizes the number customers after I ran the code to Predictive Churn Analysis.
 
-| Customer Segment | Predicted Churner | High-Priority Risk |
+| Customer Segment | Predicted Churner | 🚨 High-Priority Risk |
 | :--- | ---: | ---: |
-| **At-Risk Loyalists** | 50,889 | ❗️ 29,761 |
-| **Lost Customers** | 75,184 | ❗️  5,427 |
+| **At-Risk Loyalists** | 50,889 |  29,761 |
+| **Lost Customers** | 75,184 |  5,427 |
 
 
 
