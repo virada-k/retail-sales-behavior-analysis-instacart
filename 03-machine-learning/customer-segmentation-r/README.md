@@ -91,7 +91,8 @@ The table below summarizes the number customers after I ran the code to Predicti
 <br>
 
 💡 The analysis revealed that: we could potentially retain approximately 35,000 customers (out of 126,000, or 27%) through the collaboration of multiple teams.
-- **At-Risk Loyalists:**  we might ask the Marketing Team to help run campaings such as "<img width="512" height="512" alt="image" src="https://github.com/user-attachments/assets/cc8f0e36-eeec-4c04-8b79-ceb34155ca7a" />
+- **At-Risk Loyalists:**  we might ask the Marketing Team to help run campaings such as " <img width="512" height="512" alt="coupon" src="https://github.com/user-attachments/assets/ae3cddc4-a963-426d-af03-cebc6fd5b0b3" />
+
 personalized discount coupons" or " 📞 customer satisfaction call survey ".
 - **Lost Customers:** we might ask the Customer Service Team to help send personalized reminder messages such as "We have a new product you might like" or "Your reward points are about to expire"
 
