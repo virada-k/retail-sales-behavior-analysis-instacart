@@ -23,9 +23,11 @@
 <br>
 <br>
 
-## 📜 Run K-Means process
+## 📜 Code for K-Means Process
 
 The code below is the K-Means process only.
+
+<br>
 
 ```r
 k <- 4
@@ -71,7 +73,19 @@ The data obtained from the K-means process led to conclusions regarding customer
 <br>
 <br>
 
-## 
+## 📜 Predictive Churn Analysis Process
+
+<br>
+
+I would like to focus only "At-Risk Loyalists" and "Lost Customers", as these two clusters have a high risk of customer churn.
+
+The table below summarizes the number customers after I ran the code to Predictive Churn Analysis.
+
+| Customer Segment | before | after | difference |
+| :--- | ---: | ---: | ---: |
+| **⚠️ At-Risk Loyalists** | 50,889 | 29,761 | 21,128 |
+| **⚠️ Lost Customers** | 75,184 | 5,427 | 69,757 |
+
 
 
 
