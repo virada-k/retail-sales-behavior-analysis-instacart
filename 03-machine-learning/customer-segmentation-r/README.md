@@ -77,11 +77,14 @@ The data obtained from the K-means process led to conclusions regarding customer
 
 <br>
 
-I would like to focus only "At-Risk Loyalists" and "Lost Customers", as these two clusters have a high risk of customer churn.
+Focus only "At-Risk Loyalists" and "Lost Customers", as these two clusters have a high risk of customer churn.
 
 The table below summarizes the number customers after I ran the code to Predictive Churn Analysis.
 
-We can 
+The analysis revealed that: we could potentially retain approximately 35,000 customers (out of 126,000, or 27%) through the collaboration of multiple teams.
+- "At-Risk Loyalists":  we might ask the Marketing Team to help run campaings such as "personalized discount coupons" or "customer satisfaction call survey ".
+- "Lost Customers": we might ask the Customer Service Team to help send personalized reminder messages such as "We have a new product you might like" or "Your reward points are about to expire"
+These methods may help encourage customers to return to the service  before they permanent quit.
 
 | Customer Segment | Predicted Churner | 🚨 High-Priority Risk |
 | :--- | ---: | ---: |
