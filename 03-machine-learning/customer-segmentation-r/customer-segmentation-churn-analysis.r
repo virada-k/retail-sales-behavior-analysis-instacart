@@ -408,12 +408,16 @@ cluster4_high_churn_risk <- check_cluster_2_4 %>%
          # >= 1.3 is more than 30% from average order date.
          recency_vs_cycle >= 1.30)
 
-# ## Note 1: I selected date more than 30% of average order date is high risk for churn, because in case below 30%,
+# ## Note: I selected date more than 30% of average order date is high risk for churn, because in case below 30%,
 # ## it's possible customers may forgot or may not be available to purchase as it's not their holiday.
 
-# ## Note 2: Inform the Marketing Team. 
+# ------------------------------------------------------- #
+# ## Business Value & Actionable Insights
+# ------------------------------------------------------- #
+# ## To inform the Marketing Team. 
 # ## This is the group where we need to utilize the highest level of "Win-back Campaigns," such as personalized discount coupons or 
 # ## calling to survey customer satisfaction, because bringing this group back is far more worthwhile than acquiring new customers.
+# ------------------------------------------------------- #
 
 print(cluster4_high_churn_risk)
 # ## result:
@@ -455,9 +459,13 @@ cluster2_high_churn_risk <- check_cluster_2_4 %>%
 # ## Therefore, we used the 5-day criterion as an 'Early Warning System' for the marketing team to quickly intervene and rebuild relationships 
 # ## before the retention cost increases further.
 
-# ## Note 3: Inform the Customer Service Team.
+# ------------------------------------------------------- #
+# ## Business Value & Actionable Insights
+# ------------------------------------------------------- #
+# ## To inform the Customer Service Team.
 # ## For this customer group, we should send "Personalized Reminders" such as "We have a new product you might like" or
 # ## "Your points are about to expire" to encourage them to engage again before they become permanently lost customers.
+# ------------------------------------------------------- #
 
 print(cluster2_high_churn_risk)
 # ## result:
