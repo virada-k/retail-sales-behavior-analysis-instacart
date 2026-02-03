@@ -412,7 +412,7 @@ cluster4_high_churn_risk <- check_cluster_2_4 %>%
 # ## it's possible customers may forgot or may not be available to purchase as it's not their holiday.
 
 # ------------------------------------------------------- #
-# ## Business Value & Actionable Insights
+# ## 💡 Business Value & Actionable Insights
 # ------------------------------------------------------- #
 # ## To inform the Marketing Team. 
 # ## This is the group where we need to utilize the highest level of "Win-back Campaigns," such as personalized discount coupons or 
@@ -460,7 +460,7 @@ cluster2_high_churn_risk <- check_cluster_2_4 %>%
 # ## before the retention cost increases further.
 
 # ------------------------------------------------------- #
-# ## Business Value & Actionable Insights
+# ## 💡 Business Value & Actionable Insights
 # ------------------------------------------------------- #
 # ## To inform the Customer Service Team.
 # ## For this customer group, we should send "Personalized Reminders" such as "We have a new product you might like" or
