@@ -21,16 +21,16 @@ cus_seg <- cus_seg %>%
 ## Check data after revise name
 head(cus_seg, n = 8)
 # ## result:
-   customer_id order_number date_diff
-         <int>        <int>     <num>
-1:           1            1        NA
-2:           1            2        15
-3:           1            3        21
-4:           1            4        29
-5:           1            5        28
-6:           1            6        19
-7:           1            7        20
-8:           1            8        14
+#    customer_id order_number date_diff
+#          <int>        <int>     <num>
+# 1:           1            1        NA
+# 2:           1            2        15
+# 3:           1            3        21
+# 4:           1            4        29
+# 5:           1            5        28
+# 6:           1            6        19
+# 7:           1            7        20
+# 8:           1            8        14
 
 
 
@@ -48,18 +48,18 @@ recency_data <- cus_seg %>%
 print(recency_data)
 # ## result:
 # A tibble: 206,209 × 2
-   customer_id last_order_date
-         <int>           <dbl>
- 1           1              14
- 2           2              30
- 3           3              15
- 4           4               0
- 5           5               6
- 6           6              12
- 7           7               6
- 8           8              10
- 9           9              30
-10          10              30
+#    customer_id last_order_date
+#          <int>           <dbl>
+#  1           1              14
+#  2           2              30
+#  3           3              15
+#  4           4               0
+#  5           5               6
+#  6           6              12
+#  7           7               6
+#  8           8              10
+#  9           9              30
+# 10          10              30
 # ℹ 206,199 more rows
 # ℹ Use `print(n = ...)` to see more rows
 
@@ -73,18 +73,18 @@ frequency_data <- cus_seg %>%
 print(frequency_data)
 # ## result:
 # A tibble: 206,209 × 2
-   customer_id count_order_num
-         <int>           <int>
- 1           1              11
- 2           2              15
- 3           3              12
- 4           4               5
- 5           5               5
- 6           6               3
- 7           7              21
- 8           8               4
- 9           9               4
-10          10               6
+#    customer_id count_order_num
+#          <int>           <int>
+#  1           1              11
+#  2           2              15
+#  3           3              12
+#  4           4               5
+#  5           5               5
+#  6           6               3
+#  7           7              21
+#  8           8               4
+#  9           9               4
+# 10          10               6
 # ℹ 206,199 more rows
 # ℹ Use `print(n = ...)` to see more rows
 
@@ -96,18 +96,18 @@ rf_data <- recency_data %>%
 print(rf_data)
 # ## result:
 # A tibble: 206,209 × 4
-   customer_id last_order_date count_order_num cluster
-         <int>           <dbl>           <int>   <int>
- 1           1              14              11       4
- 2           2              30              15       4
- 3           3              15              12       4
- 4           4               0               5       1
- 5           5               6               5       1
- 6           6              12               3       2
- 7           7               6              21       3
- 8           8              10               4       1
- 9           9              30               4       2
-10          10              30               6       2
+#    customer_id last_order_date count_order_num cluster
+#          <int>           <dbl>           <int>   <int>
+#  1           1              14              11       4
+#  2           2              30              15       4
+#  3           3              15              12       4
+#  4           4               0               5       1
+#  5           5               6               5       1
+#  6           6              12               3       2
+#  7           7               6              21       3
+#  8           8              10               4       1
+#  9           9              30               4       2
+# 10          10              30               6       2
 # ℹ 206,199 more rows
 # ℹ Use `print(n = ...)` to see more rows
 
@@ -116,11 +116,11 @@ print(rf_data)
 
 sum(rf_data$last_order_date == 0)
 # ## result:
-[1] 3255
+# [1] 3255
 
 sum(rf_data$count_order_num == 0)
 # ## result:
-[1] 0
+# [1] 0
 
 
 ## Adjust the scale to avoid outlines by log() function.
@@ -165,12 +165,12 @@ segment_summary <- rf_data %>%
 print(segment_summary)
 # ## result:
 # A tibble: 4 × 5
-  cluster customer_level    avg_recency avg_frequency customer_count
-    <int> <chr>                   <dbl>         <dbl>          <int>
-1       1 New Customers            5.84          8.41          42611
-2       2 Lost Customers          25.5           5.89          75184
-3       3 Core Loyalists           5.48         42.3           37525
-4       4 At-Risk Loyalists       21.1          18.8           50889
+#   cluster customer_level    avg_recency avg_frequency customer_count
+#     <int> <chr>                   <dbl>         <dbl>          <int>
+# 1       1 New Customers            5.84          8.41          42611
+# 2       2 Lost Customers          25.5           5.89          75184
+# 3       3 Core Loyalists           5.48         42.3           37525
+# 4       4 At-Risk Loyalists       21.1          18.8           50889
 
 
 ## Create the cluster_labels
@@ -180,12 +180,12 @@ cluster_labels <- segment_summary %>%
 print(cluster_labels)
 # ## result:
 # A tibble: 4 × 2
-  cluster customer_level   
-    <int> <chr>            
-1       1 New Customers    
-2       2 Lost Customers   
-3       3 Core Loyalists   
-4       4 At-Risk Loyalists
+#   cluster customer_level   
+#     <int> <chr>            
+# 1       1 New Customers    
+# 2       2 Lost Customers   
+# 3       3 Core Loyalists   
+# 4       4 At-Risk Loyalists
 
 
 ## Create a Customer Group
@@ -199,18 +199,18 @@ customer_cluster <- rf_data %>%
 print(customer_cluster)
 # ## result:
 # A tibble: 206,209 × 5
-   customer_id cluster customer_level    last_order_date count_order_num
-         <int>   <int> <chr>                       <dbl>           <int>
- 1           1       4 At-Risk Loyalists              14              11
- 2           2       4 At-Risk Loyalists              30              15
- 3           3       4 At-Risk Loyalists              15              12
- 4           4       1 New Customers                   0               5
- 5           5       1 New Customers                   6               5
- 6           6       2 Lost Customers                 12               3
- 7           7       3 Core Loyalists                  6              21
- 8           8       1 New Customers                  10               4
- 9           9       2 Lost Customers                 30               4
-10          10       2 Lost Customers                 30               6
+#    customer_id cluster customer_level    last_order_date count_order_num
+#          <int>   <int> <chr>                       <dbl>           <int>
+#  1           1       4 At-Risk Loyalists              14              11
+#  2           2       4 At-Risk Loyalists              30              15
+#  3           3       4 At-Risk Loyalists              15              12
+#  4           4       1 New Customers                   0               5
+#  5           5       1 New Customers                   6               5
+#  6           6       2 Lost Customers                 12               3
+#  7           7       3 Core Loyalists                  6              21
+#  8           8       1 New Customers                  10               4
+#  9           9       2 Lost Customers                 30               4
+# 10          10       2 Lost Customers                 30               6
 # ℹ 206,199 more rows
 # ℹ Use `print(n = ...)` to see more rows
 
@@ -222,18 +222,18 @@ new_customers <- customer_cluster %>%
 print(new_customers)
 # ## result:
 # A tibble: 42,611 × 5
-   customer_id cluster customer_level last_order_date count_order_num
-         <int>   <int> <chr>                    <dbl>           <int>
- 1           4       1 New Customers                0               5
- 2           5       1 New Customers                6               5
- 3           8       1 New Customers               10               4
- 4          13       1 New Customers                8              13
- 5          18       1 New Customers                7               7
- 6          19       1 New Customers                8               9
- 7          20       1 New Customers                7               4
- 8          26       1 New Customers                7              12
- 9          49       1 New Customers                2               9
-10          56       1 New Customers                6              13
+#    customer_id cluster customer_level last_order_date count_order_num
+#          <int>   <int> <chr>                    <dbl>           <int>
+#  1           4       1 New Customers                0               5
+#  2           5       1 New Customers                6               5
+#  3           8       1 New Customers               10               4
+#  4          13       1 New Customers                8              13
+#  5          18       1 New Customers                7               7
+#  6          19       1 New Customers                8               9
+#  7          20       1 New Customers                7               4
+#  8          26       1 New Customers                7              12
+#  9          49       1 New Customers                2               9
+# 10          56       1 New Customers                6              13
 # ℹ 42,601 more rows
 # ℹ Use `print(n = ...)` to see more rows
 
@@ -245,18 +245,18 @@ lost_customers <- customer_cluster %>%
 print(lost_customers)
 # ## result:
 # A tibble: 75,184 × 5
-   customer_id cluster customer_level last_order_date count_order_num
-         <int>   <int> <chr>                    <dbl>           <int>
- 1           6       2 Lost Customers              12               3
- 2           9       2 Lost Customers              30               4
- 3          10       2 Lost Customers              30               6
- 4          11       2 Lost Customers              30               7
- 5          12       2 Lost Customers              30               5
- 6          16       2 Lost Customers              26               6
- 7          23       2 Lost Customers              30               5
- 8          25       2 Lost Customers              30               3
- 9          30       2 Lost Customers              22               9
-10          32       2 Lost Customers              30               5
+#    customer_id cluster customer_level last_order_date count_order_num
+#          <int>   <int> <chr>                    <dbl>           <int>
+#  1           6       2 Lost Customers              12               3
+#  2           9       2 Lost Customers              30               4
+#  3          10       2 Lost Customers              30               6
+#  4          11       2 Lost Customers              30               7
+#  5          12       2 Lost Customers              30               5
+#  6          16       2 Lost Customers              26               6
+#  7          23       2 Lost Customers              30               5
+#  8          25       2 Lost Customers              30               3
+#  9          30       2 Lost Customers              22               9
+# 10          32       2 Lost Customers              30               5
 # ℹ 75,174 more rows
 # ℹ Use `print(n = ...)` to see more rows
 
@@ -268,18 +268,18 @@ core_loyalists <- customer_cluster %>%
 print(core_loyalists)
 # ## result:
 # A tibble: 37,525 × 5
-   customer_id cluster customer_level last_order_date count_order_num
-         <int>   <int> <chr>                    <dbl>           <int>
- 1           7       3 Core Loyalists               6              21
- 2          24       3 Core Loyalists               0              19
- 3          27       3 Core Loyalists               4              82
- 4          31       3 Core Loyalists               0              20
- 5          36       3 Core Loyalists               7              37
- 6          50       3 Core Loyalists               7              68
- 7          52       3 Core Loyalists               3              28
- 8          54       3 Core Loyalists               1              77
- 9          63       3 Core Loyalists              13              40
-10          67       3 Core Loyalists               5              25
+#    customer_id cluster customer_level last_order_date count_order_num
+#          <int>   <int> <chr>                    <dbl>           <int>
+#  1           7       3 Core Loyalists               6              21
+#  2          24       3 Core Loyalists               0              19
+#  3          27       3 Core Loyalists               4              82
+#  4          31       3 Core Loyalists               0              20
+#  5          36       3 Core Loyalists               7              37
+#  6          50       3 Core Loyalists               7              68
+#  7          52       3 Core Loyalists               3              28
+#  8          54       3 Core Loyalists               1              77
+#  9          63       3 Core Loyalists              13              40
+# 10          67       3 Core Loyalists               5              25
 # ℹ 37,515 more rows
 # ℹ Use `print(n = ...)` to see more rows
 
@@ -291,18 +291,18 @@ at_risk_loyalists <- customer_cluster %>%
 print(at_risk_loyalists)
 # ## result:
 # A tibble: 50,889 × 5
-   customer_id cluster customer_level    last_order_date count_order_num
-         <int>   <int> <chr>                       <dbl>           <int>
- 1           1       4 At-Risk Loyalists              14              11
- 2           2       4 At-Risk Loyalists              30              15
- 3           3       4 At-Risk Loyalists              15              12
- 4          14       4 At-Risk Loyalists              11              14
- 5          15       4 At-Risk Loyalists              14              22
- 6          17       4 At-Risk Loyalists              30              41
- 7          21       4 At-Risk Loyalists              28              34
- 8          22       4 At-Risk Loyalists              30              15
- 9          28       4 At-Risk Loyalists              13              24
-10          29       4 At-Risk Loyalists              13              19
+#    customer_id cluster customer_level    last_order_date count_order_num
+#          <int>   <int> <chr>                       <dbl>           <int>
+#  1           1       4 At-Risk Loyalists              14              11
+#  2           2       4 At-Risk Loyalists              30              15
+#  3           3       4 At-Risk Loyalists              15              12
+#  4          14       4 At-Risk Loyalists              11              14
+#  5          15       4 At-Risk Loyalists              14              22
+#  6          17       4 At-Risk Loyalists              30              41
+#  7          21       4 At-Risk Loyalists              28              34
+#  8          22       4 At-Risk Loyalists              30              15
+#  9          28       4 At-Risk Loyalists              13              24
+# 10          29       4 At-Risk Loyalists              13              19
 # ℹ 50,879 more rows
 # ℹ Use `print(n = ...)` to see more rows
 
@@ -324,18 +324,18 @@ cycle_time <- cus_seg %>%
 print(cycle_time)
 # ## result:
 # A tibble: 206,209 × 2
-   customer_id avg_order_date
-         <int>          <dbl>
- 1           1           19  
- 2           2           16.3
- 3           3           12.1
- 4           4           13.8
- 5           5           11.5
- 6           6            9  
- 7           7           10.4
- 8           8           23.3
- 9           9           22  
-10          10           21.8
+#    customer_id avg_order_date
+#          <int>          <dbl>
+#  1           1           19  
+#  2           2           16.3
+#  3           3           12.1
+#  4           4           13.8
+#  5           5           11.5
+#  6           6            9  
+#  7           7           10.4
+#  8           8           23.3
+#  9           9           22  
+# 10          10           21.8
 # ℹ 206,199 more rows
 # ℹ Use `print(n = ...)` to see more rows
 
@@ -353,18 +353,18 @@ cluster_cycle_analysis <- customer_cluster %>%
 print(cluster_cycle_analysis, n = 10)
 # ## result:
 # A tibble: 206,209 × 7
-   cus_id cluster customer_level    last_date n_order_num avg_order_date
-    <int>   <int> <chr>                 <dbl>       <int>          <dbl>
- 1      1       4 At-Risk Loyalists        14          11           19  
- 2      2       4 At-Risk Loyalists        30          15           16.3
- 3      3       4 At-Risk Loyalists        15          12           12.1
- 4      4       1 New Customers             0           5           13.8
- 5      5       1 New Customers             6           5           11.5
- 6      6       2 Lost Customers           12           3            9  
- 7      7       3 Core Loyalists            6          21           10.4
- 8      8       1 New Customers            10           4           23.3
- 9      9       2 Lost Customers           30           4           22  
-10     10       2 Lost Customers           30           6           21.8
+#    cus_id cluster customer_level    last_date n_order_num avg_order_date
+#     <int>   <int> <chr>                 <dbl>       <int>          <dbl>
+#  1      1       4 At-Risk Loyalists        14          11           19  
+#  2      2       4 At-Risk Loyalists        30          15           16.3
+#  3      3       4 At-Risk Loyalists        15          12           12.1
+#  4      4       1 New Customers             0           5           13.8
+#  5      5       1 New Customers             6           5           11.5
+#  6      6       2 Lost Customers           12           3            9  
+#  7      7       3 Core Loyalists            6          21           10.4
+#  8      8       1 New Customers            10           4           23.3
+#  9      9       2 Lost Customers           30           4           22  
+# 10     10       2 Lost Customers           30           6           21.8
 # ℹ 206,199 more rows
 # ℹ 1 more variable: recency_vs_cycle <dbl>
 # ℹ Use `print(n = ...)` to see more rows
@@ -385,18 +385,18 @@ check_cluster_2_4 <- cluster_cycle_analysis %>%
 print(check_cluster_2_4)
 # ## result:
 # A tibble: 126,073 × 7
-   cus_id cluster customer_level n_order_num last_date avg_order_date
-    <int>   <int> <chr>                <int>     <dbl>          <dbl>
- 1      1       4 Loyal Risk              11        14           19  
- 2      2       4 Loyal Risk              15        30           16.3
- 3      3       4 Loyal Risk              12        15           12.1
- 4      6       2 Lost Cust                3        12            9  
- 5      9       2 Lost Cust                4        30           22  
- 6     10       2 Lost Cust                6        30           21.8
- 7     11       2 Lost Cust                7        30           20.5
- 8     12       2 Lost Cust                5        30           25  
- 9     14       4 Loyal Risk              14        11           21.2
-10     15       4 Loyal Risk              22        14           10.8
+#    cus_id cluster customer_level n_order_num last_date avg_order_date
+#     <int>   <int> <chr>                <int>     <dbl>          <dbl>
+#  1      1       4 Loyal Risk              11        14           19  
+#  2      2       4 Loyal Risk              15        30           16.3
+#  3      3       4 Loyal Risk              12        15           12.1
+#  4      6       2 Lost Cust                3        12            9  
+#  5      9       2 Lost Cust                4        30           22  
+#  6     10       2 Lost Cust                6        30           21.8
+#  7     11       2 Lost Cust                7        30           20.5
+#  8     12       2 Lost Cust                5        30           25  
+#  9     14       4 Loyal Risk              14        11           21.2
+# 10     15       4 Loyal Risk              22        14           10.8
 # ℹ 126,063 more rows
 # ℹ 1 more variable: recency_vs_cycle <dbl>
 # ℹ Use `print(n = ...)` to see more rows
@@ -418,18 +418,18 @@ cluster4_high_churn_risk <- check_cluster_2_4 %>%
 print(cluster4_high_churn_risk)
 # ## result:
 # A tibble: 29,761 × 7
-   cus_id cluster customer_level n_order_num last_date avg_order_date
-    <int>   <int> <chr>                <int>     <dbl>          <dbl>
- 1      2       4 Loyal Risk              15        30           16.3
- 2     17       4 Loyal Risk              41        30            8  
- 3     21       4 Loyal Risk              34        28           10.5
- 4     22       4 Loyal Risk              15        30           13.6
- 5     38       4 Loyal Risk              13        30           21.8
- 6     43       4 Loyal Risk              12        26           11.8
- 7     62       4 Loyal Risk              11        29           16.8
- 8     64       4 Loyal Risk              11        27           11.7
- 9     65       4 Loyal Risk              15        30           14  
-10     70       4 Loyal Risk              14        30           19.9
+#    cus_id cluster customer_level n_order_num last_date avg_order_date
+#     <int>   <int> <chr>                <int>     <dbl>          <dbl>
+#  1      2       4 Loyal Risk              15        30           16.3
+#  2     17       4 Loyal Risk              41        30            8  
+#  3     21       4 Loyal Risk              34        28           10.5
+#  4     22       4 Loyal Risk              15        30           13.6
+#  5     38       4 Loyal Risk              13        30           21.8
+#  6     43       4 Loyal Risk              12        26           11.8
+#  7     62       4 Loyal Risk              11        29           16.8
+#  8     64       4 Loyal Risk              11        27           11.7
+#  9     65       4 Loyal Risk              15        30           14  
+# 10     70       4 Loyal Risk              14        30           19.9
 # ℹ 29,751 more rows
 # ℹ 1 more variable: recency_vs_cycle <dbl>
 # ℹ Use `print(n = ...)` to see more rows
@@ -462,18 +462,18 @@ cluster2_high_churn_risk <- check_cluster_2_4 %>%
 print(cluster2_high_churn_risk)
 # ## result:
 # A tibble: 5,427 × 7
-   cus_id cluster customer_level n_order_num last_date avg_order_date
-    <int>   <int> <chr>                <int>     <dbl>          <dbl>
- 1      6       2 Lost Cust                3        12           9   
- 2     16       2 Lost Cust                6        26          21.8 
- 3     88       2 Lost Cust                8        23          18.3 
- 4    135       2 Lost Cust                5        17          13.2 
- 5    144       2 Lost Cust                8        12           7.29
- 6    172       2 Lost Cust                6        14          10.6 
- 7    183       2 Lost Cust                5        19          15.2 
- 8    215       2 Lost Cust                6        29          26.2 
- 9    291       2 Lost Cust                5        17          12.8 
-10    340       2 Lost Cust                6        14          10   
+#    cus_id cluster customer_level n_order_num last_date avg_order_date
+#     <int>   <int> <chr>                <int>     <dbl>          <dbl>
+#  1      6       2 Lost Cust                3        12           9   
+#  2     16       2 Lost Cust                6        26          21.8 
+#  3     88       2 Lost Cust                8        23          18.3 
+#  4    135       2 Lost Cust                5        17          13.2 
+#  5    144       2 Lost Cust                8        12           7.29
+#  6    172       2 Lost Cust                6        14          10.6 
+#  7    183       2 Lost Cust                5        19          15.2 
+#  8    215       2 Lost Cust                6        29          26.2 
+#  9    291       2 Lost Cust                5        17          12.8 
+# 10    340       2 Lost Cust                6        14          10   
 # ℹ 5,417 more rows
 # ℹ 1 more variable: num_of_day <dbl>
 # ℹ Use `print(n = ...)` to see more rows
@@ -490,12 +490,12 @@ total_data <- segment_summary %>%
 print(total_data)
 # ## result:
 # A tibble: 4 × 3
-  customer_level    customer_count Type            
-  <chr>                      <int> <chr>           
-1 New Customers              42611 Total in Segment
-2 Lost Customers             75184 Total in Segment
-3 Core Loyalists             37525 Total in Segment
-4 At-Risk Loyalists          50889 Total in Segment
+#   customer_level    customer_count Type            
+#   <chr>                      <int> <chr>           
+# 1 New Customers              42611 Total in Segment
+# 2 Lost Customers             75184 Total in Segment
+# 3 Core Loyalists             37525 Total in Segment
+# 4 At-Risk Loyalists          50889 Total in Segment
 
 
 ## Prepare data set 2 (High Churn Risk)
@@ -508,9 +508,9 @@ risk_count_data <- data.frame(
 
 print(risk_count_data)
 # ## result:
-     customer_level customer_count            Type
-1    Lost Customers           5427 High Churn Risk
-2 At-Risk Loyalists          29761 High Churn Risk
+#      customer_level customer_count            Type
+# 1    Lost Customers           5427 High Churn Risk
+# 2 At-Risk Loyalists          29761 High Churn Risk
 
 
 ## Merge 2 tables
@@ -531,14 +531,14 @@ plot_data <- plot_data %>%
 print(plot_data)
 # ## result:
 # A tibble: 6 × 3
-  customer_level    customer_count Type            
-  <fct>                      <int> <fct>           
-1 New Customers              42611 Total in Segment
-2 Lost Customers             75184 Total in Segment
-3 Core Loyalists             37525 Total in Segment
-4 At-Risk Loyalists          50889 Total in Segment
-5 Lost Customers              5427 High Churn Risk 
-6 At-Risk Loyalists          29761 High Churn Risk 
+#   customer_level    customer_count Type            
+#   <fct>                      <int> <fct>           
+# 1 New Customers              42611 Total in Segment
+# 2 Lost Customers             75184 Total in Segment
+# 3 Core Loyalists             37525 Total in Segment
+# 4 At-Risk Loyalists          50889 Total in Segment
+# 5 Lost Customers              5427 High Churn Risk 
+# 6 At-Risk Loyalists          29761 High Churn Risk 
 
 
 ## Create Bar Chart (Side-by-Side)
