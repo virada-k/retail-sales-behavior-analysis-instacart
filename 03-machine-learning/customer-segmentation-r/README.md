@@ -24,12 +24,12 @@
 
 - **Optimal K:** Selected **k=4** clusters based on business logic and customer distribution.
 
-- ⌨️ You can find the full script in [customer-segmentation-churn-analysis.r](customer-segmentation-churn-analysis.r).
+- 🖥️ You can find the full script in [customer-segmentation-churn-analysis.r](customer-segmentation-churn-analysis.r).
 
 <br>
 <br>
 
-## 📜 Code for the K-Means Process
+## ⌨️ Code for the K-Means Process
 
 The code below is the K-Means process only.
 
