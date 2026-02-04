@@ -16,7 +16,7 @@
 
     *Note:* Monetary (M) was excluded due to the lack of pricing data in the Instacart dataset.
 
-- **Optimal K:** Selected k=4 clusters based on business logic and customer distribution.
+- **Optimal K:** Selected **k=4** clusters based on business logic and customer distribution.
 
 - ⌨️ You can find the full script in [customer-segmentation-churn-analysis.r](customer-segmentation-churn-analysis.r).
 
@@ -77,7 +77,7 @@ The data obtained from the K-means process led to conclusions regarding customer
 
 <br>
 
-💡 Focus only *"At-Risk Loyalists"* and *"Lost Customers"*, as these two clusters have a high risk of customer churn.
+💡 Focus only *"At-Risk Loyalists"** and *"Lost Customers"*, as these two clusters have a high risk of customer churn.
 
 - **Concept:** Instead of using fixed thresholds, we identified "High-Priority Churn Risks" for "At-Risk Loyalists" by comparing a customer's current recency against their personal historical average purchase cycle.
 
@@ -99,8 +99,8 @@ The table below summarizes the number customers after I ran the code to Predicti
 <br>
 
 💡 The analysis revealed that: we could potentially retain approximately 35,000 customers (out of 126,000, or 27%) through the collaboration of multiple teams.
-- **At-Risk Loyalists:**  we might ask the Marketing Team to execute targeted campaigns such as "🎫 Personalized Discount Coupons" or "📞 Customer Satisfaction Call Survey".
-- **Lost Customers:** we might ask the Customer Service Team to help send personalized reminder messages such as "🛎️ We have a new product you might like" or "⭐ Your reward points are about to expire".
+- **At-Risk Loyalists:**  we might ask the Marketing Team to **execute targeted campaigns** such as "🎫 **Personalized Discount Coupons**" or "📞 **Customer Satisfaction Call Survey**".
+- **Lost Customers:** we might ask the Customer Service Team to help send personalized **reminder messages** such as "🛎️ **We have a new product you might like**" or "⭐ **Your reward points are about to expire**".
 
 These methods may help encourage customers to return to the service before they permanently churn.
 
