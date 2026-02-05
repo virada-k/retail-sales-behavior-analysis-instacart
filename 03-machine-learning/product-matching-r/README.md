@@ -88,4 +88,5 @@ The Bar Chart reverals strength of correration of co-purchased items.
 ### 💡 Insights & Business Value
 - **Insight:** Clear clusters emerge within specific categories (e.g., Beverages) and across different categories (e.g., Meat and Produce).
 - **Product Bundling:** High-lift pairs like **Sparkling Water flavors** are ideal for "Variety Packs," while cross-category links like **Chicken Breasts + Avocado + Banana** suggest "Healthy Meal Kit" opportunities.
+- **Recommended products:** Recommendations such as "Frequently Bought Together" can be implemented during the checkout process to increase **Average Order Value (AOV).
 
