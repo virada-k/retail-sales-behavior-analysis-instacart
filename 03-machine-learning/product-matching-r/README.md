@@ -74,7 +74,7 @@ The network graph reveals clusters of frequently co-purchased items.
 
 <br>
 
-[Network Graph](association-rules.png).
+![Network Graph](association-rules.png).
 
 
 
