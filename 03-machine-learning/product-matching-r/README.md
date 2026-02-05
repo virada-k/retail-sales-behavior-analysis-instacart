@@ -67,8 +67,14 @@ apriori_rules <- apriori(transactions, parameter = list(
 
 ## 📊 Visualizing Relationships
 
+<br>
 
+### 1. Network Graph
+The network graph reveals clusters of frequently co-purchased items.
 
+<br>
+
+[Network Graph](association-rules.png).
 
 
 
