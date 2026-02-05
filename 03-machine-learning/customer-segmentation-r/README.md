@@ -1,8 +1,4 @@
 # 📢 Machine Learning: Customer Segmentation
-
-<br>
-
-## 🏷️ Meaning
 Customer Segment ML is identification and grouping customer base on their purchasing behavior using K-means clustering.
 
 <br>
