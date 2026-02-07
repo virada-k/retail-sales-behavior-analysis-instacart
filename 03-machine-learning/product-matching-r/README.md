@@ -65,7 +65,7 @@ apriori_rules <- apriori(transactions, parameter = list(
 
 <br>
 
-| Rule No. | ✋ LHS | 🤚 RHS | Support | Confidence | Coverage | Lift | Count |
+| Rule No. | ✋ LHS | 🤚 RHS | Support | Confidence | Coverage | &nbsp;&nbsp;&nbsp; Lift &nbsp;&nbsp;&nbsp; | Count |
 | :---: | :--- | :--- | ---: | ---: | ---: | ---: | ---: |
 | [1] | {Coconut Sparkling Water} | {Grapefruit Sparkling Water} | 0.0013 | 0.68 | 0.0019 | 112.17 | 13 |
 | [2] | {Non Fat Raspberry Yogurt, Vanilla Skyr Nonfat Yogurt} | {Icelandic Style Skyr Blueberry Non-fat Yogurt} | 0.0011 | 0.69 | 0.0016 | 98.21 | 11 |
