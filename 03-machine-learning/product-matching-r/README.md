@@ -55,8 +55,8 @@ apriori_rules <- apriori(transactions, parameter = list(
 
 ## 📜 Table of the Top 5 High-Potential Rules
 
-- **✋ LHS (Left-Hand Side):** The product group that customers selected first.
-- **🤚 RHS (Right-Hand Side):** Products that are predicted to be purchased by customers after they purchase product "LHS".
+- **LHS (✋ Left-Hand Side):** The product group that customers selected first.
+- **RHS (🤚 Right-Hand Side):** Products that are predicted to be purchased by customers after they purchase product "LHS".
 - **Support:** Measured by popularity based on total sales.
 - **Confidence:** Measure by percentage of confidence that customers who have purchased product A (LHS) will also purchase product B (RHS).
 - **Coverage:** Measured by popularity based on the LHS product. 
