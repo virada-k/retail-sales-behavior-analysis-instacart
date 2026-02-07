@@ -57,6 +57,11 @@ apriori_rules <- apriori(transactions, parameter = list(
 
 - **LHS (Left-Hand Side):** The product group that customers selected first.
 - **RHS (Right-Hand Side):** Products that are predicted to be purchased by customers after they purchase product "LHS".
+- **Support:** Measured by popularity based on total sales.
+- **Confidence:** Measure by percentage of confidence that customers who have purchased product A (LHS) will also purchase product B (RHS).
+- **Coverage:** Measured by popularity based on the LHS product. 
+- **Lift (Strength/Correlation ):** How much more do these two products complement each other than if they were randomly picked? (If it's more than 1, they're related; if the numbers are very high, they should not be sold separately.)
+- **Count:** Count from the number of customer orders.
 
 <br>
 
