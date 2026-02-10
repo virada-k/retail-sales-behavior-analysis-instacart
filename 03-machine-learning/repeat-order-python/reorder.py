@@ -136,7 +136,7 @@ print(prod_features.head())
 # 4           5              15           0.600000
 
 
-# --- 🔑 User - Product Interaction Features
+# --- 🔑 User - Product Interaction Features ---
   
 ## Prepare table to calculating about "Time period" and "Order Number".
 ## Merge the 'prior_orders' and 'orders' tables.
@@ -332,36 +332,187 @@ print(final_train_data)
 # [2769234 rows x 3 columns]
 
 
+## Merge all 3 features.
+final_train_data = final_train_data.merge(
+    cust_features,
+    on = 'user_id',
+    how = 'left'
+)
+
+final_train_data = final_train_data.merge(
+    prod_features,
+    on = 'product_id',
+    how = 'left'
+)
+
+final_train_data = final_train_data.merge(
+    up_features,
+    on = ['user_id', 'product_id'],
+    how = 'left'
+)
+
+
+# Replace the NaN value with the number 0 in count_orders column.
+final_train_data.fillna(0, inplace = True)
+
+print(final_train_data.head())
+# ## result:
+#    user_id  product_id  reordered_next  cust_total_prod  cust_unique_prod  user_total_orders  user_avg_days_between_orders  prod_total_pur  \
+# 0   112108       49302               1               21                12                  4                     10.333333           163.0  
+# 1   112108       11109               1               21                12                  4                     10.333333          4472.0 
+# 2   112108       10246               1               21                12                  4                     10.333333         23826.0
+# 3   112108       49683               1               21                12                  4                     10.333333         97315.0
+# 4   112108       43633               1               21                12                  4                     10.333333           653.0
+
+#    prod_reorder_rate  count_orders  prod_reorder_ratio  last_order_number  avg_add_to_cart  avg_days_between_reorder
+# 0           0.619632           2.0                 0.5                2.0              2.5                       7.0
+# 1           0.713775           2.0                 0.5                2.0              4.0                       7.0 
+# 2           0.524553           0.0                 0.0                0.0              0.0                       0.0 
+# 3           0.691702           0.0                 0.0                0.0              0.0                       0.0 
+# 4           0.477795           2.0                 0.5                3.0              3.5                      15.0  
+
+
+print(f"Final data size for training model: {len(final_train_data):,} rows")
+# ## result:
+# Final data size for training model: 2,769,234 rows
 
 
 
+# --- Training Logistic Regression Model (4 main features) ---
+
+core_features = [
+    'count_orders',
+    'avg_days_between_reorder',
+    'prod_reorder_rate',
+    'user_avg_days_between_orders'
+]
+
+
+## Check and Manage Outlier using IQR method (Capping)
+for feature in core_features:
+
+    # Calculate Q1, Q3 and IQR.
+    Q1 = final_train_data[feature].quantile(0.25)
+    Q3 = final_train_data[feature].quantile(0.75)
+    IQR = Q3 - Q1
+    # Calculate Upper Bound
+    upper_bound = Q3 + 1.5 * IQR
+
+    # Check Outlier Count
+    outlier_count = final_train_data[final_train_data[feature] > upper_bound].shape[0]
+
+    # Print status before capping
+    print(f"--- Feature: {feature} ---")
+    print(f"--- Upper Bound: {upper_bound:.2f}") # use .2 for clarity in displaying decimal points
+    print(f"Outliers found: {outlier_count} row")
+
+    # Apply Capping (Winsorizing) only if outliers are found.
+    if outlier_count > 0:
+        # Capping the outlier
+        final_train_data[feature] = np.where(
+            final_train_data[feature] > upper_bound,
+            upper_bound,
+            final_train_data[feature]
+        )
+        print(f"--- Outliers successfully capped at {upper_bound:.2f} ---")
+
+# ## result:
+# --- Feature: count_orders ---
+# --- Upper Bound: 6.00
+# Outliers found: 264368 row
+# --- Outliers successfully capped at 6.00 ---
+# --- Feature: avg_days_between_reorder ---
+# --- Upper Bound: 68.00
+# Outliers found: 0 row
+# --- Feature: prod_reorder_rate ---
+# --- Upper Bound: 0.97
+# Outliers found: 0 row
+# --- Feature: user_avg_days_between_orders ---
+# --- Upper Bound: 34.27
+# Outliers found: 0 row
+
+
+x = final_train_data[core_features]
+y = final_train_data['reordered_next']
+
+
+## Split Training and Validation data.
+x_train, x_val, y_train, y_val = train_test_split(x, y, test_size=0.2, random_state = 22)
+
+## x_train, x_val = features (cause) | y_train, y_val = target(0, 1) (effect)
+
+
+## Create training model.
+model = LogisticRegression(solver = 'saga', # 'saga' is an algorithm suitable for big data.
+                           max_iter = 1000,
+                           random_state = 22,
+                           n_jobs = -1)
+
+model.fit(x_train, y_train)
+# ## result:
+# LogisticRegression
+# LogisticRegression(max_iter=1000, n_jobs=-1, random_state=22, solver='saga')
+
+
+print(y_val.value_counts())
+# ## result:
+# reordered_next
+# 1    277490
+# 0    276357
+# Name: count, dtype: int64
 
 
 
+# Create Bar Chart to show the 'reordered_next' column from 'y_val'. ---
+
+# --- Library Imports ---
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+
+# --- Prepare data ---
+
+## Count values (reordered_next) ​​to create a graph.
+data_to_plot = pd.Series(y_val).value_counts().reset_index()
+
+print(data_to_plot)
+# ## result:
+#    reordered_next   count
+# 0               1  277490
+# 1               0  276357
+
+
+## Edit column name.
+data_to_plot.columns = ['Reordered', 'Count']
+
+
+## Convert number to text.
+data_to_plot['Reordered'] = data_to_plot['Reordered'].astype(str).replace(
+    {'0': 'Not Reordered',
+     '1': 'Reordered'}
+)
+
+print(data_to_plot)
+# ## result:
+#        Reordered   Count
+# 0      Reordered  277490
+# 1  Not Reordered  276357
 
 
 
+# --- 📊 Create a Bar Chart
 
+## Set Figure Size (Canvas Size).
+plt.figure(figsize = (6, 4))
+sns.barplot(x = 'Reordered',
+            y = 'Count',
+            data = data_to_plot)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## Customize the graph.
+plt.title('Distribution of True Reordered Labels')  # Chart show 'true reordered' from Validation set.
+plt.xlabel('Reordered Status')  # Merge between 'Order_id' and 'Product_id', it means order per product.
+plt.ylabel('Number of Orders')
+plt.show()
 
 
 
