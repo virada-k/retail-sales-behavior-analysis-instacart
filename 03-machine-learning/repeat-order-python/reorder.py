@@ -3,7 +3,7 @@
 
 # 📢 Data Preparation
 
-# --- Library Imports ---
+# --- 📂 Library Imports ---
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
@@ -12,7 +12,7 @@ from sklearn.metrics import classification_report, roc_auc_score
 import gdown
 
 
-# --- Data Loading ---
+# --- 📂 Data Loading ---
 ## Since the dataset is large, I fetch the data directly from Google Drive.
 ## In this project, I use the following files:
 ## 1. orders 2. order_products__prior 3. order_products__train 4. products 5. aisles
@@ -231,7 +231,7 @@ print(up_features.head())
 
 # 📢 Training Set
 
-# --- Training Dataset: Create training dataset by negative sampling ---
+# --- 🏷️ Training Dataset: Create training dataset by negative sampling ---
 
 ## Positive Cases (Y=1)
 positive_cases = train_orders[['user_id', 'product_id']].copy()
@@ -378,7 +378,7 @@ print(f"Final data size for training model: {len(final_train_data):,} rows")
 
 
 
-# --- Training Logistic Regression Model (4 main features) ---
+# --- 🏷️ Training Logistic Regression Model (4 main features) ---
 
 core_features = [
     'count_orders',
@@ -463,14 +463,14 @@ print(y_val.value_counts())
 
 
 
-# Create Bar Chart to show the 'reordered_next' column from 'y_val'. ---
+# --- 📊 Create Bar Chart to show the 'reordered_next' column from 'y_val'. ---
 
-# --- Library Imports ---
+# --- 📂 Library Imports ---
 import seaborn as sns
 import matplotlib.pyplot as plt
 
 
-# --- Prepare data ---
+# --- 📂 Prepare data ---
 
 ## Count values (reordered_next) ​​to create a graph.
 data_to_plot = pd.Series(y_val).value_counts().reset_index()
@@ -500,7 +500,7 @@ print(data_to_plot)
 
 
 
-# --- 📊 Create a Bar Chart
+# --- 📊 Create a Chart ---
 
 ## Set Figure Size (Canvas Size).
 plt.figure(figsize = (6, 4))
@@ -516,32 +516,80 @@ plt.show()
 
 
 
+# 📢 Validation Set
+
+# --- 🏷️ Evaluation and Interpretation ---
+
+y_pred_proba = model.predict_proba(x_val)[: , 1]
+
+## Report the result (ROC AUC Score).
+print("\n--- 4 Core Features ---")
+print(f"ROC AUC Score: {roc_auc_score(y_val, y_pred_proba):.4f}")
+# ## result:
+# --- 4 Core Features ---
+# ROC AUC Score: 0.8128
+
+
+## Show feature importance (Insight).
+feature_importance = pd.DataFrame({
+    'Feature': core_features,
+    'Coefficient': model.coef_[0]
+}).sort_values(by = 'Coefficient', ascending = False)
+
+print("\n--- Feature Importance (Coefficient) ---")
+print(feature_importance)
+# ## result:
+# --- Feature Importance (Coefficient) ---
+#                         Feature  Coefficient
+# 2             prod_reorder_rate     2.136447
+# 3  user_avg_days_between_orders     0.109579
+# 0                  count_orders    -0.056393
+# 1      avg_days_between_reorder    -0.105589
 
 
 
+# --- 🏷️ Calculation to find the 'F1-Score' ---
+
+from sklearn.metrics import f1_score ## add f1_score
+
+## Create y_pred (0 or 1) using the specified threshold.
+threshold = 0.40
+y_pred = (y_pred_proba > threshold).astype(int)
+
+print(f"F1-Score @ Threshold {threshold}: {f1_score(y_val, y_pred):.4f}")
+# ## result:
+# F1-Score @ Threshold 0.4: 0.7476
 
 
 
+# --- 🏷️ Error Analysis (False Negatives / False Positives) ---
+
+# --- 📂 Download the 'products' and 'aisles' tables ---
+## Since the dataset is large, I fetch the data directly from Google Drive.
+## In this process, I use the following files:
+## 1. products 2. aisles
+## Note: For Error Analysis (False Negatives / False Positives) process.
 
 
+# --- Store dataset in Dataframes ---
+## products = pd.read_csv('products.csv')
+## aisles = pd.read_csv('aisles.csv')
 
 
+# --- Prepare the Validation dataframe ---
 
+## Combine x_val and y_val table to create a dataframe.
+validation_df = x_val.copy()
+validation_df['reordered_actual'] = y_val
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+print(validation_df.head())
+# ## result:
+#          count_orders  avg_days_between_reorder  prod_reorder_rate  user_avg_days_between_orders  reordered_actual
+# 527041            1.0                 30.000000           0.521021                     11.190476                 1
+# 1694697           1.0                 30.000000           0.619973                     12.285714                 0
+# 2111176           1.0                 30.000000           0.715237                      8.000000                 0   
+# 2639205           1.0                 30.000000           0.854342                      6.100000                 0   
+# 2440381           6.0                  8.166667           0.650427                      7.020833                 0   
 
 
 
