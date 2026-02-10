@@ -592,6 +592,222 @@ print(validation_df.head())
 # 2440381           6.0                  8.166667           0.650427                      7.020833                 0   
 
 
+## Add the product_id column back into validation_df.
+product_id_val = final_train_data.loc[x_val.index, 'product_id']
+validation_df['product_id'] = product_id_val
+
+print(validation_df.head())
+# ## result:
+#          count_orders  avg_days_between_reorder  prod_reorder_rate    user_avg_days_between_orders  reordered_actual  product_id
+# 527041            1.0                 30.000000           0.521021                       11.190476                 1       40299
+# 1694697           1.0                 30.000000           0.619973                       12.285714                 0       31717  
+# 2111176           1.0                 30.000000           0.715237                        8.000000                 0       33845 
+# 2639205           1.0                 30.000000           0.854342                        6.100000                 0       29447  
+# 2440381           6.0                  8.166667           0.650427                        7.020833                 0        9387 
+
+
+## Predict the outcome (y_pred) on x_val.
+validation_df['reordered_proba'] = model.predict_proba(x_val)[:, 1]
+
+print(validation_df.head())
+# ## result:
+#          count_orders  avg_days_between_reorder  prod_reorder_rate  user_avg_days_between_orders  reordered_actual  product_id  reordered_proba
+# 527041            1.0                 30.000000           0.521021                     11.190476                 1       40299         0.158635
+# 1694697           1.0                 30.000000           0.619973                     12.285714                 0       31717         0.208004
+# 2111176           1.0                 30.000000           0.715237                      8.000000                 0       33845         0.167549 
+# 2639205           1.0                 30.000000           0.854342                      6.100000                 0       29447         0.180331
+# 2440381           6.0                  8.166667           0.650427                      7.020833                 0        9387         0.543526
+
+
+## Set the prediction result (y_pred) by Threshold @ 0.40.
+threshold = 0.40
+validation_df['reordered_pred'] = (validation_df['reordered_proba'] > threshold).astype(int)
+
+print(validation_df.head())
+# ## result:
+#          count_orders  avg_days_between_reorder  prod_reorder_rate   user_avg_days_between_orders  reordered_actual  product_id \
+# 527041            1.0                 30.000000           0.521021                      11.190476                 1       40299  
+# 1694697           1.0                 30.000000           0.619973                      12.285714                 0       31717
+# 2111176           1.0                 30.000000           0.715237                       8.000000                 0       33845
+# 2639205           1.0                 30.000000           0.854342                       6.100000                 0       29447
+# 2440381           6.0                  8.166667           0.650427                       7.020833                 0        9387   
+
+#          reordered_proba  reordered_pred  
+# 527041          0.158635               0  
+# 1694697         0.208004               0  
+# 2111176         0.167549               0  
+# 2639205         0.180331               0  
+# 2440381         0.543526               1 
+
+
+
+# --- Merging table ---
+
+## Merge 3 tables between validation_df, products and aisles.
+products_info = products[['product_id', 'aisle_id']].drop_duplicates()
+aisles_info = aisles[['aisle_id', 'aisle']].drop_duplicates()
+
+validation_df = validation_df.merge(
+    products_info,
+    on = 'product_id',
+    how = 'left'
+)
+
+validation_df = validation_df.merge(
+    aisles_info,
+    on = 'aisle_id',
+    how = 'left'
+)
+
+print(validation_df)
+# ## result:
+#         count_orders  avg_days_between_reorder  prod_reorder_rate  user_avg_days_between_orders  reordered_actual  product_id  \
+# 0                1.0                 30.000000           0.521021                     11.190476                 1       40299
+# 1                1.0                 30.000000           0.619973                     12.285714                 0       31717
+# 2                1.0                 30.000000           0.715237                      8.000000                 0       33845
+# 3                1.0                 30.000000           0.854342                      6.100000                 0       29447
+# 4                6.0                  8.166667           0.650427                      7.020833                 0        9387
+# ...              ...                       ...                ...                           ...               ...         ...
+# 553842           3.0                 16.000000           0.579648                      7.372093                 0       16759
+# 553843           1.0                 30.000000           0.706387                     23.250000                 0       39475  
+# 553844           1.0                 30.000000           0.693125                     14.307692                 1       31915 
+# 553845           6.0                  8.111111           0.601194                      7.166667                 0       17872  
+# 553846           1.0                 30.000000           0.317821                     14.454545                 0       16823 
+
+#         reordered_proba  reordered_pred  aisle_id                 aisle  
+# 0              0.158635               0       128  tortillas flat bread  
+# 1              0.208004               0        16           fresh herbs  
+# 2              0.167549               0       120                yogurt  
+# 3              0.180331               0        84                  milk  
+# 4              0.543526               1        24          fresh fruits  
+# ...                 ...             ...       ...                   ...  
+# 553842         0.355233               0        83      fresh vegetables  
+# 553843         0.512267               1       120                yogurt  
+# 553844         0.277049               0        24          fresh fruits  
+# 553845         0.522786               1       120                yogurt  
+# 553846         0.148695               0        69   soup broth bouillon  
+
+# [553847 rows x 10 columns]
+
+
+## Edit the column names 'aisle_id' and 'aisle'.
+validation_df = validation_df.rename(columns = {
+    'aisle_id': 'category_id',
+    'aisle': 'category_name'
+})
+
+print(validation_df.head())
+# ## result:
+#    count_orders  avg_days_between_reorder  prod_reorder_rate  user_avg_days_between_orders  reordered_actual  product_id  \
+# 0           1.0                 30.000000           0.521021                     11.190476                 1       40299
+# 1           1.0                 30.000000           0.619973                     12.285714                 0       31717
+# 2           1.0                 30.000000           0.715237                      8.000000                 0       33845
+# 3           1.0                 30.000000           0.854342                      6.100000                 0       29447
+# 4           6.0                  8.166667           0.650427                      7.020833                 0        9387
+
+#    reordered_proba  reordered_pred  category_id         category_name  
+# 0         0.158635               0          128  tortillas flat bread  
+# 1         0.208004               0           16           fresh herbs  
+# 2         0.167549               0          120                yogurt  
+# 3         0.180331               0           84                  milk  
+# 4         0.543526               1           24          fresh fruits  
+
+
+
+# --- 🏷️ Error Analysis (FN / FP) ---
+
+## False Negatives (FN): Actual = 1, Predicted = 0 (Missed Opportunity).
+df_fn = validation_df[
+    (validation_df['reordered_actual'] == 1) &
+    (validation_df['reordered_pred'] == 0)
+]
+
+print(df_fn)
+# ## result:
+#         count_orders  avg_days_between_reorder  prod_reorder_rate  user_avg_days_between_orders  reordered_actual  product_id \
+# 0                1.0                      30.0           0.521021                     11.190476                 1       40299
+# 12               1.0                      30.0           0.291203                     11.750000                 1       18598
+# 28               2.0                      30.0           0.603038                     20.333333                 1       28199
+# 34               2.0                      30.0           0.690094                     12.000000                 1       33548  
+# 38               1.0                      30.0           0.081888                     13.333333                 1        6020  
+# ...              ...                       ...                ...                           ...               ...         ... 
+# 553788           1.0                      30.0           0.590244                      9.428571                 1        3931
+# 553811           1.0                      30.0           0.390724                     22.250000                 1       48825
+# 553833           1.0                      30.0           0.656367                     20.000000                 1       42265
+# 553841           2.0                      30.0           0.278431                     18.000000                 1       24707
+# 553844           1.0                      30.0           0.693125                     14.307692                 1       31915
+
+#         reordered_proba  reordered_pred  category_id               category_name
+# 0              0.158635               0          128        tortillas flat bread
+# 12             0.109282               0           19               oils vinegars
+# 28             0.366393               0          123  packaged vegetables fruits
+# 34             0.218421               0          120                      yogurt
+# 38             0.085349               0          104           spices seasonings
+# ...                 ...             ...          ...                         ...
+# 553788         0.152698               0           95         canned meat seafood
+# 553811         0.324120               0           24                fresh fruits
+# 553833         0.397972               0          123  packaged vegetables fruits
+# 553841         0.182887               0           89     salad dressing toppings
+# 553844         0.277049               0           24                fresh fruits
+
+# [44970 rows x 10 columns]
+
+
+## Top 10 Category Names that cause False Negatives.
+top10_fn_category = df_fn.groupby('category_name')['product_id'].count().sort_values(ascending=False).head(10)
+
+print("Top 10 Category Names that cause False Negatives (Lost Sales Opportunity):\n", top10_fn_category)
+# ## result:
+# Top 10 Category Names that cause False Negatives (Lost Sales Opportunity):
+#  category_name
+# fresh vegetables                 5282
+# fresh fruits                     3475
+# packaged vegetables fruits       2543
+# packaged cheese                  1486
+# yogurt                           1345
+# chips pretzels                   1068
+# ice cream ice                     842
+# frozen produce                    837
+# water seltzer sparkling water     743
+# crackers                          714
+# Name: product_id, dtype: int64
+
+
+## False Positives (FP): Actual = 0, Predicted = 1 (Wrong recommendation/wasted cost).
+df_fp = validation_df[
+    (validation_df['reordered_actual'] == 0) &
+    (validation_df['reordered_pred'] == 1)
+]
+
+print(df_fp)
+# ## result:
+#         count_orders  avg_days_between_reorder  prod_reorder_rate  user_avg_days_between_orders  reordered_actual  product_id  \
+# 4                6.0                  8.166667           0.650427                      7.020833                 0        9387
+# 14               1.0                 30.000000           0.652174                     24.000000                 0       19064
+# 18               6.0                 24.600000           0.510179                     22.454545                 0       20754
+# 19               2.0                 15.000000           0.550313                     14.285714                 0        5460 
+# 24               2.0                 15.000000           0.476649                     14.384615                 0       31506  
+# ...              ...                       ...                ...                           ...               ...         ...
+# 553834           1.0                 30.000000           0.832555                     17.428571                 0       13176 
+# 553838           1.0                 30.000000           0.603827                     27.333333                 0       18370
+# 553839           2.0                  8.000000           0.565081                      9.315789                 0       16840 
+# 553843           1.0                 30.000000           0.706387                     23.250000                 0       39475 
+# 553845           6.0                  8.111111           0.601194                      7.166667                 0       17872 
+
+#         reordered_proba  reordered_pred  category_id         category_name  
+# 4              0.543526               1           24          fresh fruits  
+# 14             0.503859               1           33          kosher foods  
+# 18             0.457835               1           37         ice cream ice  
+# 19             0.564828               1           36                butter  
+# 24             0.528529               1           19         oils vinegars  
+# ...                 ...             ...          ...                   ...  
+# 553834         0.420851               1           24          fresh fruits  
+# 553838         0.568911               1           21       packaged cheese  
+# 553839         0.619366               1           67  fresh dips tapenades  
+# 553843         0.512267               1          120                yogurt  
+# 553845         0.522786               1          120                yogurt  
+
+# [112055 rows x 10 columns]
 
 
 
