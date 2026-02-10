@@ -237,7 +237,7 @@ print(up_features.head())
 positive_cases = train_orders[['user_id', 'product_id']].copy()
 positive_cases['reordered_next'] = 1
 
-print(positive_cases)
+print(positive_cases.head())
 # ## result:
 #         user_id  product_id  reordered_next
 # 0         112108       49302               1
@@ -245,14 +245,6 @@ print(positive_cases)
 # 2         112108       10246               1
 # 3         112108       49683               1
 # 4         112108       43633               1
-# ...          ...         ...             ...
-# 1384612   169679       14233               1
-# 1384613   169679       35548               1
-# 1384614   139822       35951               1
-# 1384615   139822       16953               1
-# 1384616   139822        4724               1
-
-# [1384617 rows x 3 columns]
 
 
 ## Negative Sampling (Y=0).
@@ -270,7 +262,7 @@ merged_all['reordered_next'] = merged_all['reordered_next'].fillna(0)
 
 negative_pool = merged_all[merged_all['reordered_next'] == 0].drop(columns = ['reordered_next'])
 
-print(negative_pool)
+print(negative_pool.head())
 # ## result:
 #           user_id  product_id
 # 2               1       10326
@@ -278,14 +270,6 @@ print(negative_pool)
 # 5               1       13176
 # 6               1       14084
 # 7               1       17122
-# ...           ...         ...
-# 13307948   206209       43961
-# 13307949   206209       44325
-# 13307950   206209       48370
-# 13307951   206209       48697
-# 13307952   206209       48742
-
-# [12479129 rows x 2 columns]
 
 
 ## Perform 1:1 negative sampling (with positive_cases)
@@ -293,7 +277,7 @@ N = len(positive_cases)
 negative_sample = negative_pool.sample(n = min(N, len(positive_cases)), random_state = 22)
 negative_sample['reordered_next'] = 0
 
-print(negative_sample)
+print(negative_sample.head())
 # ## result:
 #          user_id  product_id  reordered_next
 # 8204474   126808       28805               0
@@ -301,20 +285,12 @@ print(negative_sample)
 # 1361292    21288        1405               0
 # 9646192   149360       45210               0
 # 3289605    50986       37514               0
-# ...          ...         ...             ...
-# 3349504    51916        9119               0
-# 1301497    20361       48745               0
-# 7229772   111550       42495               0
-# 6003210    92681       38881               0
-# 2107550    32790       26384               0
-
-# [1384617 rows x 3 columns]
 
 
 ## Merge tables between 'positive_cases' and 'negative_sample'.
 final_train_data = pd.concat([positive_cases, negative_sample], ignore_index = True)
 
-print(final_train_data)
+print(final_train_data.head())
 # ## result:
 #          user_id  product_id  reordered_next
 # 0         112108       49302               1
@@ -322,14 +298,6 @@ print(final_train_data)
 # 2         112108       10246               1
 # 3         112108       49683               1
 # 4         112108       43633               1
-# ...          ...         ...             ...
-# 2769229    51916        9119               0
-# 2769230    20361       48745               0
-# 2769231   111550       42495               0
-# 2769232    92681       38881               0
-# 2769233    32790       26384               0
-
-# [2769234 rows x 3 columns]
 
 
 ## Merge all 3 features.
@@ -722,7 +690,7 @@ df_fn = validation_df[
     (validation_df['reordered_pred'] == 0)
 ]
 
-print(df_fn)
+print(df_fn.head())
 # ## result:
 #         count_orders  avg_days_between_reorder  prod_reorder_rate  user_avg_days_between_orders  reordered_actual  product_id \
 # 0                1.0                      30.0           0.521021                     11.190476                 1       40299
@@ -730,12 +698,6 @@ print(df_fn)
 # 28               2.0                      30.0           0.603038                     20.333333                 1       28199
 # 34               2.0                      30.0           0.690094                     12.000000                 1       33548  
 # 38               1.0                      30.0           0.081888                     13.333333                 1        6020  
-# ...              ...                       ...                ...                           ...               ...         ... 
-# 553788           1.0                      30.0           0.590244                      9.428571                 1        3931
-# 553811           1.0                      30.0           0.390724                     22.250000                 1       48825
-# 553833           1.0                      30.0           0.656367                     20.000000                 1       42265
-# 553841           2.0                      30.0           0.278431                     18.000000                 1       24707
-# 553844           1.0                      30.0           0.693125                     14.307692                 1       31915
 
 #         reordered_proba  reordered_pred  category_id               category_name
 # 0              0.158635               0          128        tortillas flat bread
@@ -743,14 +705,7 @@ print(df_fn)
 # 28             0.366393               0          123  packaged vegetables fruits
 # 34             0.218421               0          120                      yogurt
 # 38             0.085349               0          104           spices seasonings
-# ...                 ...             ...          ...                         ...
-# 553788         0.152698               0           95         canned meat seafood
-# 553811         0.324120               0           24                fresh fruits
-# 553833         0.397972               0          123  packaged vegetables fruits
-# 553841         0.182887               0           89     salad dressing toppings
-# 553844         0.277049               0           24                fresh fruits
 
-# [44970 rows x 10 columns]
 
 
 ## Top 10 Category Names that cause False Negatives.
@@ -779,7 +734,7 @@ df_fp = validation_df[
     (validation_df['reordered_pred'] == 1)
 ]
 
-print(df_fp)
+print(df_fp.head())
 # ## result:
 #         count_orders  avg_days_between_reorder  prod_reorder_rate  user_avg_days_between_orders  reordered_actual  product_id  \
 # 4                6.0                  8.166667           0.650427                      7.020833                 0        9387
@@ -787,12 +742,6 @@ print(df_fp)
 # 18               6.0                 24.600000           0.510179                     22.454545                 0       20754
 # 19               2.0                 15.000000           0.550313                     14.285714                 0        5460 
 # 24               2.0                 15.000000           0.476649                     14.384615                 0       31506  
-# ...              ...                       ...                ...                           ...               ...         ...
-# 553834           1.0                 30.000000           0.832555                     17.428571                 0       13176 
-# 553838           1.0                 30.000000           0.603827                     27.333333                 0       18370
-# 553839           2.0                  8.000000           0.565081                      9.315789                 0       16840 
-# 553843           1.0                 30.000000           0.706387                     23.250000                 0       39475 
-# 553845           6.0                  8.111111           0.601194                      7.166667                 0       17872 
 
 #         reordered_proba  reordered_pred  category_id         category_name  
 # 4              0.543526               1           24          fresh fruits  
@@ -800,14 +749,174 @@ print(df_fp)
 # 18             0.457835               1           37         ice cream ice  
 # 19             0.564828               1           36                butter  
 # 24             0.528529               1           19         oils vinegars  
-# ...                 ...             ...          ...                   ...  
-# 553834         0.420851               1           24          fresh fruits  
-# 553838         0.568911               1           21       packaged cheese  
-# 553839         0.619366               1           67  fresh dips tapenades  
-# 553843         0.512267               1          120                yogurt  
-# 553845         0.522786               1          120                yogurt  
 
-# [112055 rows x 10 columns]
+
+## Top 10 category names that cause False Positives.
+top10_fp_category = df_fp.groupby('category_name')['product_id'].count().sort_values(ascending=False).head(10)
+
+print("Top 10 Category Names that cause False Positives (Wasted Recommendations):\n", top10_fp_category)
+# ## result:
+# Top 10 Category Names that cause False Positives (Wasted Recommendations):
+#  category_name
+# fresh vegetables                 13459
+# fresh fruits                     12019
+# packaged vegetables fruits        6460
+# yogurt                            5113
+# packaged cheese                   3659
+# chips pretzels                    2720
+# water seltzer sparkling water     2641
+# milk                              2452
+# bread                             2085
+# soy lactosefree                   2072
+# Name: product_id, dtype: int64
+
+
+
+# --- 🏷️ Confusion Matrix ---
+
+from sklearn.metrics import confusion_matrix, accuracy_score, precision_score, recall_score, f1_score
+
+## Create the function for calculate all metrics.
+def calculate_metrics(y_true, y_pred, model_name = "Model"):
+  # 1.1 Create a confusion matrix (cm), to compare the actual value (y_true) with the predicted value (y_pred).
+  cm = confusion_matrix(y_true, y_pred)
+
+  # 1.2 Use .reval() to extract the value of "Negative, Positive" from Matrix.
+  # TN = True Negative, FP = False Positive, FN = False Negative, TP = True Positive
+  # NOTE: Sklearn CM format: [[TN, FP], [FN, TP]]
+  TN, FP, FN, TP = cm.ravel()
+
+  # 1.3 Calculate Metrics.
+  # Accuracy: (TN + TP) / Total (TP + TN + FP + FN)
+  accuracy = accuracy_score(y_true, y_pred)
+
+  # Precision: TP / (TP + FP)
+  precision = precision_score(y_true, y_pred)
+
+  # Recall (Sensitivity): TP / (TP + FN)
+  recall = recall_score(y_true, y_pred)
+
+  # Specificity: TN / (TN + FP)
+  # It is the model's ability to correctly predict '0'.
+  specificity = TN / (TN + FP)
+
+  # F1 score: 2 x (Precision x Recall) / (Precision + Recall)
+  f1 = f1_score(y_true, y_pred)
+
+  # 1.4 Create a datafame for result.
+  results_df = pd.DataFrame({
+      'Metric': ['Accuracy', 'Precision', 'Recall/Sensitivity', 'Specificity', 'F1 Score'],
+      model_name: [accuracy, precision, recall, specificity, f1]
+  }).set_index('Metric')
+
+  print(f"\n--- Confision Matrix for {model_name} ---")
+
+  # Display calculation results in an easy-to-read format.
+  print("\n--- Breakdown of Outcomes ---")
+  print(f"True Negative (TN): {TN}")
+  print(f"False Positive (FP): {FP}")
+  print(f"False Negative (FN): {FN}")
+  print(f"True Positive (TP): {TP}")
+
+  print("\n--- Summary Metrics ---")
+  print(results_df.round(4))
+
+  return cm, results_df
+
+# --- Show results ---
+
+y_true_labels = y_val
+
+y_pred_at_04 = (model.predict_proba(x_val)[:, 1] >= 0.4).astype(int)
+
+y_pred_labels = y_pred_at_04
+
+## Call the calculate_metrics.
+cm_results, metrics_summary_df = calculate_metrics(
+    y_true = y_true_labels,
+    y_pred = y_pred_labels,
+    model_name = "Logistic Model after Outlier Capping"
+)
+
+# ## result:
+# --- Confision Matrix for Logistic Model after Outlier Capping ---
+
+# --- Breakdown of Outcomes ---
+# True Negative (TN): 164302
+# False Positive (FP): 112055
+# False Negative (FN): 44970
+# True Positive (TP): 232520
+
+# --- Summary Metrics ---
+#                     Logistic Model after Outlier Capping
+# Metric                                                  
+# Accuracy                                          0.7165
+# Precision                                         0.6748
+# Recall/Sensitivity                                0.8379
+# Specificity                                       0.5945
+# F1 Score                                          0.7476
+
+
+
+# --- 🏷️ Notification of Customer (FN) List to Marketing ---
+## FN (False Negative) = Missed sales opportunities
+
+
+## Combine the x_val (Feature Engineer) and the y_val (Target Variable) tables.
+df_val = x_val.copy()
+df_val['y_true'] = y_val.values
+
+
+## Add the y_pred column (threshold 0.4) into the df_val.
+df_val['y_pred'] = y_pred_labels
+
+print(df_val.head())
+# ## result:
+#          count_orders  avg_days_between_reorder  prod_reorder_rate  user_avg_days_between_orders  y_true  y_pred 
+# 527041            1.0                 30.000000           0.521021                     11.190476       1       0 
+# 1694697           1.0                 30.000000           0.619973                     12.285714       0       0    
+# 2111176           1.0                 30.000000           0.715237                      8.000000       0       0  
+# 2639205           1.0                 30.000000           0.854342                      6.100000       0       0  
+# 2440381           6.0                  8.166667           0.650427                      7.020833       0       1 
+
+
+## Create boolean mask and pull customer names (FN).
+
+# FN is y_true = 1 and y_pred = 0
+fn_mask = (df_val['y_true'] == 1) & (df_val['y_pred'] == 0)
+
+print(fn_mask.head())
+# ## result:
+# 527041      True
+# 1694697    False
+# 2111176    False
+# 2639205    False
+# 2440381    False
+# dtype: bool
+
+
+## Filter
+df_fn_list = df_val[fn_mask]
+
+print(df_fn_list.head())
+# ## result:
+#         count_orders  avg_days_between_reorder  prod_reorder_rate  user_avg_days_between_orders  y_true  y_pred
+# 527041           1.0                      30.0           0.521021                     11.190476       1       0
+# 16552            1.0                      30.0           0.291203                     11.750000       1       0
+# 681850           2.0                      30.0           0.603038                     20.333333       1       0
+# 809304           2.0                      30.0           0.690094                     12.000000       1       0
+# 308569           1.0                      30.0           0.081888                     13.333333       1       0  
+
+
+# --- Merging table ---
+
+
+
+
+
+
+
+
 
 
 
