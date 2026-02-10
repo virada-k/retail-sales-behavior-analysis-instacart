@@ -315,8 +315,21 @@ print(negative_sample)
 final_train_data = pd.concat([positive_cases, negative_sample], ignore_index = True)
 
 print(final_train_data)
+# ## result:
+#          user_id  product_id  reordered_next
+# 0         112108       49302               1
+# 1         112108       11109               1
+# 2         112108       10246               1
+# 3         112108       49683               1
+# 4         112108       43633               1
+# ...          ...         ...             ...
+# 2769229    51916        9119               0
+# 2769230    20361       48745               0
+# 2769231   111550       42495               0
+# 2769232    92681       38881               0
+# 2769233    32790       26384               0
 
-
+# [2769234 rows x 3 columns]
 
 
 
