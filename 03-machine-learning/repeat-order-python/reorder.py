@@ -431,7 +431,7 @@ print(y_val.value_counts())
 
 
 
-# --- 📊 Create Bar Chart to show the 'reordered_next' column from 'y_val'. ---
+# --- 📊 Create Bar Chart to show the 'reordered_next' column from 'y_val' ---
 
 # --- 📂 Library Imports ---
 import seaborn as sns
@@ -564,15 +564,6 @@ print(validation_df.head())
 product_id_val = final_train_data.loc[x_val.index, 'product_id']
 validation_df['product_id'] = product_id_val
 
-print(validation_df.head())
-# ## result:
-#          count_orders  avg_days_between_reorder  prod_reorder_rate    user_avg_days_between_orders  reordered_actual  product_id
-# 527041            1.0                 30.000000           0.521021                       11.190476                 1       40299
-# 1694697           1.0                 30.000000           0.619973                       12.285714                 0       31717  
-# 2111176           1.0                 30.000000           0.715237                        8.000000                 0       33845 
-# 2639205           1.0                 30.000000           0.854342                        6.100000                 0       29447  
-# 2440381           6.0                  8.166667           0.650427                        7.020833                 0        9387 
-
 
 ## Predict the outcome (y_pred) on x_val.
 validation_df['reordered_proba'] = model.predict_proba(x_val)[:, 1]
@@ -627,36 +618,6 @@ validation_df = validation_df.merge(
     how = 'left'
 )
 
-print(validation_df)
-# ## result:
-#         count_orders  avg_days_between_reorder  prod_reorder_rate  user_avg_days_between_orders  reordered_actual  product_id  \
-# 0                1.0                 30.000000           0.521021                     11.190476                 1       40299
-# 1                1.0                 30.000000           0.619973                     12.285714                 0       31717
-# 2                1.0                 30.000000           0.715237                      8.000000                 0       33845
-# 3                1.0                 30.000000           0.854342                      6.100000                 0       29447
-# 4                6.0                  8.166667           0.650427                      7.020833                 0        9387
-# ...              ...                       ...                ...                           ...               ...         ...
-# 553842           3.0                 16.000000           0.579648                      7.372093                 0       16759
-# 553843           1.0                 30.000000           0.706387                     23.250000                 0       39475  
-# 553844           1.0                 30.000000           0.693125                     14.307692                 1       31915 
-# 553845           6.0                  8.111111           0.601194                      7.166667                 0       17872  
-# 553846           1.0                 30.000000           0.317821                     14.454545                 0       16823 
-
-#         reordered_proba  reordered_pred  aisle_id                 aisle  
-# 0              0.158635               0       128  tortillas flat bread  
-# 1              0.208004               0        16           fresh herbs  
-# 2              0.167549               0       120                yogurt  
-# 3              0.180331               0        84                  milk  
-# 4              0.543526               1        24          fresh fruits  
-# ...                 ...             ...       ...                   ...  
-# 553842         0.355233               0        83      fresh vegetables  
-# 553843         0.512267               1       120                yogurt  
-# 553844         0.277049               0        24          fresh fruits  
-# 553845         0.522786               1       120                yogurt  
-# 553846         0.148695               0        69   soup broth bouillon  
-
-# [553847 rows x 10 columns]
-
 
 ## Edit the column names 'aisle_id' and 'aisle'.
 validation_df = validation_df.rename(columns = {
@@ -682,7 +643,7 @@ print(validation_df.head())
 
 
 
-# --- 🏷️ Error Analysis (FN / FP) ---
+# --- 📌 Error Analysis (FN / FP) ---
 
 ## False Negatives (FN): Actual = 1, Predicted = 0 (Missed Opportunity).
 df_fn = validation_df[
@@ -823,7 +784,7 @@ def calculate_metrics(y_true, y_pred, model_name = "Model"):
 
   return cm, results_df
 
-# --- Show results ---
+# --- 📌 Show results ---
 
 y_true_labels = y_val
 
@@ -909,6 +870,435 @@ print(df_fn_list.head())
 
 
 # --- Merging table ---
+
+df_fn_list_reset = df_fn_list.reset_index()
+
+print(df_fn_list_reset.head())
+# ## result:
+    index  count_orders  avg_days_between_reorder  prod_reorder_rate  user_avg_days_between_orders  y_true  y_pred
+# 0  527041           1.0                      30.0           0.521021                     11.190476       1       0 
+# 1   16552           1.0                      30.0           0.291203                     11.750000       1       0
+# 2  681850           2.0                      30.0           0.603038                     20.333333       1       0
+# 3  809304           2.0                      30.0           0.690094                     12.000000       1       0
+# 4  308569           1.0                      30.0           0.081888                     13.333333       1       0  
+
+
+df_fn_list_reset = df_fn_list.reset_index()
+
+## Revise index column to primary key.
+df_fn_list_reset = df_fn_list_reset.rename(columns = {'index': 'order_product_key'})
+
+
+## Merge table with op_train to pull order_id and product_id columns.
+op_train_key = op_train.copy()
+op_train_key = op_train_key.reset_index().rename(columns = {'index': 'order_product_key'})
+op_train_key = op_train_key[['order_product_key', 'order_id', 'product_id']]
+
+df_fn_with_order_id = df_fn_list_reset.merge(
+    op_train_key,
+    on = 'order_product_key',
+    how = 'left'
+)
+
+print(df_fn_with_order_id.head())
+# ## result:
+#    order_product_key  count_orders  avg_days_between_reorder  prod_reorder_rate  user_avg_days_between_orders  y_true  y_pred  \
+# 0             527041           1.0                      30.0           0.521021                     11.190476       1       0
+# 1              16552           1.0                      30.0           0.291203                     11.750000       1       0
+# 2             681850           2.0                      30.0           0.603038                     20.333333       1       0
+# 3             809304           2.0                      30.0           0.690094                     12.000000       1       0
+# 4             308569           1.0                      30.0           0.081888                     13.333333       1       0
+
+#    order_id  product_id
+# 0   1294839       40299
+# 1     39970       18598
+# 2   1674413       28199
+# 3   1996250       33548
+# 4    751608        6020
+
+
+## Merge table with orders to pull user_id column.
+df_fn_with_ids = df_fn_with_order_id.merge(
+    orders[['order_id', 'user_id']],
+    on = 'order_id',
+    how = 'left'
+)
+
+
+## Merge table with products to pull peoduct_name column.
+fn_targeting_list = df_fn_with_ids.merge(
+    products[['product_id', 'product_name']],
+    on = 'product_id',
+    how = 'left'
+)
+
+
+
+# --- 📌 Select only the columns to send to the marketing team ---
+
+fn_final_list = fn_targeting_list[[
+    'order_id',
+    'user_id',
+    'product_id',
+    'product_name',
+    'y_true',
+    'y_pred'
+]]
+
+print("--- FN list to sent to the Marketing team ---")
+print(fn_final_list.head())
+# ## result:
+# --- FN list to sent to the Marketing team ---
+#    order_id  user_id  product_id                             product_name  y_true  y_pred 
+# 0   1294839   205612       40299                Soft Taco Flour Tortillas       1       0
+# 1     39970   190147       18598       Expeller Pressed Coconut Oil Spray       1       0
+# 2   1674413   195355       28199                         Clementines, Bag       1       0
+# 3   1996250    41783       33548  Peach on the Bottom Nonfat Greek Yogurt       1       0
+# 4    751608    64424        6020               Organic Crushed Red Pepper       1       0 
+
+
+
+# 📢 Test Set
+
+# --- 📂 Download and Prepare the "Test Set" ---
+
+## Download the 'testset' dataset.
+orders_test = orders[orders['eval_set'] == 'test'][['order_id', 'user_id']]
+
+
+test_user_products = up_features[['user_id', 'product_id']].copy()
+
+
+## Merge the 'test_user_products' and 'orders_test' tables.
+test_set = test_user_products.merge(
+    orders_test[['user_id', 'order_id']],
+    on = 'user_id',
+    how = 'inner'
+)
+
+print(test_set.head())
+# ## result:
+#    user_id  product_id  order_id
+# 0        3         248   2774568
+# 1        3        1005   2774568
+# 2        3        1819   2774568
+# 3        3        7503   2774568
+# 4        3        8021   2774568
+
+
+print(f"Size of the 'Test set' to predict: {len(test_set):,} rows")
+# ## result:
+Size of the 'Test set' to predict: 4,833,292 rows
+
+
+
+# --- 🏷️ Merge 3 features into a 'Test set' ---
+
+## Merge user features (customer level).
+test_set = test_set.merge(
+    cust_features,
+    on = 'user_id',
+    how = 'left'
+)
+
+
+## Merge product features.
+test_set = test_set.merge(
+    prod_features,
+    on = 'product_id',
+    how = 'left'
+)
+
+
+## Merge user-product features.
+test_set = test_set.merge(
+    up_features,
+    on = ['user_id', 'product_id'],
+    how = 'left'
+)
+
+
+
+# --- 🏷️ Manage NaN value and select 4 main features ---
+
+## check NaN value.
+test_set.isna().sum()
+
+
+## Select 4 core features to 'test set'.
+core_features = [
+    'count_orders',
+    'avg_days_between_reorder',
+    'prod_reorder_rate',
+    'user_avg_days_between_orders'
+]
+
+x_test = test_set[core_features]
+
+print(x_test.head())
+# ## result:
+#    count_orders  avg_days_between_reorder  prod_reorder_rate  user_avg_days_between_orders
+# 0             1                      30.0           0.400251                     12.090909
+# 1             1                      30.0           0.440605                     12.090909
+# 2             3                       7.0           0.492162                     12.090909
+# 3             1                      30.0           0.553551                     12.090909 
+# 4             1                      30.0           0.591157                     12.090909
+
+
+
+# --- 🏷️ Predicting outcomes and formatting ---
+
+## Use the model trained with X_train to predict the probability in the test set.
+
+## Predict the probability of repeat purchases (Y=1).
+## LogisticRegression model
+
+test_set['reordered_proba'] = model.predict_proba(x_test)[:, 1]
+
+
+## Threshold
+threshold = 0.4
+
+test_set['reordered'] = (test_set['reordered_proba'] > threshold).astype(int)
+
+
+## To see user_id, product_id, reordered_proba = probability, reordered = the last prediction.
+print(test_set[['user_id', 'product_id', 'reordered_proba', 'reordered']].head())
+# ## result:
+#    user_id  product_id  reordered_proba  reordered
+# 0        3         248         0.138504          0
+# 1        3        1005         0.149115          0
+# 2        3        1819         0.664711          1
+# 3        3        7503         0.182388          0
+# 4        3        8021         0.194676          0
+
+
+## To see the distribution of predictions.
+print(test_set['reordered'].value_counts())
+# ## result:
+# reordered
+# 0    2844299
+# 1    1988993
+# Name: count, dtype: int64
+
+
+## To see the statistics of probability by .describe().
+proba_stats = test_set['reordered_proba'].describe()
+select_stats = proba_stats.loc[['count', 'mean', '50%', 'std']]
+
+## Rename 50% to median.
+select_stats = select_stats.rename({'50%': 'median'})
+
+## Change the display format by def (def is function) use with mean, median and std.
+def format_stats_series(series):
+  format = []
+  for index, value in series.items():
+      if index == 'count':
+          format.append(f"{int(value):,}")
+      else:
+          format.append(f"{value * 100:.2f}%")
+  return pd.Series(format, index=series.index)
+
+format_stats = format_stats_series(select_stats)
+
+print(format_stats)
+# ## result:
+# count     4,833,292
+# mean         35.11%
+# median       31.35%
+# std          21.92%
+# dtype: object
+
+
+## Filter data reordered = 1 only.
+test_predictions = test_set[test_set['reordered'] == 1]
+
+
+## Combine product_id into a single string for each order_id.
+test_pred_agg = test_predictions.groupby('order_id').aggregate(
+    products = ('product_id', lambda x: ' '.join(x.astype(str)))
+).reset_index()
+
+
+## Pull all order_id in the test set and join them to find the unpredicted orders.
+all_test_orders = orders_test[['order_id']].drop_duplicates()
+
+final_test_pred = all_test_orders.merge(
+    test_pred_agg,
+    on = 'order_id',
+    how = 'left'
+)
+
+
+## Check NaN value.
+final_test_pred.isna().sum()
+# ## result:
+#             0
+# order_id	  0
+# products	683
+
+# dtype: int64
+
+
+## Replace NaN value with 'None'.
+final_test_pred['products'] = final_test_pred['products'].fillna('None')
+
+
+## Check NaN value.
+final_test_pred.isna().sum()
+
+
+
+# --- 🏷️ Evaluate the model performance using the test_set table ---
+
+## Use the best threshold (0.4) from y_val.
+best_threshold = 0.4
+
+## Predict the probability from feature (x_test).
+y_pred_proba_test = model.predict_proba(x_test)[:, 1]
+
+## Convert to a prediction of 0 or 1.
+y_pred_test = (y_pred_proba_test >= best_threshold).astype(int)
+
+print(y_pred_proba_test)
+print(y_pred_test)
+# ## result:
+# [0.13850429 0.14911547 0.66471129 ... 0.14255925 0.05679411 0.13967566]
+# [0 0 1 ... 0 0 0]
+
+
+## Merge and filer process.
+
+# Merge table.
+test_set['y_pred'] = y_pred_test
+
+# Filter process.
+targeting_df = test_set[['user_id', 'product_id', 'y_pred']].copy()
+
+print(targeting_df.head())
+# ## result:
+#    user_id  product_id  y_pred
+# 0        3         248       0
+# 1        3        1005       0
+# 2        3        1819       1
+# 3        3        7503       0
+# 4        3        8021       0
+
+
+## Filter y_pred == 1 only.
+final_targeting_list = targeting_df[targeting_df['y_pred'] == 1].copy()
+
+
+# Merge table with products to retrieve the product_id and product_name columns.
+final_targeting_list = final_targeting_list.merge(
+    products[['product_id', 'product_name']],
+    on = 'product_id',
+    how = 'left'
+)
+
+print("\n--- Final Targeting List ---")
+print(final_targeting_list)
+# ## result:
+# --- Final Targeting List ---
+#          user_id  product_id  y_pred                              product_name
+# 0              3        1819       1  All Natural No Stir Creamy Almond Butter
+# 1              3        9387       1                       Granny Smith Apples
+# 2              3       14992       1                               Green Beans
+# 3              3       16797       1                              Strawberries
+# 4              3       16965       1                       Chocolate Ice Cream
+# ...          ...         ...     ...                                       ...
+# 1988988   206208       45007       1                          Organic Zucchini
+# 1988989   206208       46069       1                              Supergreens!
+# 1988990   206208       46667       1                       Organic Ginger Root
+# 1988991   206208       46847       1   Quick Cooking Rolled Oats Irish Oatmeal
+# 1988992   206208       47626       1                               Large Lemon
+
+# [1988993 rows x 4 columns]
+
+
+
+# --- 📊 Create charts to show the 'Test_set' ---
+
+
+# --- 🏷️ Bar Chart ---
+## Count values (reordered_next) ​​to create a graph.
+data_to_plot_pred = test_set['reordered'].value_counts().reset_index()
+
+## Edit column name.
+data_to_plot_pred.columns = ['Reordered', 'Count']
+
+## Convert number to text.
+data_to_plot_pred['Reordered'] = data_to_plot_pred['Reordered'].astype(str).replace(
+    {'0': 'Not Reordered',
+     '1': 'Reordered'}
+)
+
+print(data_to_plot_pred)
+# ## result:
+#        Reordered    Count
+# 0  Not Reordered  2844299
+# 1      Reordered  1988993
+
+
+## Create a Bar Chart
+
+## Set Figure Size (Canvas Size).
+plt.figure(figsize = (6, 4))
+sns.barplot(x = 'Reordered',
+            y = 'Count',
+            data = data_to_plot_pred)
+
+## Customize the graph.
+plt.ticklabel_format(style = 'plain',  # to close the Scientific Notation (such as 1e + 06).
+                     axis = 'y')  # set up axis = y only.
+plt.title('Distribution of Predicted Reordered Labels (Test Set)')
+plt.xlabel('Predicted Reordered Status')  # Chart show 'the prediction' of model from Test_set.
+plt.ylabel('Count of User-Product Pairs') # use data from User and Product together.
+plt.show()
+
+
+
+# --- 🏷️ Histogram Chart ---
+## Analyze Predicted Probability Distribution on Test Set
+
+## 1. Set Figure Size (Canvas Size).
+plt.figure(figsize = (10, 6))
+
+## 2. Create a Histogram chart and KDE plot.
+sns.histplot(
+    data = test_set,
+    x = 'reordered_proba',
+    bins = 50,
+    kde = True,  # Show the kde (Kernel Density Estimate) is a curved line runs across the histogram.
+    color = '#2ca02c'
+)
+
+## 3. Add line of Threshold 0.4.
+threshold = 0.4
+plt.axvline(threshold,
+            color = 'red',
+            linestyle = '--',
+            label = f"Decision Threshold ({threshold})")
+plt.legend()
+
+## 4. Customize the graph.
+plt.title('Distribution of Predicted Reorder Probability on Test Set', fontsize = 14)
+plt.xlabel('Predicted Probability (P(Reorder) | X)', fontsize = 12)
+plt.ylabel('Count of User-Product Pairs', fontsize = 12)
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+
+plt.show()
+
+
+
+
+
+
+
+
+
+
+
 
 
 
