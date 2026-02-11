@@ -262,15 +262,6 @@ merged_all['reordered_next'] = merged_all['reordered_next'].fillna(0)
 
 negative_pool = merged_all[merged_all['reordered_next'] == 0].drop(columns = ['reordered_next'])
 
-print(negative_pool.head())
-# ## result:
-#           user_id  product_id
-# 2               1       10326
-# 3               1       12427
-# 5               1       13176
-# 6               1       14084
-# 7               1       17122
-
 
 ## Perform 1:1 negative sampling (with positive_cases)
 N = len(positive_cases)
@@ -568,15 +559,6 @@ validation_df['product_id'] = product_id_val
 ## Predict the outcome (y_pred) on x_val.
 validation_df['reordered_proba'] = model.predict_proba(x_val)[:, 1]
 
-print(validation_df.head())
-# ## result:
-#          count_orders  avg_days_between_reorder  prod_reorder_rate  user_avg_days_between_orders  reordered_actual  product_id  reordered_proba
-# 527041            1.0                 30.000000           0.521021                     11.190476                 1       40299         0.158635
-# 1694697           1.0                 30.000000           0.619973                     12.285714                 0       31717         0.208004
-# 2111176           1.0                 30.000000           0.715237                      8.000000                 0       33845         0.167549 
-# 2639205           1.0                 30.000000           0.854342                      6.100000                 0       29447         0.180331
-# 2440381           6.0                  8.166667           0.650427                      7.020833                 0        9387         0.543526
-
 
 ## Set the prediction result (y_pred) by Threshold @ 0.40.
 threshold = 0.40
@@ -624,22 +606,6 @@ validation_df = validation_df.rename(columns = {
     'aisle_id': 'category_id',
     'aisle': 'category_name'
 })
-
-print(validation_df.head())
-# ## result:
-#    count_orders  avg_days_between_reorder  prod_reorder_rate  user_avg_days_between_orders  reordered_actual  product_id  \
-# 0           1.0                 30.000000           0.521021                     11.190476                 1       40299
-# 1           1.0                 30.000000           0.619973                     12.285714                 0       31717
-# 2           1.0                 30.000000           0.715237                      8.000000                 0       33845
-# 3           1.0                 30.000000           0.854342                      6.100000                 0       29447
-# 4           6.0                  8.166667           0.650427                      7.020833                 0        9387
-
-#    reordered_proba  reordered_pred  category_id         category_name  
-# 0         0.158635               0          128  tortillas flat bread  
-# 1         0.208004               0           16           fresh herbs  
-# 2         0.167549               0          120                yogurt  
-# 3         0.180331               0           84                  milk  
-# 4         0.543526               1           24          fresh fruits  
 
 
 
@@ -859,14 +825,6 @@ print(fn_mask.head())
 ## Filter
 df_fn_list = df_val[fn_mask]
 
-print(df_fn_list.head())
-# ## result:
-#         count_orders  avg_days_between_reorder  prod_reorder_rate  user_avg_days_between_orders  y_true  y_pred
-# 527041           1.0                      30.0           0.521021                     11.190476       1       0
-# 16552            1.0                      30.0           0.291203                     11.750000       1       0
-# 681850           2.0                      30.0           0.603038                     20.333333       1       0
-# 809304           2.0                      30.0           0.690094                     12.000000       1       0
-# 308569           1.0                      30.0           0.081888                     13.333333       1       0  
 
 
 # --- Merging table ---
@@ -875,7 +833,7 @@ df_fn_list_reset = df_fn_list.reset_index()
 
 print(df_fn_list_reset.head())
 # ## result:
-    index  count_orders  avg_days_between_reorder  prod_reorder_rate  user_avg_days_between_orders  y_true  y_pred
+#     index  count_orders  avg_days_between_reorder  prod_reorder_rate  user_avg_days_between_orders  y_true  y_pred
 # 0  527041           1.0                      30.0           0.521021                     11.190476       1       0 
 # 1   16552           1.0                      30.0           0.291203                     11.750000       1       0
 # 2  681850           2.0                      30.0           0.603038                     20.333333       1       0
@@ -1288,25 +1246,4 @@ plt.ylabel('Count of User-Product Pairs', fontsize = 12)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 
 plt.show()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
