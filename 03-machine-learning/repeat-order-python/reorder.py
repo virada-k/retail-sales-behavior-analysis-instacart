@@ -883,7 +883,7 @@ df_fn_with_ids = df_fn_with_order_id.merge(
 )
 
 
-## Merge table with products to pull peoduct_name column.
+## Merge table with products to pull product_name column.
 fn_targeting_list = df_fn_with_ids.merge(
     products[['product_id', 'product_name']],
     on = 'product_id',
