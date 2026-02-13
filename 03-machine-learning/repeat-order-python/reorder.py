@@ -507,7 +507,7 @@ print(feature_importance)
 
 
 
-# --- 🏷️ Calculation to find the 'F1-Score' ---
+# --- 🏷️ Optimal Threshold Identification ---
 
 from sklearn.metrics import f1_score ## add f1_score
 
@@ -785,7 +785,7 @@ cm_results, metrics_summary_df = calculate_metrics(
 
 
 
-# --- 🏷️ Notification of Customer (FN) List to Marketing ---
+# --- 🏷️ Error Analysis: Checking for False Negatives results ---
 ## FN (False Negative) = Missed sales opportunities
 
 
@@ -892,7 +892,7 @@ fn_targeting_list = df_fn_with_ids.merge(
 
 
 
-# --- 📌 Select only the columns to send to the marketing team ---
+# --- 📌 False Negative list for checking ---
 
 fn_final_list = fn_targeting_list[[
     'order_id',
@@ -903,10 +903,10 @@ fn_final_list = fn_targeting_list[[
     'y_pred'
 ]]
 
-print("--- FN list to sent to the Marketing team ---")
+print("--- FN list for checking ---")
 print(fn_final_list.head())
 # ## result:
-# --- FN list to sent to the Marketing team ---
+# --- FN list for checking ---
 #    order_id  user_id  product_id                             product_name  y_true  y_pred 
 # 0   1294839   205612       40299                Soft Taco Flour Tortillas       1       0
 # 1     39970   190147       18598       Expeller Pressed Coconut Oil Spray       1       0
