@@ -1040,7 +1040,7 @@ print(test_set['reordered'].value_counts())
 # Name: count, dtype: int64
 
 
-## To see the statistics of probability by .describe().
+## Descriptive Statistics of Predicted Probabilities [.describe()].
 proba_stats = test_set['reordered_proba'].describe()
 select_stats = proba_stats.loc[['count', 'mean', '50%', 'std']]
 
