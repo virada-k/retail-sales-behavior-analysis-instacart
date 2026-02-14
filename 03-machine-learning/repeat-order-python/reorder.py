@@ -398,7 +398,7 @@ y = final_train_data['reordered_next']
 ## Split Training and Validation data.
 x_train, x_val, y_train, y_val = train_test_split(x, y, test_size=0.2, random_state = 22)
 
-## x_train, x_val = features (cause) | y_train, y_val = target(0, 1) (effect)
+## x_train, x_val = features (cause, predictors) | y_train, y_val = target(0, 1) (effect)
 
 
 ## Create training model.
@@ -473,6 +473,11 @@ plt.xlabel('Reordered Status')  # Merge between 'Order_id' and 'Product_id', it 
 plt.ylabel('Number of Orders')
 plt.show()
 
+# "This bar chart confirms the success of the 1:1 Negative Sampling strategy, demonstrating that the Validation Set is well-balanced. 
+# This balance is achieved by sampling negative cases to match the number of positive cases, 
+# directly impacting the target variable (y = final_train_data['reordered_next']). 
+# A balanced dataset is critical, as it ensures that metrics like Accuracy and F1-Score truly reflect the model's predictive performance 
+# without being inflated by class imbalance."
 
 
 # 📢 Validation Set
@@ -785,7 +790,7 @@ cm_results, metrics_summary_df = calculate_metrics(
 
 
 
-# --- 🏷️ Error Analysis: Checking for False Negatives results ---
+# --- 📌 Error Analysis: Checking for False Negatives results ---
 ## FN (False Negative) = Missed sales opportunities
 
 
@@ -807,95 +812,41 @@ print(df_val.head())
 # 2440381           6.0                  8.166667           0.650427                      7.020833       0       1 
 
 
-## Create boolean mask and pull customer names (FN).
+## Retrieve 'user_id' and 'product_id' from 'final_train_data'
+
+df_val['user_id'] = final_train_data.loc[x_val.index, 'user_id']
+df_val['product_id'] = final_train_data.loc[x_val.index, 'product_id']
+
+
+## Create boolean mask and pull customer names (To filter 'FN').
 
 # FN is y_true = 1 and y_pred = 0
 fn_mask = (df_val['y_true'] == 1) & (df_val['y_pred'] == 0)
 
-print(fn_mask.head())
-# ## result:
-# 527041      True
-# 1694697    False
-# 2111176    False
-# 2639205    False
-# 2440381    False
-# dtype: bool
-
-
 ## Filter
 df_fn_list = df_val[fn_mask]
 
-
-
-# --- Merging table ---
-
-df_fn_list_reset = df_fn_list.reset_index()
-
-print(df_fn_list_reset.head())
+print(df_fn_list.head())
 # ## result:
-#     index  count_orders  avg_days_between_reorder  prod_reorder_rate  user_avg_days_between_orders  y_true  y_pred
-# 0  527041           1.0                      30.0           0.521021                     11.190476       1       0 
-# 1   16552           1.0                      30.0           0.291203                     11.750000       1       0
-# 2  681850           2.0                      30.0           0.603038                     20.333333       1       0
-# 3  809304           2.0                      30.0           0.690094                     12.000000       1       0
-# 4  308569           1.0                      30.0           0.081888                     13.333333       1       0  
+#         count_orders  avg_days_between_reorder  prod_reorder_rate  user_avg_days_between_orders  y_true  y_pred  user_id  product_id
+# 527041           1.0                      30.0           0.521021                     11.190476       1       0   205612       40299 
+# 16552            1.0                      30.0           0.291203                     11.750000       1       0   190147       18598
+# 681850           2.0                      30.0           0.603038                     20.333333       1       0   195355       28199
+# 809304           2.0                      30.0           0.690094                     12.000000       1       0    41783       33548
+# 308569           1.0                      30.0           0.081888                     13.333333       1       0    64424        6020  
 
 
-df_fn_list_reset = df_fn_list.reset_index()
-
-## Revise index column to primary key.
-df_fn_list_reset = df_fn_list_reset.rename(columns = {'index': 'order_product_key'})
-
-
-## Merge table with 'op_train' to get 'order_id' and 'product_id' columns.
-op_train_key = op_train.copy()
-op_train_key = op_train_key.reset_index().rename(columns = {'index': 'order_product_key'})
-op_train_key = op_train_key[['order_product_key', 'order_id', 'product_id']]
-
-df_fn_with_order_id = df_fn_list_reset.merge(
-    op_train_key,
-    on = 'order_product_key',
-    how = 'left'
-)
-
-print(df_fn_with_order_id.head())
-# ## result:
-#    order_product_key  count_orders  avg_days_between_reorder  prod_reorder_rate  user_avg_days_between_orders  y_true  y_pred  \
-# 0             527041           1.0                      30.0           0.521021                     11.190476       1       0
-# 1              16552           1.0                      30.0           0.291203                     11.750000       1       0
-# 2             681850           2.0                      30.0           0.603038                     20.333333       1       0
-# 3             809304           2.0                      30.0           0.690094                     12.000000       1       0
-# 4             308569           1.0                      30.0           0.081888                     13.333333       1       0
-
-#    order_id  product_id
-# 0   1294839       40299
-# 1     39970       18598
-# 2   1674413       28199
-# 3   1996250       33548
-# 4    751608        6020
-
-
-## Merge table with 'orders' to get 'user_id' column.
-df_fn_with_ids = df_fn_with_order_id.merge(
-    orders[['order_id', 'user_id']],
-    on = 'order_id',
-    how = 'left'
-)
-
-
-## Merge table with 'products' to get 'product_name' column.
-fn_targeting_list = df_fn_with_ids.merge(
+## Merge table with 'products' to get 'product_id' and 'product_name' column.
+fn_final_list = df_fn_list.merge(
     products[['product_id', 'product_name']],
     on = 'product_id',
     how = 'left'
 )
 
 
-
-# --- 📌 False Negative list for checking ---
+## False Negative list for checking
 
 fn_final_list = fn_targeting_list[[
-    'order_id',
     'user_id',
     'product_id',
     'product_name',
@@ -904,17 +855,22 @@ fn_final_list = fn_targeting_list[[
 ]]
 
 print("--- FN list for checking ---")
-print(fn_final_list.head())
+print(fn_final_list.head(10))
 # ## result:
 # --- FN list for checking ---
-#    order_id  user_id  product_id                             product_name  y_true  y_pred 
-# 0   1294839   205612       40299                Soft Taco Flour Tortillas       1       0
-# 1     39970   190147       18598       Expeller Pressed Coconut Oil Spray       1       0
-# 2   1674413   195355       28199                         Clementines, Bag       1       0
-# 3   1996250    41783       33548  Peach on the Bottom Nonfat Greek Yogurt       1       0
-# 4    751608    64424        6020               Organic Crushed Red Pepper       1       0 
+#    user_id  product_id                                       product_name  y_true  y_pred
+# 0   205612       40299                          Soft Taco Flour Tortillas       1       0
+# 1   190147       18598                 Expeller Pressed Coconut Oil Spray       1       0
+# 2   195355       28199                                   Clementines, Bag       1       0
+# 3    41783       33548            Peach on the Bottom Nonfat Greek Yogurt       1       0
+# 4    64424        6020                         Organic Crushed Red Pepper       1       0
+# 5   114716       47626                                        Large Lemon       1       0
+# 6   113602       12087                   Chicken Flavor Ramen Noodle Soup       1       0
+# 7   149731       25890                  Boneless Skinless Chicken Breasts       1       0
+# 8   168889       18599                                    Garlic Couscous       1       0
+# 9    69230       32843  Uncured Ham-Egg & Cheddar Multi-Grain Flatbrea...       1       0
 
-
+     
 
 # 📢 Test Set
 
@@ -1203,16 +1159,21 @@ marketing_output = final_marketing_list[[
 ]].sort_values(by=['user_id', 'reordered_proba'], ascending = [True, False])
 
 print("--- Final List for Marketing team ---")
-print(marketing_output.head())
+print(marketing_output.head(10))
 # ## result:
 # --- Final List for Marketing team ---
-#     user_id  product_id                 product_name  reordered_proba
-# 8         3       22035  Organic Whole String Cheese         0.780194
-# 3         3       16797                 Strawberries         0.754814
-# 10        3       24010    Wheat Gluten Free Waffles         0.736602
-# 2         3       14992                  Green Beans         0.717975
-# 16        3       44683             Brussels Sprouts         0.698129
-
+#     user_id  product_id                              product_name   reordered_proba
+# 8         3       22035               Organic Whole String Cheese          0.780194
+# 3         3       16797                              Strawberries          0.754814
+# 10        3       24010                 Wheat Gluten Free Waffles          0.736602
+# 2         3       14992                               Green Beans          0.717975
+# 16        3       44683                          Brussels Sprouts          0.698129
+# 15        3       43961         Organic Peeled Whole Baby Carrots          0.686307
+# 0         3        1819  All Natural No Stir Creamy Almond Butter          0.664711
+# 18        3       48523             Birthday Cake Light Ice Cream          0.663511
+# 12        3       28373               Original Rotisserie Chicken          0.657273
+# 7         3       21903                      Organic Baby Spinach          0.623292
+         
 
 ## Export CSV file to send to Marketing team.
 # marketing_output.to_csv('instacart_marketing_targets.csv', index=False)
