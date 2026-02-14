@@ -847,7 +847,7 @@ df_fn_list_reset = df_fn_list.reset_index()
 df_fn_list_reset = df_fn_list_reset.rename(columns = {'index': 'order_product_key'})
 
 
-## Merge table with op_train to pull order_id and product_id columns.
+## Merge table with 'op_train' to get 'order_id' and 'product_id' columns.
 op_train_key = op_train.copy()
 op_train_key = op_train_key.reset_index().rename(columns = {'index': 'order_product_key'})
 op_train_key = op_train_key[['order_product_key', 'order_id', 'product_id']]
@@ -875,7 +875,7 @@ print(df_fn_with_order_id.head())
 # 4    751608        6020
 
 
-## Merge table with orders to pull user_id column.
+## Merge table with 'orders' to get 'user_id' column.
 df_fn_with_ids = df_fn_with_order_id.merge(
     orders[['order_id', 'user_id']],
     on = 'order_id',
@@ -883,7 +883,7 @@ df_fn_with_ids = df_fn_with_order_id.merge(
 )
 
 
-## Merge table with products to pull product_name column.
+## Merge table with 'products' to get 'product_name' column.
 fn_targeting_list = df_fn_with_ids.merge(
     products[['product_id', 'product_name']],
     on = 'product_id',
@@ -1172,6 +1172,51 @@ print(final_targeting_list)
 # 1988992   206208       47626       1                               Large Lemon
 
 # [1988993 rows x 4 columns]
+
+
+
+# --- 📌 Marketing Targeting List ---
+# After verifying the model on the Test Set, we extract the list of customers
+# predicted to reorder (Y=1) to be used for marketing campaigns.
+
+
+## Filter only items where the model predicts a reorder (reordered == 1).
+final_marketing_list = test_set[test_set['reordered'] == 1].copy()
+
+
+## Merge table with 'products' to get 'product_name'.
+
+final_marketing_list = final_marketing_list.merge(
+    products[['product_id', 'product_name']],
+    on = 'product_id',
+    how = 'left'
+)
+
+
+## Select relevant columns to provide to the Marketing team
+
+marketing_output = final_marketing_list[[
+    'user_id',
+    'product_id',
+    'product_name',
+    'reordered_proba'
+]].sort_values(by=['user_id', 'reordered_proba'], ascending = [True, False])
+
+print("--- Final List for Marketing team ---")
+print(marketing_output.head())
+# ## result:
+# --- Final List for Marketing team ---
+#     user_id  product_id                 product_name  reordered_proba
+# 8         3       22035  Organic Whole String Cheese         0.780194
+# 3         3       16797                 Strawberries         0.754814
+# 10        3       24010    Wheat Gluten Free Waffles         0.736602
+# 2         3       14992                  Green Beans         0.717975
+# 16        3       44683             Brussels Sprouts         0.698129
+
+
+## Export CSV file to send to Marketing team.
+# marketing_output.to_csv('instacart_marketing_targets.csv', index=False)
+
 
 
 
