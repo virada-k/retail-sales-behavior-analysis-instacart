@@ -4,7 +4,7 @@ Customer Segment ML is identification and grouping customer base on their purcha
 <br>
 
 ## 🏷️ Business Motivation
-- To predict customer segment at high risk of customer churn.
+- To predict customer segmentations at high risk of customer churn.
 - To find stategies to encourage customers to return to the service before they permanently churn.
 
 <br>
