@@ -846,7 +846,7 @@ fn_final_list = df_fn_list.merge(
 
 ## False Negative list for checking
 
-fn_final_list = fn_targeting_list[[
+fn_final_list = fn_final_list[[
     'user_id',
     'product_id',
     'product_name',
