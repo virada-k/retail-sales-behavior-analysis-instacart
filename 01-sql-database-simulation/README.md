@@ -4,7 +4,7 @@ You can find the full simulation script in [database-simulation.sql](database-si
 
 <br>
 
-## Create Table
+## 📝 Create Table
 I have attached the SQL script for creating the table below.
 
 ```sql
@@ -23,7 +23,7 @@ CREATE TABLE orders (
 
 <br>
 
-## Database Simulation Results
+## 📑 Database Simulation Results
 This screenshot shows the 'orders' table with sample data successfully created in Beekeeper Studio.
 
 ![Order Table Result](result-of-order-sample.PNG)
