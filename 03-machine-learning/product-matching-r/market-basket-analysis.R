@@ -1,4 +1,6 @@
-# Download package
+# 📢 Project: Instacart Market Basket Analysis
+
+# 📂 Download package
 library(data.table)
 library(dplyr)
 library(arules)
@@ -6,7 +8,7 @@ library(arulesViz)
 library(ggplot2)
 
 
-# Download data
+# 📂 Download data
 op_prior <- fread("order_products__prior.csv",
                   select = c("order_id", "product_id"))
 
@@ -37,7 +39,7 @@ length(unique(df_merged$order_id))
 
 
 
-# Convert the data to "sampling"
+# 🛎️ Convert the data to "sampling"
 
 all_order_id <- unique(df_merged$order_id)
 
@@ -126,7 +128,7 @@ inspect(transactions[1:3])
 #      Zero Ultra Energy Drink}                                         1979
 
 
-## ML: apriori process
+## 🛎️ ML: apriori process
 apriori_rules <- apriori(transactions, parameter = list(
   support = 0.001,  
   # 10000*0.001 = 10 (product matching behavior at least 10 times)
@@ -179,7 +181,7 @@ rules_sort <- sort(apriori_rules,
                    by = "lift", 
                    decreasing = TRUE)
 
-## Display all rules
+## ✨ Display all rules
 inspect(rules_sort)
 # ## result:
 #      lhs                                     rhs                                             support confidence coverage       lift count
@@ -219,10 +221,10 @@ inspect(rules_sort)
 # ------------------------------------------------------- #
 
 
-# Select only Top 5 rules to ensure clear visualization
+# 💡 Select only Top 5 rules to ensure clear visualization
 top_5_rules <- head(rules_sort, n = 5)
 
-## Display rules for analysis
+## ✨ Display rules for analysis
 inspect(top_5_rules)
 # ## result:
 #     lhs                                     rhs                                             support confidence coverage       lift count
@@ -238,7 +240,7 @@ inspect(top_5_rules)
 
 
 
-# Visualization (Network Graph)
+# 📊 Visualization (Network Graph)
 plot(top_5_rules, 
      method = "graph",
      engine = "htmlwidget")
@@ -267,7 +269,7 @@ webshot("rules_plot.html", file = "association_rules.png", delay = 2)
 
 
 
-# Visualization (Bar Chart)
+# 📊 Visualization (Bar Chart)
 
 ## Create a data frame
 rules_df <- as(top_5_rules, "data.frame") %>%
@@ -289,7 +291,7 @@ print(rules_df)
 # 6  0.0010  0.6666667   4.675082
 
 
-## Bar Chart: Top 5 Product Rules
+## 📊 Bar Chart: Top 5 Product Rules
 ggplot(rules_df, mapping = aes(x = reorder(rules, lift), 
                                y = lift,
                                fill = lift)) +
