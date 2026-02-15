@@ -22,7 +22,13 @@ This project aims to optimize Instacart's marketing efficiency by predicting whe
 
     **4. User Habits (user_avg_days_between_orders):** The customer's general shopping frequency.
 
-  - **Key Results**
+- **Key Results:**
+   - **Model Performance:** Achieved a ROC AUC score of this model is 0.81, which means it has the ability to separate positives from negatives by 81%.
+   - **Optimal Strategy:** By setting a Threshold of 0.40, the model balances precision and recall, effectively identifying customers who are most likely to make purchase decision.
+   - **Business Impact:** Generated a Targeted Marketing List of over 1.9 million user-product pairs, sorted (ranked) by probability, to prioritize marketing efforts and maximize "return on investment (ROI)".
+
+- **Strategic Insights (Error Analysis)**
+   A deep dive into False Negatives revealed that the model occasionally misses "long-cycle" items like spices and pantry staples (household items). This insight provides a clear roadmap for Model V.2, where adding "Recency" and "Product Category" features could further improve predictions for various product types.
 
 <br>
 
