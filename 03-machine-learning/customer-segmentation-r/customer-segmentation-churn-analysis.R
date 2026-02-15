@@ -1,10 +1,12 @@
-# Download Library
+# 📢 Project: Instacart Customer Segmentation
+
+# 📂 Download Library
 library(dplyr)
 library(data.table)
 library(ggplot2)
 
 
-# Download Dataset
+# 📂 Download Dataset
 cus_seg <- fread("orders.csv")
 
 
@@ -34,7 +36,7 @@ head(cus_seg, n = 8)
 
 
 
-# Prepare the RF analysis for K-means modeling process
+# 🛎️ Prepare the RF analysis for K-means modeling process
 
 # ## Note: I found the RF (Recency & Frequency) analysis, not the M analysis (Monetary), because this dataset does not contain price data.
 
@@ -123,7 +125,7 @@ sum(rf_data$count_order_num == 0)
 # [1] 0
 
 
-## Adjust the scale to avoid outlines by log() function.
+## 🛎️ Adjust the scale to avoid outlines by log() function.
 rf_data_scaled <- rf_data %>%
   mutate(R_log = log(last_order_date + 1),
          F_log = log(count_order_num + 1)) %>%
@@ -138,7 +140,7 @@ rf_data_scaled <- na.omit(rf_data_scaled)
 
 
 
-# ML: K-means process
+# 🛎️ ML: K-means process
 
 k <- 4
 
@@ -188,7 +190,7 @@ print(cluster_labels)
 # 4       4 At-Risk Loyalists
 
 
-## Create a Customer Group
+## 🛎️ Segment customers based on customer_level criteria
  
 ## Merge table between "rf_data & cluster_labels"
 customer_cluster <- rf_data %>%
@@ -215,7 +217,7 @@ print(customer_cluster)
 # ℹ Use `print(n = ...)` to see more rows
 
 
-## Cluster no. 1 "New Customers"
+## 💡 Cluster no. 1 "New Customers"
 new_customers <- customer_cluster %>%
   filter(cluster == 1)
 
@@ -238,7 +240,7 @@ print(new_customers)
 # ℹ Use `print(n = ...)` to see more rows
 
 
-## Cluster no. 2 "Lost Customers"
+## 💡 Cluster no. 2 "Lost Customers"
 lost_customers <- customer_cluster %>%
   filter(cluster == 2)
 
@@ -261,7 +263,7 @@ print(lost_customers)
 # ℹ Use `print(n = ...)` to see more rows
 
 
-## Cluster no. 3 "Core Loyalists"
+## 💡 Cluster no. 3 "Core Loyalists"
 core_loyalists <- customer_cluster %>%
   filter(cluster == 3)
 
@@ -284,7 +286,7 @@ print(core_loyalists)
 # ℹ Use `print(n = ...)` to see more rows
 
 
-## Cluster no. 4 "At-Risk Loyalists"
+## 💡 Cluster no. 4 "At-Risk Loyalists"
 at_risk_loyalists <- customer_cluster %>%
   filter(cluster == 4)
 
@@ -308,9 +310,9 @@ print(at_risk_loyalists)
 
 
 
-## Predictive Churn Analysis
+## 🛎️ Predictive Churn Analysis
 
-## Create the cycle_time
+## 🛎️ Create the cycle_time
 # ## Note: I created the variable cycle_time to compare variable between the cycle_time (past behavior) and recency (current behavior)
 # ## to filter out customers who likely to stop purchasing product.
 
@@ -370,7 +372,7 @@ print(cluster_cycle_analysis, n = 10)
 # ℹ Use `print(n = ...)` to see more rows
 
 
-## Target Groups Analysis (At-Risk Loyalists & Lost Customers)
+## 🎯 Target Groups Analysis (At-Risk Loyalists & Lost Customers)
 check_cluster_2_4 <- cluster_cycle_analysis %>%
   filter(cluster %in% c(2, 4)) %>%
   mutate(customer_level = case_when(
@@ -380,7 +382,7 @@ check_cluster_2_4 <- cluster_cycle_analysis %>%
   select(cus_id, cluster, customer_level, n_order_num, last_date, 
          avg_order_date, recency_vs_cycle)
 
-# ## Note: I would like to focus only on cluster 2 and 4, as these two clusters have a high risk of customer churn.
+# ## 🔑 Note: I would like to focus only on cluster 2 and 4, as these two clusters have a high risk of customer churn.
 
 print(check_cluster_2_4)
 # ## result:
@@ -488,7 +490,7 @@ print(cluster2_high_churn_risk)
 
 
 
-# Chart
+# 📊 Chart
 
 ## Prepare data set 1 (Total Count)
 total_data <- segment_summary %>%
@@ -549,7 +551,7 @@ print(plot_data)
 # 6 At-Risk Loyalists          29761 High Churn Risk 
 
 
-## Create Bar Chart (Side-by-Side)
+## 📊 Create Bar Chart (Side-by-Side)
 ggplot(plot_data, aes(x = customer_level, 
                       y = customer_count,
                       fill = Type)) +
