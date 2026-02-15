@@ -22,6 +22,8 @@ This project aims to optimize Instacart's marketing efficiency by predicting whe
 
     **4. User Habits (user_avg_days_between_orders):** The customer's general shopping frequency.
 
+  - **Key Results**
+
 <br>
 
 
