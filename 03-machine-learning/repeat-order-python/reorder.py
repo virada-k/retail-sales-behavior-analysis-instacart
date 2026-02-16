@@ -1080,7 +1080,7 @@ sns.barplot(x = 'Reordered',
 ## Customize the graph.
 plt.ticklabel_format(style = 'plain',  # to close the Scientific Notation (such as 1e + 06).
                      axis = 'y')  # set up axis = y only.
-plt.title('Distribution of Predicted Reordered Labels (Test Set)')
+plt.title('Test Set: Predicted Reorder Distribution')
 plt.xlabel('Predicted Reordered Status')  # Chart show 'the prediction' of model from Test_set.
 plt.ylabel('Count of User-Product Pairs') # use data from User and Product together.
 plt.show()
