@@ -72,13 +72,28 @@ y_pred = (y_pred_proba > threshold).astype(int)
 
 | Reordered | Count |
 | :--- | ---: |
-| Not Reordered | 2844299 |
-| Reordered | 1988993 |
+| Not Reordered | 2,844,299 |
+| Reordered | 1,988,993 |
 
 <br>
 
 ![test set bar chart](test-set-bar-chart-for-compare-reordered.png)
 
+<br>
+
+🎫 An example of a customer list table to send to the marketing team for creating a coupon giveaway campaign.
+
+<br>
+
+| user_id | product_id | product_name | reordered_proba |
+| ---: | ---: | :--- | ---: |
+| 3 | 22035 | Organic Whole String Cheese | 0.780 |
+| 3 | 16797 | Strawberries | 0.755 |
+| 3 | 24010 | Wheat Gluten Free Waffles | 0.737 |
+| 3 | 14992 | Green Beans | 0.718 |
+| 3 | 44683 | Brussels Sprouts | 0.698 |
+
+<br>
 <br>
 
 ### 💡 Histogram
@@ -97,21 +112,5 @@ The table below, mirroring the Histogram, shows examples of customer-product mat
 
 ![distribution](distribution-of-predicted-reorder-probability-on-test-set.png)
 
-<br>
 
-## 🛎️ Summary Table
-
-<br>
-
-🎫 An example of a customer list table to send to the marketing team for creating a coupon giveaway campaign.
-
-<br>
-
-| user_id | product_id | product_name | reordered_proba |
-| ---: | ---: | :--- | ---: |
-| 3 | 22035 | Organic Whole String Cheese | 0.780 |
-| 3 | 16797 | Strawberries | 0.755 |
-| 3 | 24010 | Wheat Gluten Free Waffles | 0.737 |
-| 3 | 14992 | Green Beans | 0.718 |
-| 3 | 44683 | Brussels Sprouts | 0.698 |
 
