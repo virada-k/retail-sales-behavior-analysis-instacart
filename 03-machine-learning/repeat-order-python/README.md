@@ -62,10 +62,55 @@ threshold = 0.40
 y_pred = (y_pred_proba > threshold).astype(int)
 ```
 
+<br>
+
+## 📊 Chart
+
+<br>
+  
+### 📊 Bar Chart
+
+(test set bar chart)[test-set-bar-chart-for-compare-reordered.png]
+
+
+
+       Reordered    Count
+0  Not Reordered  2844299
+1      Reordered  1988993
+
+<br>
+
+### 📊 Histogram
+
 
 
 <br>
 
-## 📊 Bar Chart
+## 📊 Summary Table
 
-  
+<br>
+
+The table below, mirroring the Histogram, shows examples of customer-product matching (user_id and product_id), which the "reordered_proba" column will use threshold 0.4 to determine the likelihood of a repeat order. If an item has a repeat purchase probability value >/= 0.4 indicates a high probability of a repeat purchase, while a value < 0.4 means a low probability of repurchase.
+
+| user_id | product_id | reordered_proba | reordered | 
+| ---: | ---: | ---: | ---: |
+| 3 | 248 | 0.14 | 0 |
+| 3 | 1005 | 0.15 | 0 |
+| 3 | 1819 | 0.66 | 1 |
+| 3 | 7503 | 0.18 | 0 |
+| 3 | 8021 | 0.19 | 0 |
+
+
+
+<br>
+
+- 🎫 An example of a customer list table to send to the marketing team for creating a coupon giveaway campaign.
+
+| user_id | product_id | product_name | reordered_proba |
+| ---: | ---: | :--- | ---: |
+| 3 | 22035 | Organic Whole String Cheese | 0.780 |
+| 3 | 16797 | Strawberries | 0.755 |
+| 3 | 24010 | Wheat Gluten Free Waffles | 0.737 |
+| 3 | 14992 | Green Beans | 0.718 |
+| 3 | 44683 | Brussels Sprouts | 0.698 |
+
