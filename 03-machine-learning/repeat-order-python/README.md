@@ -67,9 +67,8 @@ y_pred = (y_pred_proba > threshold).astype(int)
 ## 📊 Chart
 
 <br>
-<br>
-  
-### Bar Chart
+
+### 💡 Bar Chart
 
 | Reordered | Count |
 | :--- | ---: |
@@ -82,7 +81,7 @@ y_pred = (y_pred_proba > threshold).astype(int)
 
 <br>
 
-### Histogram
+### 💡 Histogram
 
 The table below, mirroring the Histogram, shows examples of customer-product matching (user_id and product_id), which the "reordered_proba" column will use threshold 0.4 to determine the likelihood of a repeat order. If an item has a repeat purchase probability value >/= 0.4 indicates a high probability of a repeat purchase, while a value < 0.4 means a low probability of repurchase.
 
