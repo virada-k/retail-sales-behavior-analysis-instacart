@@ -55,11 +55,8 @@ model = LogisticRegression(solver = 'saga', # 'saga' is an algorithm suitable fo
                            max_iter = 1000,
                            random_state = 22,
                            n_jobs = -1)
-```
 
-<br>
 
-```py
 ## Optimal Threshold Setting
 threshold = 0.40
 y_pred = (y_pred_proba > threshold).astype(int)
