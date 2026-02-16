@@ -30,7 +30,7 @@ This project aims to optimize Instacart's marketing efficiency. By using **Logis
 
 ## 📜 Key Results
    - **Model Performance:** Achieved a **ROC AUC score of 0.81**, demonstrating an 81% ability to separate between reorder and non-reorder cases.
-   - **Optimal Strategy:** By setting a **Threshold of 0.40**, the model effectively balances Precision and Recall, identifying the customers most likely to make purchase decision.
+   - **Optimal Strategy:** By setting a **Threshold of 0.40**, the model effectively balances Precision and Recall, identifying the customers most likely to reorder.
    - **Business Impact:** Generated a **Targeted Marketing** List of over **1.9 million** user-product pairs, sorted (ranked) by probability, to prioritize marketing efforts and maximize **Return on Investment (ROI)**.
 
 <br>
@@ -57,7 +57,7 @@ model = LogisticRegression(solver = 'saga', # 'saga' is an algorithm suitable fo
                            n_jobs = -1)
 
 
-## Optimal Threshold Setting
+## Apply Optimal Threshold (0.40) to Final Test Set
 threshold = 0.40
 y_pred = (y_pred_proba > threshold).astype(int)
 ```
@@ -83,7 +83,7 @@ y_pred = (y_pred_proba > threshold).astype(int)
 
 ### 💡 Histogram
 
-The table below, mirroring the Histogram, shows examples of customer-product matching (user_id and product_id), which the "reordered_proba" column will use threshold 0.4 to determine the likelihood of a repeat order. If an item has a repeat purchase probability value >/= 0.4 indicates a high probability of a repeat purchase, while a value < 0.4 means a low probability of repurchase.
+The table below, mirroring the Histogram, shows examples of customer-product matching (user_id and product_id), which the "reordered_proba" column will use threshold 0.4 to determine the likelihood of a repeat order. If an item has a repeat purchase probability value >= 0.4 indicates a high probability of a repeat purchase, while a value < 0.4 means a low probability of repurchase.
 
 | user_id | product_id | reordered_proba | reordered | 
 | ---: | ---: | ---: | ---: |
