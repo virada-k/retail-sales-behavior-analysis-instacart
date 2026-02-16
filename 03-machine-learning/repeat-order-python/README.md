@@ -77,6 +77,10 @@ y_pred = (y_pred_proba > threshold).astype(int)
 
 <br>
 
+Insight: Based on the model's prediction with a 0.4 threshold, we identified approximately 1.99 million high-propensity user-product pairs (Reordered).
+
+<br>
+
 ![test set bar chart](test-set-bar-chart-for-compare-reordered.png)
 
 <br>
@@ -92,6 +96,10 @@ y_pred = (y_pred_proba > threshold).astype(int)
 | 3 | 24010 | Wheat Gluten Free Waffles | 0.74 |
 | 3 | 14992 | Green Beans | 0.72 |
 | 3 | 44683 | Brussels Sprouts | 0.70 |
+
+<br>
+
+Note: This table shows a prioritized list, which helps marketing team to focus resources on items with the highest reorder probability. For example, focusing on "Organic Whole String Cheese" for User 3, which has a 78% reorder probability.
 
 <br>
 <br>
