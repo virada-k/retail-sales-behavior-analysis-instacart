@@ -1071,13 +1071,13 @@ print(data_to_plot_pred)
 
 ## Create a Bar Chart
 
-## Set Figure Size (Canvas Size).
+## 1. Set Figure Size (Canvas Size).
 plt.figure(figsize = (6, 4))
 sns.barplot(x = 'Reordered',
             y = 'Count',
             data = data_to_plot_pred)
 
-## Customize the graph.
+## 2. Customize the graph.
 plt.ticklabel_format(style = 'plain',  # to close the Scientific Notation (such as 1e + 06).
                      axis = 'y')  # set up axis = y only.
 plt.title('Test Set: Predicted Reorder Distribution')
