@@ -87,11 +87,11 @@ y_pred = (y_pred_proba > threshold).astype(int)
 
 | user_id | product_id | product_name | reordered_proba |
 | ---: | ---: | :--- | ---: |
-| 3 | 22035 | Organic Whole String Cheese | 0.780 |
-| 3 | 16797 | Strawberries | 0.755 |
-| 3 | 24010 | Wheat Gluten Free Waffles | 0.737 |
-| 3 | 14992 | Green Beans | 0.718 |
-| 3 | 44683 | Brussels Sprouts | 0.698 |
+| 3 | 22035 | Organic Whole String Cheese | 0.78 |
+| 3 | 16797 | Strawberries | 0.75 |
+| 3 | 24010 | Wheat Gluten Free Waffles | 0.74 |
+| 3 | 14992 | Green Beans | 0.72 |
+| 3 | 44683 | Brussels Sprouts | 0.70 |
 
 <br>
 <br>
