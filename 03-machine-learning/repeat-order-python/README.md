@@ -70,25 +70,18 @@ y_pred = (y_pred_proba > threshold).astype(int)
   
 ### 📊 Bar Chart
 
-(test set bar chart)[test-set-bar-chart-for-compare-reordered.png]
+| Reordered | Count |
+| :--- | ---: |
+| Not Reordered | 2844299 |
+| Reordered | 1988993 |
 
+<br>
 
-
-       Reordered    Count
-0  Not Reordered  2844299
-1      Reordered  1988993
+!(test set bar chart)[test-set-bar-chart-for-compare-reordered.png]
 
 <br>
 
 ### 📊 Histogram
-
-
-
-<br>
-
-## 📊 Summary Table
-
-<br>
 
 The table below, mirroring the Histogram, shows examples of customer-product matching (user_id and product_id), which the "reordered_proba" column will use threshold 0.4 to determine the likelihood of a repeat order. If an item has a repeat purchase probability value >/= 0.4 indicates a high probability of a repeat purchase, while a value < 0.4 means a low probability of repurchase.
 
@@ -100,11 +93,19 @@ The table below, mirroring the Histogram, shows examples of customer-product mat
 | 3 | 7503 | 0.18 | 0 |
 | 3 | 8021 | 0.19 | 0 |
 
+<br>
 
+!(distribution)[distribution-of-predicted-reorder-probability-on-test-set.png]
 
 <br>
 
-- 🎫 An example of a customer list table to send to the marketing team for creating a coupon giveaway campaign.
+## 📊 Summary Table
+
+<br>
+
+🎫 An example of a customer list table to send to the marketing team for creating a coupon giveaway campaign.
+
+<br>
 
 | user_id | product_id | product_name | reordered_proba |
 | ---: | ---: | :--- | ---: |
