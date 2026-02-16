@@ -22,6 +22,10 @@ This project aims to optimize Instacart's marketing efficiency. By using **Logis
 
     **4. User Habits (user_avg_days_between_orders):** The customer's general shopping frequency across all orders.
 
+- 🖥️ You can find the **full script** in [repeat order](reorder.py).
+
+- 🖥️ You can test this model in [google colab](https://colab.research.google.com/drive/1TkTDmAq5uZMpg0psWHBBz4Ak9AwpJ2gt?usp=sharing).
+
 <br>
 
 ## 📜 Key Results
@@ -36,7 +40,6 @@ This project aims to optimize Instacart's marketing efficiency. By using **Logis
 A deep dive into **False Negatives** (Missed Opportunities) revealed that the model occasionally struggles with "long-cycle" items, such as spices and pantry staples (household items).
 
 **Future Roadmap (Model V.2)**: To further enhance performance, future iterations will include:
-
    - **Recency Features:** Time elapsed since the very last purchase.
    - **Product Category Analysis:** To better capture diverse purchase cycles across different aisles.
   
