@@ -24,7 +24,7 @@ This project aims to optimize Instacart's marketing efficiency. By using **Logis
 
 - 🖥️ You can find the **full script** in [repeat order](reorder.py).
 
-- 🖥️ You can test this model in [google colab](https://colab.research.google.com/drive/1TkTDmAq5uZMpg0psWHBBz4Ak9AwpJ2gt?usp=sharing).
+- 🖥️ You can **test run** this model in [google colab](https://colab.research.google.com/drive/1TkTDmAq5uZMpg0psWHBBz4Ak9AwpJ2gt?usp=sharing).
 
 <br>
 
@@ -45,6 +45,29 @@ A deep dive into **False Negatives** (Missed Opportunities) revealed that the mo
   
 <br>
 
+## ⌨️ Code for the Logistic Regression process and setting Threshold.
+
+<br>
+
+```py
+## Create training model.
+model = LogisticRegression(solver = 'saga', # 'saga' is an algorithm suitable for big data.
+                           max_iter = 1000,
+                           random_state = 22,
+                           n_jobs = -1)
+```
+
+<br>
+
+```py
+## Optimal Threshold Setting
+threshold = 0.40
+y_pred = (y_pred_proba > threshold).astype(int)
+```
+
+
+
+<br>
 
 ## 📊 Bar Chart
 
