@@ -12,6 +12,8 @@ In this directory, we take advantage of Predictive and Descriptive Analytics to 
 
 **3. Repeat Order Prediction: Reorder**
 
+**Tools**
+
 <br>
 <br>
 
@@ -41,6 +43,8 @@ In this directory, we take advantage of Predictive and Descriptive Analytics to 
 [Click here](repeat-order-python) to view all information.
 
 <br>
+
+## 🛠️ Tools
 
 |   | **Customer Segmentation** | **Product Matching** | **Repeat Order Prediction** |
 | :---: | :---: | :---: | :---: |
