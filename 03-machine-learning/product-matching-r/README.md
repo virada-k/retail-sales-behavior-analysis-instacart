@@ -9,7 +9,7 @@
 <br>
 
 ## 🏷️ Business Motivation
-This section explores product associations to understand customer purchasing behavior and cross-selling opportunities.
+This section explores product associations to understand customer purchasing behavior, cross-selling opportunities and optimal digital shelving strategies.
 
 <br>
 
