@@ -22,7 +22,7 @@ In this directory, we take advantage of Predictive and Descriptive Analytics to 
 - **Tool:** K-means Clustering in R
 - **Impact:** Customer segmentation helps me identify customer group at high risk of discontinuing service, which is important for differential marketing strategies for each customer group.
 
-[Click here](customer-segmentation-r) to view all information.
+[Click here](customer-segmentation-r) to view **Customer Segmentation Model**.
 
 <br>
 
@@ -31,7 +31,7 @@ In this directory, we take advantage of Predictive and Descriptive Analytics to 
 - **Tool:** Association Rules (Apriori Algorithm) in R.
 - **Impact:** Discovered strong product correlations to improve cross-selling and optimal digital shelving strategies.
 
-[Click here](product-matching-r) to view all information.
+[Click here](product-matching-r) to view **Market Basket Analysis Model**.
 
 <br>
 
@@ -40,7 +40,7 @@ In this directory, we take advantage of Predictive and Descriptive Analytics to 
 - **Tool:** Logistic Regression with a custom Threshold of 0.40 in Python.
 - **Impact:** Identified 1.99M potential targets, ranked by probability for personalized marketing.
 
-[Click here](repeat-order-python) to view all information.
+[Click here](repeat-order-python) to view **Repeat Order Prediction Model**.
 
 <br>
 
