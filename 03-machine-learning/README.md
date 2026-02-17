@@ -48,7 +48,7 @@ In this directory, we take advantage of Predictive and Descriptive Analytics to 
 
 |   | **Customer Segmentation** | **Product Matching** | **Repeat Order Prediction** |
 | :---: | :---: | :---: | :---: |
-| **Tool** | K-means Clustering in R | Association Rules (Apriori Algorithm) in R | Logistic Regression |
+| **Tools** | K-means Clustering in R | Association Rules (Apriori Algorithm) in R | Logistic Regression |
 
 
 
