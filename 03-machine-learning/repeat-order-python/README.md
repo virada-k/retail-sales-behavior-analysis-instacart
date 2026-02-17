@@ -102,7 +102,8 @@ y_pred = (y_pred_proba > threshold).astype(int)
 
 <br>
 
-**Note:** This table shows a prioritized list, which helps marketing team to focus resources on items with the highest reorder probability. For example, focusing on "Organic Whole String Cheese" for User 3, which has a 78% reorder probability.
+**Note:** This table shows a prioritized list, which helps marketing team to focus resources on items with the highest reorder probability. 
+For example, focusing on "Organic Whole String Cheese" for User 3, which has a 78% reorder probability.
 
 <br>
 <br>
