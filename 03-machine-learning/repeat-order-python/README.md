@@ -79,12 +79,15 @@ y_pred = (y_pred_proba > threshold).astype(int)
 
 **Insight:** Based on the model's prediction with a 0.4 threshold, we identified approximately 1.99 million high-propensity user-product pairs (Reordered).
 
-**Note:** About the reason why 'Not Reorder' nore than 'Reorder', because sometimes customers may purchase some items to try the product or some items have a long shelf life, or some customers who are familiar with a particular product may choose to buy it in large quantities (in packs), making those products items that customers buy less frequently.
-
 <br>
 
 ![test set bar chart](test-set-bar-chart-for-compare-reordered.png)
 
+<br>
+
+**Note:** About the reason why 'Not Reorder' nore than 'Reorder', because sometimes customers may purchase some items to try the product or some items have a long shelf life, or some customers who are familiar with a particular product may choose to buy it in large quantities (in packs), making those products items that customers buy less frequently.
+
+<br>
 <br>
 
 🎫 An example of a customer list table to send to the marketing team for creating a coupon giveaway campaign.
