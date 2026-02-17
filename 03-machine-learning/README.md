@@ -12,7 +12,7 @@ In this directory, we take advantage of Predictive and Descriptive Analytics to 
 
 **3. Repeat Order Prediction: Reorder**
 
-**Tools**
+**🛠️ Tools**
 
 <br>
 <br>
