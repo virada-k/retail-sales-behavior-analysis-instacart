@@ -18,7 +18,7 @@ In this directory, we take advantage of Predictive and Descriptive Analytics to 
 <br>
 
 ## 👪 1. Customer Segmentation
-- **Goal:** Separate the customer 4 groups (1. New Customer 2. Core Loyalists (loyal customer) 3. At-Risk Loyalists (customers at risk of discontinuing service) and 4. Lost Customers) based on their shopping behavior.
+- **Goal:** Separate customers into 4 groups (1. New Customer 2. Core Loyalists (loyal customer) 3. At-Risk Loyalists (customers at risk of discontinuing service) and 4. Lost Customers) based on their shopping behavior.
 - **Tool:** K-means Clustering in R
 - **Impact:** Customer segmentation helps me identify customer group at high risk of discontinuing service, which is important for differential marketing strategies for each customer group.
 
