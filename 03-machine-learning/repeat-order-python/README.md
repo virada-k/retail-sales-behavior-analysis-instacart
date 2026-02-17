@@ -85,7 +85,7 @@ y_pred = (y_pred_proba > threshold).astype(int)
 
 <br>
 
-**Note:** About the reason why 'Not Reorder' nore than 'Reorder', because sometimes customers may purchase some items to try the product or some items have a long shelf life, or some customers who are familiar with a particular product may choose to buy it in large quantities (in packs), making those products items that customers buy less frequently.
+**Note:** The higher count of 'Not Reordered' cases compared to 'Reordered' is expected in real-world retail data. This is often due to customers trialing new products once, purchasing long-shelf-life items, or buying in bulk (packs), which results in a lower overall reorder frequency for those specific items.
 
 <br>
 <br>
