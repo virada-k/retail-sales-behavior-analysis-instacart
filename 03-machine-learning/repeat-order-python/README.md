@@ -83,8 +83,6 @@ y_pred = (y_pred_proba > threshold).astype(int)
 
 ![test set bar chart](test-set-bar-chart-for-compare-reordered.png)
 
-<br>
-
 **Note:** The higher count of 'Not Reordered' cases compared to 'Reordered' is expected in real-world retail data. This is often due to customers trialing new products once, purchasing long-shelf-life items, or buying in bulk (packs), which results in a lower overall reorder frequency for those specific items.
 
 <br>
