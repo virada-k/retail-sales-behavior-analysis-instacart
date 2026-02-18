@@ -48,7 +48,7 @@ Customer behavior analysis and reorder prediction using SQL, R, and Python.
 
 | **Category** | **Tools & Techniques** |
 | :--- | :--- |
-| **Data Processing** | ![SQL](https://img.shields.io/badge/sqlite-003B57?style=for-the-badge&logo=sqlite&logoColor=white) ![Python](https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white) |
+| **Data Processing** | ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white) ![Python](https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white) |
 | **Statistical Modeling (Descriptive/Diagnostic)** | ![R](https://img.shields.io/badge/r-276DC3?style=for-the-badge&logo=r&logoColor=white)  |
 | **Machine Learning (Predictive)** | ![Python](https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white) |
 | **Visualization** | ![R](https://img.shields.io/badge/r-276DC3?style=for-the-badge&logo=r&logoColor=white) ![Tableau](https://img.shields.io/badge/Tableau-E97627?style=for-the-badge&logo=tableau&logoColor=white) |
