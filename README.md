@@ -21,6 +21,7 @@ Customer behavior analysis and reorder prediction using SQL, R, and Python.
 
 ## <h2 id="business-problem">⚠️ 1. Business Problem</h2>
 "How can we increase sales while reducing marketing costs?"
+
 Therefore, this project was created to respond the following:
 
 <br>
