@@ -41,7 +41,7 @@ Therefore, this project was created to respond the following:
 
 **5. Strategy Recommendation:** Summarise the results into a 'target list' that available for Marketing team.
 
-**6. Visualization:** ???
+**6. Visualization (Tableau):** ???
 
 <br>
 
