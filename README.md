@@ -46,7 +46,13 @@ Customer behavior analysis and reorder prediction using SQL, R, and Python.
 
 <br>
 
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+| **Category** | **Languages** | **Tools & Techniques** |
+| :--- | :---: | :--- |
+| Data Processing | SQL | ![SQL](https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=postgresql&logoColor=white) |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+
 
 <br>
 
