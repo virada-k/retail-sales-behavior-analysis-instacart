@@ -32,8 +32,11 @@ Therefore, this project was created to respond the following:
 ## <h2 id="project-roadmap">🗺️ 2. Project Roadmap</h2>
 
 **1. Strategic Business Insights (SQL):** Analyze basic behaviors and find the basic insight from big dataset.
+
 **2. Customer Segmentation (R):** Group customers based on their purchasing behavior using K-means clustering.
+
 **3. Market Basket Analysis (R):** Match product based on products that customers frequently purchase together in same order using Apriori Algorithm.
+
 **4. Predictive Modeling (Python):** Create a model for predicting repeat orders using Logistic Regression.
 
 <br>
