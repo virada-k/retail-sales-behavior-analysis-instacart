@@ -49,7 +49,7 @@ Customer behavior analysis and reorder prediction using SQL, R, and Python.
 | **Category** | **Languages** | **Tools & Techniques** |
 | :--- | :---: | :--- |
 | Data Processing | SQL | ![SQL](https://img.shields.io/badge/sqlite-003B57?style=for-the-badge&logo=sqlite&logoColor=white) |
-|  |  |  |
+|  |  | ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white) |
 |  |  |  |
 |  |  |  |
 
