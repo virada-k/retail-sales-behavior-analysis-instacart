@@ -17,7 +17,7 @@ Customer behavior analysis and reorder prediction using SQL, R, and Python.
 
 6. [Navigate](#navigate)
 
-7. [Data Source](data-source)
+7. [Data Source](#data-source)
 
 <br>
 
@@ -103,7 +103,7 @@ Step 3: Advanced Analytics (R & Python) - View Visualization & ML Model
 <br>
 <br>
 
-## <h2 id="data-source">ℹ️ Data Source</h2>
+## <h2 id="data-source">ℹ️ 7. Data Source</h2>
 The dataset used in this project is from the InstaCart Online Grocery Basket Analysis Dataset on Kaggle.
 
 For more information, please visit [InstaCart Dataset](https://www.kaggle.com/datasets/yasserh/instacart-online-grocery-basket-analysis-dataset/data)
