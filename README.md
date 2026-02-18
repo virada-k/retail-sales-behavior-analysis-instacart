@@ -5,7 +5,7 @@ Customer behavior analysis and reorder prediction using SQL, R, and Python.
 
 ## Table of Contents
 
-**1. Business Ploblem**
+**[1. Business Ploblem](#Business Ploblem)**
 
 **2. Project Roadmap**
 
@@ -19,7 +19,7 @@ Customer behavior analysis and reorder prediction using SQL, R, and Python.
 
 <br>
 
-## ⚠️ 1. Business Ploblem
+## Business Ploblem
 
 
 <br>
