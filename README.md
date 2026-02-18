@@ -46,7 +46,14 @@ Customer behavior analysis and reorder prediction using SQL, R, and Python.
 
 <br>
 
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+
+<br>
+
 ## <h2 id="navigate">📌 6. Navigate</h2>
+
+
+<br>
 
 
 Business Problem: ปัญหาที่เรากำลังแก้ (เช่น อยากเพิ่มยอดขายซ้ำ และจัดการสต็อกให้แม่นยำขึ้น)
