@@ -39,6 +39,10 @@ Therefore, this project was created to respond the following:
 
 **4. Predictive Modeling (Python):** Create a model for predicting repeat orders using Logistic Regression.
 
+**5. Strategy Recommendation:** Summarise the results into a 'target list' that available for Marketing team.
+
+**6. Visualization:** ???
+
 <br>
 
 ## <h2 id="key-business-findings">🔎 3. Key Business Findings</h2>
