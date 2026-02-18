@@ -1,4 +1,4 @@
-# 📢 Machine Learning: Repeat Order Prediction
+# 📢 Machine Learning: Repeat Orders Prediction
 Repeat Order Prediction is a machine learning project designed to forecast whether a customer will reorder a previously purchased product.
 
 <br>
