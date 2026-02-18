@@ -9,13 +9,13 @@ Customer behavior analysis and reorder prediction using SQL, R, and Python.
 
 2. [Project Roadmap](#project-roadmap)
 
-3. Key Business Findings
+3. [Key Business Findings](#key-business-findings)
 
-4. Final Recommendation
+4. [Final Recommendation](#final-recommendation)
 
-5. Tech Stack
+5. [Tech Stack](#tech-stack)
 
-6. Navigate
+6. [Navigate](#navigate)
 
 <br>
 
@@ -25,17 +25,7 @@ Customer behavior analysis and reorder prediction using SQL, R, and Python.
 <br>
 
 
-<br>
 
-
-
-<br>
-
-
-<br>
-
-
-<br>
 
 ## <h2 id="project-roadmap">🗺️ 2. Project Roadmap</h2>
 
@@ -43,20 +33,20 @@ Customer behavior analysis and reorder prediction using SQL, R, and Python.
 
 <br>
 
-## 🔎 3. Key Business Findings
+## <h2 id="key-business-findings">🔎 3. Key Business Findings</h2>
 
 <br>
 
-## 👍 4. Final Recommendation
+## <h2 id="final-recommendation">👍 4. Final Recommendation</h2>
 
 
 <br>
 
-## ⚙️ 5. Tech Stack
+## <h2 id="tech-stack">⚙️ 5. Tech Stack</h2>
 
 <br>
 
-## 📌 6. Navigate
+## <h2 id="navigate">📌 6. Navigate</h2>
 
 
 Business Problem: ปัญหาที่เรากำลังแก้ (เช่น อยากเพิ่มยอดขายซ้ำ และจัดการสต็อกให้แม่นยำขึ้น)
