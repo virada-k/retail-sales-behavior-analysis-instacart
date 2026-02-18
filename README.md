@@ -33,17 +33,21 @@ Therefore, this project was created to respond the following:
 
 ## <h2 id="project-roadmap">🗺️ 2. Project Roadmap</h2>
 
-**1. Strategic Business Insights (SQL):** Analyze basic behaviors and find the basic insight from big dataset.
+**1. Data Sourcing:** Select this dataset from the InstaCart Online Grocery Basket Analysis Dataset on Kaggle.
 
-**2. Customer Segmentation (R):** Group customers based on their purchasing behavior using K-means clustering.
+**2. Data Modeling & Schema Design (dbdiagram.io):** Create ER Diagram of this dataset to make it easy to see the overiew.
 
-**3. Market Basket Analysis (R):** Match product based on products that customers frequently purchase together in same order using Apriori Algorithm.
+**3. Strategic Business Insights (SQL):** Analyze basic behaviors and find the basic insight from big dataset.
 
-**4. Predictive Modeling (Python):** Create a model for predicting repeat orders using Logistic Regression.
+**4. Customer Segmentation (R):** Group customers based on their purchasing behavior using K-means clustering.
 
-**5. Strategy Recommendation:** Summarise the results into a 'target list' that available for Marketing team.
+**5. Market Basket Analysis (R):** Match product based on products that customers frequently purchase together in same order using Apriori Algorithm.
 
-**6. Visualization (Tableau):** ???
+**6. Predictive Modeling (Python):** Create a model for predicting repeat orders using Logistic Regression.
+
+**7. Strategy Recommendation:** Summarise the results into a 'target list' that available for Marketing team.
+
+**8. Visualization (Tableau):** ???
 
 <br>
 
