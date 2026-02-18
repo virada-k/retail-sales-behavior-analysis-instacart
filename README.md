@@ -7,7 +7,7 @@ Customer behavior analysis and reorder prediction using SQL, R, and Python.
 
 1. [Business Problem](#1-business-problem)
 
-2. Project Roadmap
+2. [Project Roadmap](#2-project-roadmap)
 
 3. Key Business Findings
 
