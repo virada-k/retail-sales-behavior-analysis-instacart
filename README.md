@@ -20,17 +20,23 @@ Customer behavior analysis and reorder prediction using SQL, R, and Python.
 <br>
 
 ## <h2 id="business-problem">⚠️ 1. Business Problem</h2>
+"How can we increase sales while reducing marketing costs?"
+Therefore, this project was created to respond the following:
 
-- **Retention:** sdf 
+<br>
 
-
-
+- **Retention:** How we can encourage customers to 'reorder' items they've already made?
+- **Personalization:** What product can we offer item to each of our customer?
+- **Strategic Insights:** What types of customer purchasing behavior are likely to lead to our service discontinued?
 
 <br>
 
 ## <h2 id="project-roadmap">🗺️ 2. Project Roadmap</h2>
 
-
+**1. Strategic Business Insights (SQL):** Analyze basic behaviors and find the basic insight from big dataset.
+**2. Customer Segmentation (R):** Group customers based on their purchasing behavior using K-means clustering.
+**3. Market Basket Analysis (R):** Match product based on products that customers frequently purchase together in same order using Apriori Algorithm.
+**4. Predictive Modeling (Python):** Create a model for predicting repeat orders using Logistic Regression.
 
 <br>
 
