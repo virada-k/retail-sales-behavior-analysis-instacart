@@ -49,6 +49,17 @@ Therefore, this project was created to respond the following:
 
 ## <h2 id="key-business-findings">🔎 3. Key Business Findings</h2>
 
+**1. Strategic Opportunities**
+- ?
+- ?
+- ?
+
+
+**2. Operational Challenges**
+- ?
+- ?
+- ?
+
 <br>
 
 ## <h2 id="final-recommendation">👍 4. Final Recommendation</h2>
