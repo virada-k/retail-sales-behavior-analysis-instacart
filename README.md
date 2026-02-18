@@ -19,7 +19,7 @@ Customer behavior analysis and reorder prediction using SQL, R, and Python.
 
 <br>
 
-## ⚠️ 1. Business Problem {#business-problem}
+## <h2 id="business-problem">⚠️ 1. Business Problem</h2>
 
 
 <br>
