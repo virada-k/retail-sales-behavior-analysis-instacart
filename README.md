@@ -9,15 +9,13 @@ Customer behavior analysis and reorder prediction using SQL, R, and Python.
 
 2. [Project Roadmap](#project-roadmap)
 
-3. [Key Business Findings](#key-business-findings)
+3. [Key Business Findings & Recommendation](#key-business-findings-&-recommendation)
 
-4. [Final Recommendation](#final-recommendation)
+4. [Tech Stack](#tech-stack)
 
-5. [Tech Stack](#tech-stack)
+5. [Navigate](#navigate)
 
-6. [Navigate](#navigate)
-
-7. [Data Source](#data-source)
+6. [Data Source](#data-source)
 
 <br>
 
@@ -51,18 +49,19 @@ Therefore, this project was created to respond the following:
 
 <br>
 
-## <h2 id="key-business-findings">🔎 3. Key Business Findings</h2>
+
+## <h2 id="key-business-findings-&-recommendation">🔎 3. Key Business Findings & Recommendation</h2>
 
 **1. Strategic Opportunities**
-- ?
-- ?
-- ?
+- 
+- 
+- 
 
 
 **2. Operational Challenges**
-- ?
-- ?
-- ?
+- 
+- 
+- 
 
 <br>
 
