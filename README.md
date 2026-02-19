@@ -101,9 +101,11 @@ Below are the strategic insights derived from our SQL and Machine Learning analy
 
 ## <h2 id="navigate">📌 5. Navigate</h2>
 
-
 <br>
 
+[er-diagram](00-er-diagram)  Simulating associations between folders to make it easy to see the overiew.
+
+[sql-database](01-sql-database-simulation) 
 
 Business Problem: ปัญหาที่เรากำลังแก้ (เช่น อยากเพิ่มยอดขายซ้ำ และจัดการสต็อกให้แม่นยำขึ้น)
 
@@ -129,7 +131,6 @@ Step 2: Business Insights (SQL) - View SQL Queries & Insights
 Step 3: Advanced Analytics (R & Python) - View Visualization & ML Model
 
 
-<br>
 <br>
 
 ## <h2 id="data-source">ℹ️ 6. Data Source</h2>
