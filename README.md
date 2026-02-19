@@ -50,21 +50,18 @@ Therefore, this project was created to respond the following:
 <br>
 
 
-## <h2 id="key-business-findings-&-recommendation">🔎 3. Key Business Findings & Recommendation</h2>
+## <h2 id="key-business-findings-&-recommendation">💡 3. Key Business Findings & Recommendation</h2>
+Below are the strategic insights derived from our SQL and Machine Learning analysis:
 
-### Strategic Opportunities
-- 
-- 
-- 
+### 1. High-Precision Targeting Opportunity
+**Finding:** Our Predictive Model identified **1.99 million high-potential User-Product pairs** with a high probability of reordering.
+
+**Recommendation:** Move away from "one-size-fits-all" marketing (e.g., stop sending random coupons to customers). By using this **Targeted Marketing List**, we can deliver **Personalized Coupons** and Minimize Marketing Spend.
 
 
-### Operational Challenges
-- 
-- 
-- 
+
 
 <br>
-
 
 ## <h2 id="tech-stack">⚙️ 4. Tech Stack</h2>
 
