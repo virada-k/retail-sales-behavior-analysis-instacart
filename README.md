@@ -52,13 +52,13 @@ Therefore, this project was created to respond the following:
 
 ## <h2 id="key-business-findings-&-recommendation">🔎 3. Key Business Findings & Recommendation</h2>
 
-**1. Strategic Opportunities**
+### 1. Strategic Opportunities
 - 
 - 
 - 
 
 
-**2. Operational Challenges**
+### 2. Operational Challenges**
 - 
 - 
 - 
