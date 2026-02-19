@@ -52,25 +52,21 @@ Therefore, this project was created to respond the following:
 
 ## <h2 id="key-business-findings-&-recommendation">🔎 3. Key Business Findings & Recommendation</h2>
 
-### 1. Strategic Opportunities
+### Strategic Opportunities
 - 
 - 
 - 
 
 
-### 2. Operational Challenges**
+### Operational Challenges
 - 
 - 
 - 
 
 <br>
 
-## <h2 id="final-recommendation">👍 4. Final Recommendation</h2>
 
-
-<br>
-
-## <h2 id="tech-stack">⚙️ 5. Tech Stack</h2>
+## <h2 id="tech-stack">⚙️ 4. Tech Stack</h2>
 
 <br>
 
@@ -84,7 +80,7 @@ Therefore, this project was created to respond the following:
 
 <br>
 
-## <h2 id="navigate">📌 6. Navigate</h2>
+## <h2 id="navigate">📌 5. Navigate</h2>
 
 
 <br>
@@ -117,7 +113,7 @@ Step 3: Advanced Analytics (R & Python) - View Visualization & ML Model
 <br>
 <br>
 
-## <h2 id="data-source">ℹ️ 7. Data Source</h2>
+## <h2 id="data-source">ℹ️ 6. Data Source</h2>
 The dataset used in this project is from the InstaCart Online Grocery Basket Analysis Dataset on Kaggle.
 
 For more information, please visit [InstaCart Dataset](https://www.kaggle.com/datasets/yasserh/instacart-online-grocery-basket-analysis-dataset/data)
