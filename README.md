@@ -76,8 +76,12 @@ Below are the strategic insights derived from our SQL and Machine Learning analy
                 
   - **Off-Peak: Launch Targeted Flash Sales** during low-traffic hours to stimulate demand.
 
+<br>
 
+### 4. Lifecycle-Aware Retention Strategy
+**Finding:** Many "At-Risk" or "Lost" customers may simply follow a **Monthly Bulk Purchase Cycle** (aligning with payday or product life cycles). Their high Recency (30+ days) does not always indicate churn but rather a predictable shopping pattern.
 
+**Recommendation:** Align re-engagement campaigns with the customer's **Individual Purchase Cycle**. For bulk buyers, trigger **"Cycle-Based Promotions"** during the month-end period to capture their next major restock order.
 
 <br>
 
