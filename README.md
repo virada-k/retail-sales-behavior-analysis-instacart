@@ -111,7 +111,7 @@ Below are the strategic insights derived from our SQL and Machine Learning analy
 
 [03-machine-learning](03-machine-learning) - Advanced Analytics & Model (R & Python)
 
-[04-Data-Visualization]() - สรุปผลด้วย Dashboards และสถิติเชิงลึก
+04-Data-Visualization() - สรุปผลด้วย Dashboards และสถิติเชิงลึก
 
 Key Insights (TL;DR): สรุปสิ่งที่น่าตื่นเต้นที่สุด 3 ข้อ (เช่น ช่วงเวลาทองคือ 9 am - 4 pm, อัตราการซื้อซ้ำของสินค้าเป็นปัจจัยหลักใน ML)
 
