@@ -58,10 +58,22 @@ Below are the strategic insights derived from our SQL and Machine Learning analy
 
 **Recommendation:** Move away from "one-size-fits-all" marketing (e.g., stop sending random coupons to customers). By using this **Targeted Marketing List**, we can deliver **Personalized Coupons** and Minimize Marketing Spend.
 
+<br>
+
 ### 2. Cross-Selling & UX Optimization (Basket Insights)
 **Finding:** Market Basket Analysis reveals a strong preference for **One-Stop Shopping**. Customers tend to purchase multiple items within the same category or a variety of complementary products (e.g., Chicken, Avocado, and Bananas) in a single transaction. This behavior suggests that buyers prioritize **order consolidation** to reduce shipping costs and maximize time efficiency.
 
 **Recommendation:** Implement **Digital Shelving Strategies** by intelligently grouping frequently co-purchased items within the app interface to reduce "search friction." Additionally, **Bundle Promotions** should be based on Association Rules to increase Average Order Value (AOV) by catering to the customer's desire for a seamless, all-in-one shopping experience.
+
+<br>
+
+### 3. Balanced Demand Management (Peak vs. Off-Peak)
+**Finding:** A significant volume gap exists between **Peak Hours** (Sun/Mon, 10 AM – 4 PM) and **Off-Peak Hours** (Wed/Thu, late night/early morning).
+
+Recommendation: **Peak: Prioritize Logistics & Staffing Optimization & Stock management**, to ensure timely delivery, accurate and complete order fulfillment, and minimize the likelihood of stock shortages.
+                **Off-Peak: Launch Targeted Flash Sales** during low-traffic hours to stimulate demand.
+
+
 
 
 <br>
