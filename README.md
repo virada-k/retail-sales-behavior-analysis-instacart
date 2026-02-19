@@ -70,8 +70,11 @@ Below are the strategic insights derived from our SQL and Machine Learning analy
 ### 3. Balanced Demand Management (Peak vs. Off-Peak)
 **Finding:** A significant volume gap exists between **Peak Hours** (Sun/Mon, 10 AM – 4 PM) and **Off-Peak Hours** (Wed/Thu, late night/early morning).
 
-Recommendation: **Peak: Prioritize Logistics & Staffing Optimization & Stock management**, to ensure timely delivery, accurate and complete order fulfillment, and minimize the likelihood of stock shortages.
-                **Off-Peak: Launch Targeted Flash Sales** during low-traffic hours to stimulate demand.
+**Recommendation:**
+
+  - **Peak: Prioritize Logistics & Staffing Optimization & Stock management**, to ensure timely delivery, accurate and complete order fulfillment, and minimize the likelihood of stock shortages.
+                
+  - **Off-Peak: Launch Targeted Flash Sales** during low-traffic hours to stimulate demand.
 
 
 
