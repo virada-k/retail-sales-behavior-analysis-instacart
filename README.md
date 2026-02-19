@@ -103,33 +103,19 @@ Below are the strategic insights derived from our SQL and Machine Learning analy
 
 <br>
 
-[er-diagram](00-er-diagram)  Simulating associations between folders to make it easy to see the overiew.
+[00-er-diagram](00-er-diagram) - Simulating associations between folders to make it easy to see the overiew.
 
-[sql-database](01-sql-database-simulation) 
+[01-sql-database-simulation](01-sql-database-simulation) - Schema and data simulation.
 
-Business Problem: ปัญหาที่เรากำลังแก้ (เช่น อยากเพิ่มยอดขายซ้ำ และจัดการสต็อกให้แม่นยำขึ้น)
+[02-sql-business-queries](02-sql-business-queries) - Business Insights with SQL
 
-Project Structure (Navigation): สำคัญที่สุด ทำเป็น List และใส่ Link ไปยัง Folder ต่างๆ
+[03-machine-learning](03-machine-learning) - Advanced Analytics & Model (R & Python)
 
-[01-Database-Simulation](./01-SQL-database-simulation/) - การจำลอง Schema และข้อมูล
-
-[02-SQL-Queries](./02-SQL-queries/) - เจาะลึก Business Insights ด้วย SQL
-
-[03-Data-Visualization](./03-Data-Visualization/) - สรุปผลด้วย Dashboards และสถิติเชิงลึก
+[04-Data-Visualization]() - สรุปผลด้วย Dashboards และสถิติเชิงลึก
 
 Key Insights (TL;DR): สรุปสิ่งที่น่าตื่นเต้นที่สุด 3 ข้อ (เช่น ช่วงเวลาทองคือ 9 am - 4 pm, อัตราการซื้อซ้ำของสินค้าเป็นปัจจัยหลักใน ML)
 
 Tech Stack: โลโก้หรือชื่อเครื่องมือที่ใช้ (SQL, R, Python, Google Sheets)
-
-## คำแนะนำเพิ่มเติมสำหรับหน้า Root README (หน้าแรกสุด)
-ตอนนี้คุณมี README ในโฟลเดอร์ย่อยที่สวยงามแล้ว ในหน้า Root README ผมแนะนำให้ทำเป็น "ทางลัด" (Shortcuts) แบบนี้ครับ:
-
-Step 1: Database Simulation - View Details & Schema
-
-Step 2: Business Insights (SQL) - View SQL Queries & Insights
-
-Step 3: Advanced Analytics (R & Python) - View Visualization & ML Model
-
 
 <br>
 
