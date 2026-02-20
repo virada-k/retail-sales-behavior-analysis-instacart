@@ -5,7 +5,7 @@ I analyzed the data to find answers to three points:
 3. **Off-Peak Strategy:** To find the days and times with the fewest customer orders, in order to plan special discount such as "Flash Sale" promotion.
 4. **Customer Reorder Cycle**: To understand how often products are repurchased.
 
-You can find the full script in [business-insight-queries.sql](business-insight-queries.sql).
+🔗 You can find the full script in [business-insight-queries.sql](business-insight-queries.sql).
 
 <br>
 
