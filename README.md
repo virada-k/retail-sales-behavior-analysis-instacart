@@ -99,7 +99,7 @@ Below are the strategic insights derived from our SQL and Machine Learning analy
 
 <br>
 
-## <h2 id="navigate">📌 5. Navigate</h2>
+## <h2 id="navigate">🔗 5. Navigate</h2>
 
 <br>
 
