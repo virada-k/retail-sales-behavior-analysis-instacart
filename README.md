@@ -74,7 +74,7 @@ Below are the strategic insights derived from our SQL and Machine Learning analy
 
   - **Peak:** Prioritize **Logistics & Staffing Optimization** and **Stock Management** to ensure timely, accurate fulfillment and minimize stock shortages.
                 
-  - **Off-Peak: Launch **Flash Sales Promotion** to incentivize customers to **pre-book** during low-traffic windows. This effectively "shapes" demand to fill available capacity and reduces operational strain during major peaks.
+  - **Off-Peak:** Launch **Flash Sales Promotion** to incentivize customers to **pre-book** during low-traffic windows. This effectively "shapes" demand to fill available capacity and reduces operational strain during major peaks.
 
 <br>
 
