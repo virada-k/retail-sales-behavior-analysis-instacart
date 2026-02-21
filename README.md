@@ -67,14 +67,14 @@ Below are the strategic insights derived from our SQL and Machine Learning analy
 
 <br>
 
-### 3. Balanced Demand Management (Peak vs. Off-Peak)
-**Finding:** A significant volume gap exists between **Peak Hours** (Sun/Mon, 10 AM – 4 PM) and **Off-Peak Hours** (Wed/Thu, late night/early morning).
+### 3. Operational Load Balancing (Peak vs. Off-Peak Strategy)
+**Finding:** Order volumes surge during **Sunday and Monday (9 AM – 5 PM)**, leading to potential delivery bottlenecks. In contrast, **Tuesday to Saturday**—specifically **late-night (11 PM – 12 AM) and early-morning (6 AM)**—show higher **available delivery slots**.
 
 **Recommendation:**
 
-  - **Peak: Prioritize Logistics & Staffing Optimization & Stock management**, to ensure timely delivery, accurate and complete order fulfillment, and minimize the likelihood of stock shortages.
+  - **Peak:** Prioritize **Logistics & Staffing Optimization** and **Stock Management** to ensure timely, accurate fulfillment and minimize stock shortages.
                 
-  - **Off-Peak: Launch Targeted Flash Sales** during low-traffic hours to stimulate demand.
+  - **Off-Peak: Launch **Flash Sales Promotion** to incentivize customers to **pre-book** during low-traffic windows. This effectively "shapes" demand to fill available capacity and reduces operational strain during major peaks.
 
 <br>
 
