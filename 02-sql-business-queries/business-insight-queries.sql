@@ -35,7 +35,7 @@ ORDER BY count_order_day DESC;
 
 
 
--- 📌 CUSTOMER MAXIMUM REORDER
+-- 📌 CUSTOMER MAXIMUM REORDER ANALYSIS
 -- Analyze the product to consider how often customers will repurchase.
 
 SELECT
