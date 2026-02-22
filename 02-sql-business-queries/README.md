@@ -39,6 +39,7 @@ These screenshots show the results of the 3 points mentioned above.
 
 
 🛎️ **Maximum Reorder Result:** The data shows that Vegetables and fruits had the highest number of orders.
+
 Note: Top 10 examples.
 
 ![result-of-maximum-reorder](result-of-maximum-reorder.PNG)
@@ -50,6 +51,7 @@ Note: Top 10 examples.
 
 
 🛎️ **Off-Peak Strategy Result:** The data shows that Tuesday to Thursday are the days with the lowest sales.
+
 Note: Top 10 examples.
 
 ![result-of-off-peak-strategy](result-of-off-peak-strategy.PNG)
