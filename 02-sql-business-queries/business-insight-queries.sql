@@ -41,17 +41,19 @@ ORDER BY count_order_day DESC;
 SELECT
     op.product_id,
     p.product_name,
+    d.department,
     COUNT(*) AS total_reorders,
     ROUND(AVG(o.days_since_prior_order), 1) AS avg_day_gap
 FROM orders AS o
 INNER JOIN order_products__prior AS op ON o.order_id = op.order_id
 INNER JOIN products AS p ON op.product_id = p.product_id
+INNER JOIN departments AS d ON p.department_id = d.department_id 
 WHERE op.reordered = 1 
   AND o.days_since_prior_order IS NOT NULL
 GROUP BY op.product_id, p.product_name
 HAVING total_reorders > 600 -- The number 600 comes from the top 10% of best-selling products.
 ORDER BY total_reorders DESC
-LIMIT 100;
+LIMIT 200;
 
 -- 📢 Note: The data shows that Vegetables and fruits had the highest number of orders.
 
