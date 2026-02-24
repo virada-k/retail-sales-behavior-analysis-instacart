@@ -53,7 +53,7 @@ WHERE op.reordered = 1
 GROUP BY op.product_id, p.product_name
 HAVING total_reorders > 600 -- The number 600 comes from the top 10% of best-selling products.
 ORDER BY total_reorders DESC
-LIMIT 200;
+LIMIT 500;
 
 -- 📢 Note: The data shows that Vegetables and fruits had the highest number of orders.
 
