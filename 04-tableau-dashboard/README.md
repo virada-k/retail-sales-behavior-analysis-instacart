@@ -26,6 +26,11 @@ Below is a detailed breakdown of each dashboard component, explaining the data l
 
 ![Overview and KPIs](overview.PNG)
 
+What it shows:
+
+
+<br>
+
 
 
 
