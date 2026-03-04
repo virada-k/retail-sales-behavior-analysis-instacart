@@ -1,5 +1,5 @@
 # 🛒 Retail Sales & Consumer Behavior Analysis (Instacart Dataset)
-Customer behavior analysis and reorder prediction using SQL, R, and Python.
+Customer behavior analysis and reorder prediction using SQL, R, Python and Tableau.
 
 <br>
 
@@ -23,9 +23,10 @@ Customer behavior analysis and reorder prediction using SQL, R, and Python.
 "How can we increase sales while reducing marketing costs?"
 
 Therefore, this project was created to respond the following:
-- **Retention:** How we can encourage customers to 'reorder' items they've already made?
-- **Personalization:** What product can we offer item to each of our customer?
-- **Strategic Insights:** What types of customer purchasing behavior are likely to lead to our service discontinued?
+- **Strategic Insights:** What types of customer purchasing behavior are likely to lead to service cancellation?
+- **Retention:** How can we encourage customers to 'reorder' items they've already made?
+- **"Cross-Selling Strategy:** Which product combinations frequently appear together to optimize promotional bundling and layout?
+
 
 <br>
 
