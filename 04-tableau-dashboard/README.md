@@ -58,9 +58,9 @@ Below is a detailed breakdown of each dashboard component, explaining the data l
 
 **💡 Recommendation:**
 
-   **- Proactive Engagement:** Ask the Marketing team to launch personalized retention campaigns (e.g., exclusive loyalty discounts) specifically for 'Risk Royalists.'
+   - **Proactive Engagement:** Ask the Marketing team to launch personalized retention campaigns (e.g., exclusive loyalty discounts) specifically for 'Risk Royalists.'
 
-   **- Churn Prevention:** Coordinate with Customer Service to identify pain points for 'Lost' and 'At-risk' segments. Use automated re-order notification system for bulk purchasers (this long gap-days might be mistaken as churn) to stay top-of-mind.
+   - **Churn Prevention:** Coordinate with Customer Service to identify pain points for 'Lost' and 'At-risk' segments. Use automated re-order notification system for bulk purchasers (this long gap-days might be mistaken as churn) to stay top-of-mind.
 
 <br>
 
@@ -76,8 +76,8 @@ Below is a detailed breakdown of each dashboard component, explaining the data l
 
 **💡 Recommendation:**
 
-**- Stock Optimization:** Adjust inventory replenishment cycles with the 10-day reorder frequency to minimize losses (especially for perishables) to avoid stock-outs.
+  - **Stock Optimization:** Adjust inventory replenishment cycles with the 10-day reorder frequency to minimize losses (especially for perishables) to avoid stock-outs.
 
-**- Resource Allocation:** Use the volume insights to forecast packing and delivery capacity requirements for the top 5 departments, ensuring the most popular items are always 'added to card.'
+  - **Resource Allocation:** Use the volume insights to forecast packing and delivery capacity requirements for the top 5 departments, ensuring the most popular items are always 'added to card.'
 
 
