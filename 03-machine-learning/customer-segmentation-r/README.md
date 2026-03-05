@@ -19,7 +19,7 @@ Customer Segment ML is identification and grouping customer base on their purcha
 
     **2. Frequency:** The total number of orders the customer has ever placed.
 
-    *Note:* Monetary (M) was excluded due to the lack of pricing data in the Instacart dataset.
+    **📝 Note:** Monetary (M) was excluded due to the lack of pricing data in the Instacart dataset.
 
 - **Optimal K:** Selected **k=4** clusters based on business logic and customer distribution.
 
