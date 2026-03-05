@@ -22,10 +22,10 @@ Customer behavior analysis and reorder prediction using SQL, R, Python and Table
 ## <h2 id="business-problem">⚠️ 1. Business Problem</h2>
 "How can we increase sales while reducing marketing costs?"
 
-Therefore, this project was created to respond the following:
+Therefore, this project was created to address the following:
 - **Strategic Insights:** What types of customer purchasing behavior are likely to lead to service cancellation?
-- **Retention:** How can we encourage customers to 'reorder' items they've already made?
-- **"Cross-Selling Strategy:** Which product combinations frequently appear together to optimize promotional bundling and layout?
+- **Retention:** How can we encourage customers to 'reorder' items they've already purchased?
+- **Cross-Selling Strategy:** Which product combinations frequently appear together to optimize promotional bundling and layout?
 
 
 <br>
@@ -40,11 +40,11 @@ Therefore, this project was created to respond the following:
 
 **4. Customer Segmentation (R):** Segmented customers based on purchasing behavior using the K-means clustering algorithm.
 
-**5. Market Basket Analysis (R):** Identified product associations and frequent itemsets using the Apriori Algorithm to incress the cross-selling opportunities.
+**5. Market Basket Analysis (R):** Identified product associations and frequent itemsets using the Apriori Algorithm to increase the cross-selling opportunities.
 
 **6. Predictive Modeling (Python):** ฺBuilt a Logistic Regression model to predict the probability that customers will reorder products.
 
-**7. Strategy Recommendation:** Summarise the analysis results into actionable 'Target Lists' to support the Marketing team’s precision targeting.
+**7. Strategy Recommendation:** Summarize the analysis results into actionable 'Target Lists' to support the Marketing team’s precision targeting.
 
 **8. Interactive Dashboard & Storytelling (Tableau):** Designed a comprehensive dashboard to visualize key performance indicators (KPIs), customer trends, and predictive insights, enabling data-driven business decisions.
 
@@ -104,7 +104,7 @@ Below are the strategic insights derived from our SQL and Machine Learning analy
 
 <br>
 
-[00-er-diagram](00-er-diagram) - Simulating associations between folders to make it easy to see the overiew.
+[00-er-diagram](00-er-diagram) - Providing an organized project structure for easy navigation and a clear technical overview.
 
 [01-sql-database-simulation](01-sql-database-simulation) - Schema and data simulation.
 
