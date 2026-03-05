@@ -26,12 +26,18 @@ Below is a detailed breakdown of each dashboard component, explaining the data l
 
 ![Overview and KPIs](overview.PNG)
 
-**What it shows:**
-- **Total Orders: 3,421,083** This dataset contains a total of 3,421,083 orders
-
-
 <br>
 
+### 2. Strategic Operations & Demand Scheduling Analysis
+
+![Scheduling Operations](bar-chart-scheduling-operations.PNG)
+
+
+**Insight:** "Peak demand occurs during specific days/hours, creating potential operational bottlenecks, while significant downtime exists during off-peak periods."
+
+**Recommendation:**
+  *- Peak Management:** Optimize logistics and staffing schedules during high-traffic windows to ensure seamless order fulfillment and prevent backlogs.
+  *- Off-Peak Stimulation:* Implement targeted "Flash Sales" or time-sensitive promotions during low-demand hours to level out the workload and maximize revenue consistency throughout the week.
 
 
 
