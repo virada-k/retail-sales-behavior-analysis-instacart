@@ -40,9 +40,9 @@ Below is a detailed breakdown of each dashboard component, explaining the data l
 
 **💡 Recommendation:**
 
-**- Peak Management:** Optimize logistics, staffing schedules and prepare inventory during high-traffic to ensure smooth order fulfillment and prevent backlogs.
+  **- Peak Management:** Optimize logistics, staffing schedules and prepare inventory during high-traffic to ensure smooth order fulfillment and prevent backlogs.
 
-**- Off-Peak Stimulation:** Implement "Flash Sales" or time-sensitive promotions during low-demand hours to distribute the workload and increase income consistency throughout the week.
+  **- Off-Peak Stimulation:** Implement "Flash Sales" or time-sensitive promotions during low-demand hours to distribute the workload and increase income consistency throughout the week.
 
 <br>
 
@@ -58,9 +58,9 @@ Below is a detailed breakdown of each dashboard component, explaining the data l
 
 **💡 Recommendation:**
 
-**- Proactive Engagement:** Ask the Marketing team to launch personalized retention campaigns (e.g., exclusive loyalty discounts) specifically for 'Risk Royalists.'
+  **- Proactive Engagement:** Ask the Marketing team to launch personalized retention campaigns (e.g., exclusive loyalty discounts) specifically for 'Risk Royalists.'
 
-**- Churn Prevention:** Coordinate with Customer Service to identify pain points for 'Lost' and 'At-risk' segments. Use automated re-order notification system for bulk purchasers (this long gap-days might be mistaken as churn) to stay top-of-mind.
+  **- Churn Prevention:** Coordinate with Customer Service to identify pain points for 'Lost' and 'At-risk' segments. Use automated re-order notification system for bulk purchasers (this long gap-days might be mistaken as churn) to stay top-of-mind.
 
 <br>
 
