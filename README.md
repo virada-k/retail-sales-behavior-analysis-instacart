@@ -32,21 +32,21 @@ Therefore, this project was created to respond the following:
 
 ## <h2 id="project-roadmap">🗺️ 2. Project Roadmap</h2>
 
-**1. Data Sourcing:** Select this dataset from the InstaCart Online Grocery Basket Analysis Dataset on Kaggle.
+**1. Data Sourcing:** Select this dataset from the "Instacart Online Grocery Basket Analysis" on Kaggle.
 
-**2. Data Modeling & Schema Design (dbdiagram.io):** Create ER Diagram of this dataset to make it easy to see the overiew.
+**2. Data Modeling & Schema Design (dbdiagram.io):** Designed an ER Diagram to establish a clear architectural overview of the relational database.
 
-**3. Strategic Business Insights (SQL):** Analyze basic behaviors and find the basic insight from big dataset.
+**3. Strategic Business Insights (SQL):** Performed exploratory data analysis (EDA) to identify core purchasing patterns and trends within the large-scale dataset.
 
-**4. Customer Segmentation (R):** Group customers based on their purchasing behavior using K-means clustering.
+**4. Customer Segmentation (R):** Segmented customers based on purchasing behavior using the K-means clustering algorithm.
 
-**5. Market Basket Analysis (R):** Match product based on products that customers frequently purchase together in same order using Apriori Algorithm.
+**5. Market Basket Analysis (R):** Identified product associations and frequent itemsets using the Apriori Algorithm to incress the cross-selling opportunities.
 
-**6. Predictive Modeling (Python):** Create a model for predicting repeat orders using Logistic Regression.
+**6. Predictive Modeling (Python):** ฺBuilt a Logistic Regression model to predict the probability that customers will reorder products.
 
-**7. Strategy Recommendation:** Summarise the results into a 'target list' that available for Marketing team.
+**7. Strategy Recommendation:** Summarise the analysis results into actionable 'Target Lists' to support the Marketing team’s precision targeting.
 
-**8. Visualization (Tableau):** ???
+**8. Interactive Dashboard & Storytelling (Tableau):** Designed a comprehensive dashboard to visualize key performance indicators (KPIs), customer trends, and predictive insights, enabling data-driven business decisions.
 
 <br>
 
@@ -121,6 +121,6 @@ Tech Stack: โลโก้หรือชื่อเครื่องมื�
 <br>
 
 ## <h2 id="data-source">ℹ️ 6. Data Source</h2>
-The dataset used in this project is from the InstaCart Online Grocery Basket Analysis Dataset on Kaggle.
+The dataset used in this project is from the Instacart Online Grocery Basket Analysis Dataset on Kaggle.
 
 For more information, please visit [InstaCart Dataset](https://www.kaggle.com/datasets/yasserh/instacart-online-grocery-basket-analysis-dataset/data)
