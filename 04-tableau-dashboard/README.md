@@ -94,6 +94,7 @@ Below is a detailed breakdown of each dashboard component, explaining the data l
 
 📝 Note: **Lift** is a measure of the strength of the association between product. Therefore, 'Lift of 112' means these two products are 112 times more likely to be purchased together than by chance alone. It’s a very strong signal for bundling.
 
+<br>
 
 **💡 Recommendation:**
 
