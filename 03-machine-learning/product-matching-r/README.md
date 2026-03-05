@@ -4,7 +4,7 @@
 
 <br>
 
-**📝Note:** You can see more details about LHS and RHS groups from **Table of the Top 5 High-Potential Rules**.
+**📝 Note:** You can see more details about LHS and RHS groups from **Table of the Top 5 High-Potential Rules**.
 
 <br>
 
