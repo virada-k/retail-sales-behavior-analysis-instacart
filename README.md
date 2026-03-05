@@ -112,11 +112,7 @@ Below are the strategic insights derived from our SQL and Machine Learning analy
 
 [03-machine-learning](03-machine-learning) - Advanced Analytics & Model (R & Python)
 
-04-data-visualization() - สรุปผลด้วย Dashboards และสถิติเชิงลึก
-
-Key Insights (TL;DR): สรุปสิ่งที่น่าตื่นเต้นที่สุด 3 ข้อ (เช่น ช่วงเวลาทองคือ 9 am - 4 pm, อัตราการซื้อซ้ำของสินค้าเป็นปัจจัยหลักใน ML)
-
-Tech Stack: โลโก้หรือชื่อเครื่องมือที่ใช้ (SQL, R, Python, Google Sheets)
+[04-tableau-dashboard](04-tableau-dashboard) - Interactive Dashboard & Storytelling (Tableau)
 
 <br>
 
