@@ -42,7 +42,7 @@ Below is a detailed breakdown of each dashboard component, explaining the data l
 
   - **Peak Management:** Optimize logistics, staffing schedules and prepare inventory during high-traffic to ensure smooth order fulfillment and prevent backlogs.
 
-  - **Off-Peak Stimulation:** Implement "Flash Sales" or time-sensitive promotions during low-demand hours to distribute the workload and increase income consistency throughout the week.
+  - **Off-Peak Stimulation:** Implement **"Flash Sales"** or time-sensitive promotions during low-demand hours to distribute the workload and increase income consistency throughout the week.
 
 <br>
 
@@ -60,7 +60,7 @@ Below is a detailed breakdown of each dashboard component, explaining the data l
 
    - **Proactive Engagement:** Ask the Marketing team to launch personalized retention campaigns (e.g., exclusive loyalty discounts) specifically for 'Risk Royalists.'
 
-   - **Churn Prevention:** Coordinate with Customer Service to identify pain points for 'Lost' and 'At-risk' segments. Use automated re-order notification system for bulk purchasers (this long gap-days might be mistaken as churn) to stay top-of-mind.
+   - **Churn Prevention:** Coordinate with Customer Service to identify pain points for 'Lost' and 'At-risk' segments. Use **automated re-order notification system** for bulk purchasers (this long gap-days might be mistaken as churn) to stay top-of-mind.
 
 <br>
 
@@ -80,4 +80,23 @@ Below is a detailed breakdown of each dashboard component, explaining the data l
 
   - **Resource Allocation:** Use the volume insights to forecast packing and delivery capacity requirements for the top 5 departments, ensuring the most popular items are always 'added to card.'
 
+<br>
 
+<br>
+
+### 5. Strategic Product Recommendations: Market Basket Insights
+
+![mba-table](table-mba.PNG)
+
+<br>
+
+**💡 Insight:** Association Rule Mining reveals a powerful link between 'Sparkling Water Coconut' and 'Sparkling Water Grapefruit' with a **68% Confidence** and a **Lift of 112.**
+
+📝 Note: **Lift** is a measure of the strength of the association between product. Therefore, 'Lift of 112' means these two products are 112 times more likely to be purchased together than by chance alone. It’s a very strong signal for bundling.
+
+
+**💡 Recommendation:**
+
+  - **UX/UI Cross-selling:** Enhance the online shopping experience by adding a "Frequently Purchased Together" feature. When a user adds the Coconut flavor, the system will immediately suggest the Grapefruit flavor.
+
+  - **Bundle Promotions:** Leverage 'top 5 association rules' to create "Sparkling Water Variety Packs" or "Buy 1 Get 1 or "Buy 2 Get 1" or "discount 20%" bundles to increase Average Order Value (AOV).
