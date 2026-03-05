@@ -4,7 +4,7 @@
 
 <br>
 
-*Note:* You can see more details about LHS and RHS groups from **Table of the Top 5 High-Potential Rules**.
+**📝Note:** You can see more details about LHS and RHS groups from **Table of the Top 5 High-Potential Rules**.
 
 <br>
 
@@ -23,7 +23,7 @@ This section explores product associations to understand customer purchasing beh
 
 <br>
 
-🔔 *Note:* See here for more details about the **Parameters**.
+🔔 **Note:** See here for more details about the **Parameters**.
 - **Support** = 0.001:* 10000*0.001 = 10 (product matching behavior at least 10 times)
 - **Confidence** = 0.6:* Probability of the RHS item (threshold 60%) being purchased given the LHS item
 - **Max Length** = 3:* Maximum items per association rule (LHS + RHS)
