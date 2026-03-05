@@ -40,7 +40,7 @@ Below is a detailed breakdown of each dashboard component, explaining the data l
 
 **💡 Recommendation:**
 
-     *- Peak Management:* Optimize logistics, staffing schedules and prepare inventory during high-traffic to ensure smooth order fulfillment and prevent backlogs.
+   *- Peak Management:* Optimize logistics, staffing schedules and prepare inventory during high-traffic to ensure smooth order fulfillment and prevent backlogs.
 
    **- Off-Peak Stimulation:** Implement "Flash Sales" or time-sensitive promotions during low-demand hours to distribute the workload and increase income consistency throughout the week.
 
