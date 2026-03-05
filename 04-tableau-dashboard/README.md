@@ -26,7 +26,8 @@ Below is a detailed breakdown of each dashboard component, explaining the data l
 
 ![Overview and KPIs](overview.PNG)
 
-What it shows:
+**What it shows:**
+- **Total Orders: 3,421,083** This dataset contains a total of 3,421,083 orders
 
 
 <br>
