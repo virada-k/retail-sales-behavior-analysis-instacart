@@ -27,11 +27,13 @@ Below is a detailed breakdown of each dashboard component, explaining the data l
 ![Overview and KPIs](overview.PNG)
 
 <br>
+<br>
 
 ### 2. Strategic Operations & Demand Scheduling Analysis
 
 ![Scheduling Operations](bar-chart-scheduling-operations.PNG)
 
+<br>
 
 **Insight:** Peak demand occurs during specific days/hours, creating potential operational bottlenecks, while significant downtime exists during off-peak periods.
 
@@ -40,6 +42,25 @@ Below is a detailed breakdown of each dashboard component, explaining the data l
 **- Peak Management:** Optimize logistics and staffing schedules during high-traffic to ensure smooth order fulfillment and prevent backlogs.
 
 **- Off-Peak Stimulation:** Implement "Flash Sales" or time-sensitive promotions during low-demand hours to distribute the workload and increase income consistency throughout the week.
+
+<br>
+<br>
+
+### 3. Customer Retention & Win-back Opportunity Analysis
+
+![customer-retention](bar-chart-customer-retention.PNG)
+
+<br>
+
+**Insight:** The 'Risk Royalists' segment (approx. 50K customers) have an average around 19 orders per person. Losing this group would significantly impact long-term revenue.
+
+**Recommendation:**
+
+**- Proactive Engagement:** Ask the Marketing team to launch personalized retention campaigns (e.g., exclusive loyalty discounts) specifically for 'Risk Royalists.'
+
+**- Churn Prevention:** Coordinate with Customer Service to identify pain points for 'Lost' and 'At-risk' segments. Use automated re-order notification system for bulk purchasers (this long gap-days might be mistaken as churn) to stay top-of-mind.
+
+
 
 
 
