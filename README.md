@@ -32,7 +32,7 @@ Therefore, this project was created to address the following:
 
 ## <h2 id="project-roadmap">🗺️ 2. Project Roadmap</h2>
 
-**1. Data Sourcing:** Select this dataset from the "Instacart Online Grocery Basket Analysis" on Kaggle.
+**1. Data Sourcing:** Sourced data from the "Instacart Online Grocery Basket Analysis" on Kaggle.
 
 **2. Data Modeling & Schema Design (dbdiagram.io):** Designed an ER Diagram to establish a clear architectural overview of the relational database.
 
@@ -42,7 +42,7 @@ Therefore, this project was created to address the following:
 
 **5. Market Basket Analysis (R):** Identified product associations and frequent itemsets using the Apriori Algorithm to increase the cross-selling opportunities.
 
-**6. Predictive Modeling (Python):** ฺBuilt a Logistic Regression model to predict the probability that customers will reorder products.
+**6. Predictive Modeling (Python):** Built a Logistic Regression model to predict the probability that customers will reorder products.
 
 **7. Strategy Recommendation:** Summarize the analysis results into actionable 'Target Lists' to support the Marketing team’s precision targeting.
 
