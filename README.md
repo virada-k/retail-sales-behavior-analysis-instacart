@@ -44,7 +44,7 @@ Therefore, this project was created to address the following:
 
 **6. Predictive Modeling (Python):** Built a Logistic Regression model to predict the probability that customers will reorder products.
 
-**7. Strategy Recommendation:** Summarize the analysis results into actionable 'Target Lists' to support the Marketing team’s precision targeting.
+**7. Strategy Recommendation:** Summarized the analysis results into actionable 'Target Lists' to support the Marketing team’s precision targeting.
 
 **8. Interactive Dashboard & Storytelling (Tableau):** Designed a comprehensive dashboard to visualize key performance indicators (KPIs), customer trends, and predictive insights, enabling data-driven business decisions.
 
