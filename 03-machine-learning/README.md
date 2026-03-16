@@ -10,7 +10,7 @@ In this directory, we take advantage of Predictive and Descriptive Analytics to 
 
 **2. Product Matching: Market Basket Analysis (MBA)**
 
-**3. Repeat Orders Prediction: Reorder**
+**3. Repeat Order Prediction: Reorder**
 
 **🛠️ Tools**
 
