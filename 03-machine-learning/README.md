@@ -35,18 +35,18 @@ In this directory, we take advantage of Predictive and Descriptive Analytics to 
 
 <br>
 
-## 📦 3. Repeat Orders Prediction: Reorder
+## 📦 3. Repeat Order Prediction: Reorder
 - **Goal:** Predict the probability of a customer reordering a specific product to optimize marketing efficiency.
 - **Tool:** Logistic Regression with a custom Threshold of 0.40 in Python.
 - **Impact:** Identified 1.99M potential targets, ranked by probability for personalized marketing.
 
-[Click here](repeat-orders-python) to view **Repeat Orders Prediction Model**.
+[Click here](repeat-orders-python) to view **Repeat Order Prediction Model**.
 
 <br>
 
 ## 🛠️ Tools
 
-|   | **Customer Segmentation** | **Product Matching** | **Repeat Orders Prediction** |
+|   | **Customer Segmentation** | **Product Matching** | **Repeat Order Prediction** |
 | :---: | :---: | :---: | :---: |
 | **Tools** | R (K-means)| R (Apriori Algorithm) | Python (Logistic Regression) |
 
