@@ -1,4 +1,4 @@
-# 📢 Machine Learning: Repeat Orders Prediction
+# 📢 Machine Learning: Repeat Order Prediction
 Repeat Order Prediction is a machine learning project designed to forecast whether a customer will reorder a previously purchased product.
 
 <br>
@@ -22,7 +22,7 @@ This project aims to optimize Instacart's marketing efficiency. By using **Logis
 
     **4. User Habits (user_avg_days_between_orders):** The customer's general shopping frequency across all orders.
 
-- 🖥️ You can find the **full script** in [repeat orders](reorder.py).
+- 🖥️ You can find the **full script** in [repeat order](reorder.py).
 
 - 🖥️ You can **test run** this model in [google colab](https://colab.research.google.com/drive/1TkTDmAq5uZMpg0psWHBBz4Ak9AwpJ2gt?usp=sharing).
 
