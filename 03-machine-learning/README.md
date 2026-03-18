@@ -48,7 +48,7 @@ In this directory, we take advantage of Predictive and Descriptive Analytics to 
 
 |   | **Customer Segmentation** | **Product Matching** | **Repeat Order Prediction** |
 | :---: | :---: | :---: | :---: |
-| **Tools** | R (K-means)| R (Apriori Algorithm) | Python (Logistic Regression) |
+| **Tools** | R (K-means Clustering)| R (Apriori Algorithm) | Python (Logistic Regression) |
 
 
 
