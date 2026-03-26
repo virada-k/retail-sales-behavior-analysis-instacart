@@ -20,7 +20,7 @@ This project aims to optimize Instacart's marketing efficiency. By using **Logis
 
     **3. Product Popularity (prod_reorder_rate):** The overall global probability of the product being reordered.
 
-    **4. User Habits (user_avg_days_between_orders):** The customer's general shopping frequency across all orders.
+    **4. User Habits (user_avg_days_between_orders):** Average number of days between customer orders.
 
 - 🖥️ You can find the **full script** in [repeat order](reorder.py).
 
