@@ -67,9 +67,9 @@ apriori_rules <- apriori(transactions, parameter = list(
 
 | Rule No. | ✋ LHS | 🤚 RHS | Support | Confidence | Coverage | &nbsp; Lift &nbsp; | Count |
 | :---: | :--- | :--- | ---: | ---: | ---: | ---: | ---: |
-| [1] | {Coconut Sparkling Water} | {Grapefruit Sparkling Water} | 0.0013 | 0.68 | 0.0019 | 112.17 | 13 |
-| [2] | {Non Fat Raspberry Yogurt, Vanilla Skyr Nonfat Yogurt} | {Icelandic Style Skyr Blueberry Non-fat Yogurt} | 0.0011 | 0.69 | 0.0016 | 98.21 | 11 |
-| [3] | {Sparkling Lemon Water, Sparkling Water Grapefruit} | {Lime Sparkling Water} | 0.0014 | 0.64 | 0.0022 | 39.77 | 14 |
+| [1] | {Sparkling Water Coconut} | {Sparkling Water Grapefruit} | 0.0013 | 0.68 | 0.0019 | 112.17 | 13 |
+| [2] | {Non Fat Raspberry Yogurt, Vanilla Skyr Nonfat Yogurt} | {Icelandic Style Skyr Blueberry Nonfat Yogurt} | 0.0011 | 0.69 | 0.0016 | 98.21 | 11 |
+| [3] | {Sparkling Water Lemon, Sparkling Water Grapefruit} | {Sparkling Water Lime} | 0.0014 | 0.64 | 0.0022 | 39.77 | 14 |
 | [4] | {Organic Cucumber, Organic Granny Smith Apple} | {Bag of Organic Bananas} | 0.0012 | 0.60 | 0.0020 | 5.05 | 12 |
 | [5] | {Boneless Skinless Chicken Breasts, Organic Hass Avocado} | {Banana} | 0.0010 | 0.67 | 0.0015 | 4.68 | 10 |
 
